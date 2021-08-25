@@ -1,12 +1,26 @@
-.mail-compose{
+.mail-compose {
     display: flex;
     flex-direction: column;
 }
 
-.mail-compose input{
+.mail-compose input {
     margin-bottom: 10px;
 }
-.mail-compose textarea{
+
+.mail-compose textarea {
     margin-bottom: 15px;
     resize: none;
+}
+
+.mail-compose-btns {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.compose-send-btn {
+    color: rgb(76, 119, 32);
+}
+
+.compose-draft-btn {
+    color: crimson;
 }

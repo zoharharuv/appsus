@@ -24,23 +24,52 @@ loadMails();
 // FUNCS
 function query(filterBy) {
     if (filterBy) {
+        let mailsToShow;
         const { display, txt, lables, isRead } = filterBy;
-        if (display === 'all'
-            || display === 'details'
-            || display === 'compose')
+        if (display === 'details' || display === 'compose')
             return Promise.resolve(gMails);
         // DISPLAY
         if (display === 'all') {
-            console.log('display');
+            mailsToShow = gMails.slice();
+
         }
+        if (display === 'inbox') {
+            mailsToShow = gMails.filter(mail => {
+                return mail.to === loggedinUser.email
+            })
+        }
+        if (display === 'sent') {
+            mailsToShow = gMails.filter(mail => {
+                return mail.to !== loggedinUser.email
+            })
+        }
+        if (display === 'starred') {
+            mailsToShow = gMails.filter(mail => {
+                return mail.isStarred === true
+            })
+        }
+        if (display === 'drafts') {
+            mailsToShow = gMails.filter(mail => {
+                return mail.isDraft === true
+            })
+        }
+        if (display === 'trash') {
+            mailsToShow = gMails.filter(mail => {
+                return mail.isDeleted === true
+            })
+        }
+        // TEXT
         if (txt) {
-            console.log('txt');
+            let beforeFilter = mailsToShow.slice();
+            mailsToShow = beforeFilter.filter(mail => {
+                return mail.subject.toLowerCase().includes(txt.toLowerCase())
+            })
         }
+        // LABELS
         if (lables && lables.length) {
             console.log('labels');
         }
-
-
+        if (!mailsToShow.length) mailsToShow = [];
         return Promise.resolve(mailsToShow);
     }
     return Promise.resolve(gMails);
@@ -71,10 +100,15 @@ function deleteMail(mailId) {
     var mailIdx = gMails.findIndex(function (mail) {
         return mailId === mail.id;
     })
-    gMails.splice(mailIdx, 1);
-    _saveMailsToStorage();
-    return Promise.resolve(`Deleted ${mailId}`)
+    if (gMails[mailIdx].isDeleted) {
+        gMails.splice(mailIdx, 1);
+        _saveMailsToStorage();
+        return Promise.resolve(`Deleted Forever`)
+    }
+    gMails[mailIdx].isDeleted = true;
+    return Promise.resolve(`Moved to trash!`)
 }
+
 
 function loadMails() {
     gMails = storageService.loadFromStorage(KEY);
@@ -85,17 +119,24 @@ function loadMails() {
     }
 }
 
-function composeMail(mail) {
+function composeMail(mail, isDraft = false) {
     const id = utilService.makeId();
+    const sentAt = Date.now();
+
     const newMail = {
         id,
         subject: mail.subject,
         body: mail.body,
         isRead: true,
-        sentAt: mail.sentAt,
-        to: mail.to
+        sentAt,
+        to: mail.to,
+        isStarred: false,
+        isDraft,
+        isDeleted: false,
     }
-    gMails.push(newMail)
+    gMails.push(newMail);
+    _saveMailsToStorage();
+    return Promise.resolve(newMail)
 }
 
 // PRIVATE FUNCS
@@ -114,7 +155,10 @@ function _createMail() {
         body: 'Would love to catch up sometimes',
         isRead: false,
         sentAt: 1551133930594,
-        to: loggedinUser.email
+        to: loggedinUser.email,
+        isStarred: false,
+        isDraft: false,
+        isDeleted: false,
     }
     return newMail;
 }

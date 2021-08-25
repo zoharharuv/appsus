@@ -13,11 +13,7 @@ header a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
-}
-
-.app-header nav>*:not(:last-child) {
-    padding-right: 20px;
+    margin-bottom: 15px;
 }
 
 .app-header h1 {
@@ -31,39 +27,43 @@ header a {
     text-shadow: -2px 2px 8px #c3bfdb;
 }
 
-.app-header p {
-    margin: 0 auto;
+
+/* NAVBAR */
+
+.nav-bar {
+    z-index: 1;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 70px;
+    right: calc(3vw);
+    background-color: #071221;
+}
+
+.navbar-toggle-btn {
+    transition: all 0.1s ease-in-out, background-color 0.2s ease-in-out;
+    cursor: pointer;
+    background-color: #94c3ec00;
+}
+
+.navbar-toggle-btn:hover {
+    background-color: #94c3ec55;
+}
+
+.navbar-toggle-btn.rotated {
+    transform: rotate(90deg);
 }
 
 .app-header a {
     font-weight: 500;
     transition: color 0.25s ease-in-out;
+    padding: 15px;
+}
+
+.app-header a:hover {
+    color: rgb(48, 140, 156);
 }
 
 .app-header a.active {
     color: rgb(70, 195, 218);
-}
-
-/* NAVBAR */
-
-.nav-bar {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    top: 50px;
-    right: 30px;
-    background-color: #071221;
-}
-
-.navbar-toggle-btn {
-    transition: all 0.1s ease-in-out;
-    cursor: pointer;
-}
-
-.navbar-toggle-btn:hover {
-    text-shadow: 1px 1px 10px rgb(233, 228, 228);
-}
-
-.navbar-toggle-btn.rotated{
-    transform: rotate(90deg);
 }

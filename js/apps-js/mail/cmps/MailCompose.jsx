@@ -13,14 +13,12 @@ export class MailCompose extends React.Component {
     }
 
     handleChange = (ev) => {
-
         const field = ev.target.name;
         const value = ev.target.value;
         this.setState({ mail: { ...this.state.mail, [field]: value } });
     };
 
     onSend = (ev = null, toDraft = false) => {
-        debugger
         if (!this.state.mail.to || !this.state.mail.subject || !this.state.mail.body) return;
         if (ev) ev.preventDefault();
         toDraft ? this.props.onSaveDraft(this.state.mail) : this.props.onSendMail(this.state.mail);
@@ -62,9 +60,10 @@ export class MailCompose extends React.Component {
                 >
                 </textarea>
 
-
-                <button onClick={this.onSend}>Send!</button>
-                <button onClick={() => this.onSend(ev, true)}>To Draft</button>
+                <div className="mail-compose-btns">
+                    <button className="compose-draft-btn" onClick={() => this.onSend(event, true)}>Save draft</button>
+                    <button className="compose-send-btn" onClick={this.onSend}>Send mail</button>
+                </div>
             </form>
 
         );
