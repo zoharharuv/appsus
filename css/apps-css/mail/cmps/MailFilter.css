@@ -2,12 +2,23 @@
     grid-row: 1;
     grid-column: 1/-1;
 }
+.mail-filter input{
+    padding: 10px;
+    border: 1px solid rgb(26, 62, 141);
+    color: #111;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
 
 .mail-filter select {
-    padding: 5px 20px;
+    padding: 9px 2px;
+    margin-inline-start: 10px;
     border: 1px solid #d0d2d4;
     border-radius: 5px;
     box-shadow: 0 1px 3px -2px #9098a9;
-    font-size: 16px;
     transition: all 150ms ease;
+}
+
+.mail-filter option {
+    color: #223254
 }

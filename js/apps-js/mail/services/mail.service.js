@@ -3,11 +3,13 @@ import { utilService } from './../../../general-services-js/util.service.js';
 
 export const mailService = {
     query,
-    deleteMail,
     getMailById,
     getNextMailId,
     getPrevMailId,
-    composeMail
+    composeMail,
+    updateMailIsRead,
+    deleteMail,
+    starMail
 }
 
 // GLOBAL VARS
@@ -27,11 +29,10 @@ function query(filterBy) {
         let mailsToShow;
         const { display, txt, lables, isRead } = filterBy;
         if (display === 'details' || display === 'compose')
-            return Promise.resolve(gMails);
+            return Promise.resolve([]);
         // DISPLAY
         if (display === 'all') {
             mailsToShow = gMails.slice();
-
         }
         if (display === 'inbox') {
             mailsToShow = gMails.filter(mail => {
@@ -51,6 +52,12 @@ function query(filterBy) {
         if (display === 'drafts') {
             mailsToShow = gMails.filter(mail => {
                 return mail.isDraft === true
+            })
+        }
+        if (display !== 'trash') {
+            let beforeFilter = mailsToShow.slice();
+            mailsToShow = beforeFilter.filter(mail => {
+                return mail.isDeleted === false
             })
         }
         if (display === 'trash') {
@@ -96,19 +103,6 @@ function getPrevMailId(mailId) {
     return gMails[prevMailIdx].id;
 }
 
-function deleteMail(mailId) {
-    var mailIdx = gMails.findIndex(function (mail) {
-        return mailId === mail.id;
-    })
-    if (gMails[mailIdx].isDeleted) {
-        gMails.splice(mailIdx, 1);
-        _saveMailsToStorage();
-        return Promise.resolve(`Deleted Forever`)
-    }
-    gMails[mailIdx].isDeleted = true;
-    return Promise.resolve(`Moved to trash!`)
-}
-
 
 function loadMails() {
     gMails = storageService.loadFromStorage(KEY);
@@ -137,6 +131,29 @@ function composeMail(mail, isDraft = false) {
     gMails.push(newMail);
     _saveMailsToStorage();
     return Promise.resolve(newMail)
+}
+
+// PREVIEW BUTTONS
+function deleteMail(mailId) {
+    var mailIdx = gMails.findIndex(function (mail) {
+        return mailId === mail.id;
+    })
+    if (gMails[mailIdx].isDeleted) {
+        gMails.splice(mailIdx, 1);
+        _saveMailsToStorage();
+        return Promise.resolve(`Deleted Forever`)
+    }
+    gMails[mailIdx].isDeleted = true;
+    return Promise.resolve(`Moved to trash!`)
+}
+
+function updateMailIsRead(mail) {
+    mail.isRead = !mail.isRead;
+    _saveMailsToStorage();
+}
+function starMail(mail) {
+    mail.isStarred = !mail.isStarred;
+    _saveMailsToStorage();
 }
 
 // PRIVATE FUNCS

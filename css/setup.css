@@ -9,7 +9,7 @@ body {
 
 /* BASE */
 
-button, select{
+button, select {
     cursor: pointer;
 }
 
