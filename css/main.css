@@ -23,4 +23,9 @@
 /* NOTE CMPS */
 
 /* MAIL PAGES */
+@import '../css/apps-css/mail/pages/MailApp.css';
 /* MAIL CMPS */
+@import '../css/apps-css/mail/cmps/MailFilter.css';
+@import '../css/apps-css/mail/cmps/MailToolbar.css';
+@import '../css/apps-css/mail/cmps/MailsList.css';
+@import '../css/apps-css/mail/cmps/MailPreview.css';

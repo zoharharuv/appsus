@@ -1,0 +1,7 @@
+.mail-app {
+    display: grid;
+    grid-template-columns: 20vw 1fr;
+    grid-template-rows: 10vh 1fr;
+    justify-items: center;
+    align-items: start;
+}
