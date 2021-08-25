@@ -3,3 +3,8 @@
 .home {
     text-align: center;
 }
+
+.hero{
+    object-fit: contain;
+    width: 100%;
+}

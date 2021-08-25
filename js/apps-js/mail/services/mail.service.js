@@ -9,6 +9,7 @@ export const mailService = {
     composeMail,
     updateMailIsRead,
     deleteMail,
+    undeleteMail,
     starMail
 }
 
@@ -25,6 +26,7 @@ loadMails();
 
 // FUNCS
 function query(filterBy) {
+    if (!gMails || !gMails.length) loadMails()
     if (filterBy) {
         let mailsToShow;
         const { display, txt, lables, isRead } = filterBy;
@@ -54,6 +56,16 @@ function query(filterBy) {
                 return mail.isDraft === true
             })
         }
+        if (display === 'unread') {
+            mailsToShow = gMails.filter(mail => {
+                return mail.isRead === false
+            })
+        }
+        if (display === 'read') {
+            mailsToShow = gMails.filter(mail => {
+                return mail.isRead === true
+            })
+        }
         if (display !== 'trash') {
             let beforeFilter = mailsToShow.slice();
             mailsToShow = beforeFilter.filter(mail => {
@@ -65,11 +77,15 @@ function query(filterBy) {
                 return mail.isDeleted === true
             })
         }
+
         // TEXT
         if (txt) {
             let beforeFilter = mailsToShow.slice();
             mailsToShow = beforeFilter.filter(mail => {
-                return mail.subject.toLowerCase().includes(txt.toLowerCase())
+                return (
+                    mail.subject.toLowerCase().includes(txt.toLowerCase())
+                     || mail.to.toLowerCase().includes(txt.toLowerCase())
+                    )
             })
         }
         // LABELS
@@ -106,7 +122,7 @@ function getPrevMailId(mailId) {
 
 function loadMails() {
     gMails = storageService.loadFromStorage(KEY);
-    if (!gMails) {
+    if (!gMails || !gMails.length) {
         gMails = [];
         _createMails();
         _saveMailsToStorage();
@@ -115,8 +131,7 @@ function loadMails() {
 
 function composeMail(mail, isDraft = false) {
     const id = utilService.makeId();
-    const sentAt = Date.now();
-
+    const sentAt = new Date(Date.now()).toLocaleString();
     const newMail = {
         id,
         subject: mail.subject,
@@ -130,7 +145,7 @@ function composeMail(mail, isDraft = false) {
     }
     gMails.push(newMail);
     _saveMailsToStorage();
-    return Promise.resolve(newMail)
+    return Promise.resolve(isDraft ? 'Saved to Drafts!' : 'Mail was sent!')
 }
 
 // PREVIEW BUTTONS
@@ -145,6 +160,11 @@ function deleteMail(mailId) {
     }
     gMails[mailIdx].isDeleted = true;
     return Promise.resolve(`Moved to trash!`)
+}
+
+function undeleteMail(mail) {
+    mail.isDeleted = false;
+    _saveMailsToStorage();
 }
 
 function updateMailIsRead(mail) {
@@ -166,12 +186,15 @@ function _createMails() {
 
 function _createMail() {
     const id = utilService.makeId();
+    const subject = utilService.makeLorem(1);
+    const body = utilService.makeLorem(5);
+    const sentAt = new Date(Date.now()).toLocaleString();
     const newMail = {
         id,
-        subject: 'Miss you!',
-        body: 'Would love to catch up sometimes',
+        subject,
+        body,
         isRead: false,
-        sentAt: 1551133930594,
+        sentAt,
         to: loggedinUser.email,
         isStarred: false,
         isDraft: false,

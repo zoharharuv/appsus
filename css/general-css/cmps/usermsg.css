@@ -9,7 +9,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgb(209, 203, 203);
+  background-color: rgb(98, 101, 104);
 }
 
 .user-msg button {
@@ -36,9 +36,9 @@
 }
 
 .user-msg.success button {
-  color: rgb(52, 107, 34);
+  color: rgb(76, 163, 47);
 }
 
 .user-msg.success a {
-  color: rgb(52, 107, 34);
+  color: rgb(76, 163, 47);
 }

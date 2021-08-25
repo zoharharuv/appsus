@@ -3,10 +3,10 @@ export class MailDetails extends React.Component {
         const { mail } = this.props;
         return (
             <article className="mail-details">
-                <h1>{mail.subject}</h1>
-                <h3>{mail.to}</h3>
+                <h3>To: {mail.to}</h3>
+                <h1>Subject: {mail.subject}</h1>
                 <pre>{mail.body}</pre>
-                <p>{mail.sentAt}</p>
+                <p>Sent at: {mail.sentAt.toLocaleString()}</p>
             </article>
         );
     }

@@ -3,6 +3,8 @@ footer{
     background-color: rgb(38, 39, 42);
 }
 .app-footer {
+    margin-top: 15px;
+    padding: 20px 0;
     text-align: center;
     color: #fff;
 }

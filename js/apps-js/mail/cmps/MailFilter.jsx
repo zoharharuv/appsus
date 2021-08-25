@@ -38,11 +38,8 @@ export class MailFilter extends React.Component {
                     value={currDisplay} 
                     onChange={() => onSetDisplay(event.target.value)}>
                     <option value="all">All</option>
-                    <option value="inbox">Inbox</option>
-                    <option value="starred">Starred</option>
-                    <option value="sent">Sent</option>
-                    <option value="drafts">Drafts</option>
-                    <option value="trash">Trash</option>
+                    <option value="unread">Unread</option>
+                    <option value="read">Read</option>
                 </select>
             </form>
         );

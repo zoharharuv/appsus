@@ -21,9 +21,27 @@ function Vision() {
 export function About() {
   return (
     <section className="about">
-      <strong>Just business no pleasure!</strong>
-      <p>Created with passion(and no money)!</p>
+      <strong>You don't replace a winning horse!</strong>
 
+      <div className="about-comps">
+        <ul>
+        <h3>Mails</h3>
+          <li>Fast and qualified Email-Services these days!</li>
+          <li>Easier for you to manage your emails.</li>
+        </ul>
+
+        <ul>
+        <h3>Notes</h3>
+          <li> Manage your thoughts!</li>
+          <li>Supports videos and pictures to be kept.</li>
+        </ul>
+        <ul>
+        <h3>Books</h3>
+          <li> Manage your favourite books!</li>
+          <li>Supports Google books.</li>
+        </ul>
+      </div>
+      <hr />
       <nav>
         <NavLink to="/about/team" >Team</NavLink>
         <NavLink to="/about/vision">Vision</NavLink>

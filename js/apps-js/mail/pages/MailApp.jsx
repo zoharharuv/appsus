@@ -5,6 +5,7 @@ import { MailDetails } from "../cmps/MailDetails.jsx";
 import { MailCompose } from "../cmps/MailCompose.jsx";
 
 import { mailService } from "../services/mail.service.js";
+import { eventBusService } from './../../../general-services-js/event-bus-service.js';
 
 export class MailApp extends React.Component {
     state = {
@@ -41,7 +42,6 @@ export class MailApp extends React.Component {
     }
 
     // PREVIEW BUTTONS
-    // TOGGLE READ
     onToggleRead = (selectedMail) => {
         mailService.updateMailIsRead(selectedMail);
         this.loadMails()
@@ -52,7 +52,12 @@ export class MailApp extends React.Component {
     }
 
     onDeleteMail = (selectedMail) => {
-        mailService.deleteMail(selectedMail.id);
+        mailService.deleteMail(selectedMail.id)
+            .then(txt => eventBusService.emit('user-msg', { txt, type: 'success' }))
+        this.loadMails()
+    }
+    onUndelete = (selectedMail) => {
+        mailService.undeleteMail(selectedMail);
         this.loadMails()
     }
 
@@ -73,12 +78,18 @@ export class MailApp extends React.Component {
     // SEND MAIL
     onSendMail = (mail) => {
         mailService.composeMail(mail)
-            .then(() => this.onSetDisplay('sent'))
+            .then((txt) => {
+                eventBusService.emit('user-msg', { txt, type: 'success' })
+                this.onSetDisplay('sent')
+            })
     }
     // SAVE TO DRAFTS
     onSaveDraft = (mail) => {
         mailService.composeMail(mail, true)
-            .then(() => this.onSetDisplay('drafts'))
+            .then((txt) => {
+                eventBusService.emit('user-msg', { txt, type: 'success' })
+                this.onSetDisplay('drafts')
+            })
     }
 
 
@@ -104,7 +115,8 @@ export class MailApp extends React.Component {
                         onSelectMail={this.onSelectMail}
                         onToggleRead={this.onToggleRead}
                         onStarMail={this.onStarMail}
-                        onDeleteMail={this.onDeleteMail} />
+                        onDeleteMail={this.onDeleteMail}
+                        onUndelete={this.onUndelete} />
                 }
 
                 {/* SELECTED MAIL DETAILS */}
