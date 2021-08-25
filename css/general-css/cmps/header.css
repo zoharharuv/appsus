@@ -56,13 +56,8 @@ header a {
 }
 
 .navbar-toggle-btn {
-    display: inline-block;
-    border: none;
-    color: #fff;
-    background-color: transparent;
-    padding: 7px 15px;
-    font-size: 1.3em;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
 }
 
 .navbar-toggle-btn:hover {

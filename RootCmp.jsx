@@ -13,8 +13,12 @@ import { BookApp } from './js/apps-js/book/pages/BookApp.jsx';
 import { BookDetails } from './js/apps-js/book/pages/BookDetails.jsx';
 
 // MAIL PAGES
+import { MailApp } from './js/apps-js/mail/pages/MailApp.jsx';
+import { MailDetails } from './js/apps-js/mail/pages/MailDetails.jsx';
 
 // NOTE PAGES
+import { NoteApp } from './js/apps-js/note/pages/NoteApp.jsx';
+import { NoteDetails } from './js/apps-js/note/pages/NoteDetails.jsx';
 
 export function App() {
   return (
@@ -25,7 +29,11 @@ export function App() {
       <main className="main-layout">
         <Switch>
           {/* NOTE */}
+          <Route path="/note/:noteId" component={NoteDetails} />
+          <Route path="/note" component={NoteApp} />
           {/* MAIL */}
+          <Route path="/mail/:mailId" component={MailDetails} />
+          <Route path="/mail" component={MailApp} />
           {/* BOOK */}
           <Route path="/book/:bookId" component={BookDetails} />
           <Route path="/book" component={BookApp} />

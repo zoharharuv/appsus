@@ -1,4 +1,3 @@
-import { eventBusService } from '../general-services-js/event-bus-service.js'
 const { NavLink, withRouter } = ReactRouterDOM
 
 class _AppHeader extends React.Component {
@@ -20,8 +19,10 @@ class _AppHeader extends React.Component {
         {isOpen && <nav className="nav-bar">
           <NavLink to="/about" onClick={this.openNavbar}>About</NavLink>
           <NavLink to="/book" onClick={this.openNavbar}>Books</NavLink>
+          <NavLink to="/mail" onClick={this.openNavbar}>Mails</NavLink>
+          <NavLink to="/note" onClick={this.openNavbar}>Notes</NavLink>
         </nav>}
-        <button className={`navbar-toggle-btn ${isOpen && 'rotated'}`} onClick={this.openNavbar}>☰</button>
+        <img className={`navbar-toggle-btn ${isOpen && 'rotated'}`} onClick={this.openNavbar} src='./img/navbar.svg'/>
       </section>
     )
   }
