@@ -6,7 +6,7 @@ export function NoteImg({info,note,funcs}) {
     <div className="note-img">
       <img src={info.url} alt="" />
     </div>
-    <div className="note-txt">{info.title}</div>
+    <div onBlur={(ev) => {funcs.onBlur(note.id,ev.target.innerText)}} contentEditable='true' className="note-txt">{info.title}</div>
     <NoteOptions funcs={funcs} note={note}/>
   </section>
 }

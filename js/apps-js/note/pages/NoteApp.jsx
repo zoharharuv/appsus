@@ -1,10 +1,11 @@
 import { NotesService } from "../services/note.service.js";
 import { NoteList } from './../cmps/NoteList.jsx';
-
+import { NoteFilter } from "../cmps/NoteFilter.jsx";
 export class NoteApp extends React.Component {
 
     state = {
-        notes: null
+        notes: null,
+        filter: null
     }
 
     componentDidMount() {
@@ -12,7 +13,7 @@ export class NoteApp extends React.Component {
     }
 
     loadNotes = () => {
-        NotesService.query()
+        NotesService.query(this.state.filter)
         .then((notes) => {
             this.setState({notes})
         })
@@ -40,12 +41,26 @@ export class NoteApp extends React.Component {
         })
     }
 
+    onBlur = (noteId,newTxt) => {
+        console.log(newTxt)
+        NotesService.setNoteTxt(noteId,newTxt)
+        .then(() => {
+            this.loadNotes()
+        })
+    }
+
+    onFilter = (filter) => {
+        this.setState({filter}, () => {
+            this.loadNotes()
+        })
+    }
+
     funcs = {
         onDelete: this.onDelete,
         onPin: this.togglePin,
         onCopy: this.onCopy,
-        loadNotes: this.loadNotes
-
+        loadNotes: this.loadNotes,
+        onBlur: this.onBlur
     }
 
 
@@ -56,6 +71,7 @@ export class NoteApp extends React.Component {
 
         return (
             <section className="note-app">
+                <NoteFilter onFilter={this.onFilter}/>
                 {
                   notes&&  <NoteList funcs={this.funcs} notes={notes}/> 
                 }

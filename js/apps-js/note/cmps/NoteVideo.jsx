@@ -7,7 +7,7 @@ export function NoteVideo({ note,funcs }) {
         <iframe src={note.info.url}>
         </iframe>
       </div>
-      <div className="note-txt">{note.info.title}</div>
+      <div onBlur={(ev) => {funcs.onBlur(note.id,ev.target.innerText)}} contentEditable='true' className="note-txt">{note.info.title}</div>
       <NoteOptions funcs={funcs} note={note} />
     </section>
   );

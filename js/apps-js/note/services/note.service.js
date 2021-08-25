@@ -1,10 +1,11 @@
 export const NotesService = {
-query,
-getNoteById,
-deleteNote,
-togglePin,
-addNote,
-setNoteBgColor
+  query,
+  getNoteById,
+  deleteNote,
+  togglePin,
+  addNote,
+  setNoteBgColor,
+  setNoteTxt
 }
 
 import { storageService } from './../../../general-services-js/storage.service.js';
@@ -15,8 +16,45 @@ let gNotes = null;
 _loadNotes()
 
 
-function query() {
-  return Promise.resolve(gNotes)
+function query(filter) {
+ 
+
+  if (!filter)
+    return Promise.resolve(gNotes)
+  else{
+    //search filter
+    const {search, show} = filter
+    let filteredNotes = gNotes.filter((note) => {
+
+      switch (note.type){
+        case 'note-txt':
+         return note.info.txt.includes(search)
+        case 'note-img':
+          return note.info.title.includes(search)
+        case 'note-video':
+          return note.info.title.includes(search)
+        case 'note-todos':
+          return note.info.label.includes(search)
+      }
+    })
+    //show filter
+    let finalFilteredNotes = filteredNotes.filter((note) => {
+      switch (show){
+        case 'all':
+          return true
+          case 'txt':
+            return note.type === 'note-txt'
+            case 'img':
+            return note.type === 'note-img'
+            case 'video':
+            return note.type === 'note-video'
+            case 'todos':
+            return note.type === 'note-todos'
+      }
+    })
+    return Promise.resolve(finalFilteredNotes)
+  }
+   
 }
 
 function getNoteById(noteId) {
@@ -44,7 +82,7 @@ function _loadNotes() {
     _createNotes()
   else gNotes = notes
 
-    _saveNotesToStorage();
+  _saveNotesToStorage();
 
 }
 
@@ -100,41 +138,63 @@ function _createNotes() {
   ]
 }
 
-function togglePin(noteId){
+function togglePin(noteId) {
 
   var noteIdx = getNoteIdx(noteId)
 
   gNotes[noteIdx].isPinned = !gNotes[noteIdx].isPinned
   sortPinnedFirst()
   _saveNotesToStorage();
-  
+
   return Promise.resolve()
 }
 
-function sortPinnedFirst(){
-  gNotes.sort( (noteA,noteB) => noteB.isPinned - noteA.isPinned)
+function sortPinnedFirst() {
+  gNotes.sort((noteA, noteB) => noteB.isPinned - noteA.isPinned)
 }
 
-function addNote(note){
+function addNote(note) {
 
- let newNote = JSON.parse(JSON.stringify(note))
- newNote.id = utilService.makeId()
+  let newNote = JSON.parse(JSON.stringify(note))
+  newNote.id = utilService.makeId()
 
   gNotes.push(newNote)
   _saveNotesToStorage();
   return Promise.resolve()
 }
 
-function getNoteIdx(noteId){
+function getNoteIdx(noteId) {
   return gNotes.findIndex((note) => {
     return noteId === note.id;
   })
 }
 
-function setNoteBgColor(noteId,color){
+function setNoteBgColor(noteId, color) {
   const idx = getNoteIdx(noteId)
   gNotes[idx].style.backgroundColor = color
   _saveNotesToStorage();
   return Promise.resolve()
 
+}
+
+function setNoteTxt(noteId, newTxt) {
+  const idx = getNoteIdx(noteId)
+
+  switch (gNotes[idx].type) {
+    case 'note-txt':
+      gNotes[idx].info.txt = newTxt
+      break
+    case 'note-img':
+      gNotes[idx].info.title = newTxt
+      break
+    case 'note-video':
+      gNotes[idx].info.title = newTxt
+      break
+    case 'note-todos':
+      gNotes[idx].info.label = newTxt
+      break
+
+  }
+  _saveNotesToStorage()
+  return Promise.resolve()
 }
