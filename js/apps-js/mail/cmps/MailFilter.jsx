@@ -23,6 +23,7 @@ export class MailFilter extends React.Component {
 
     render() {
         const { txt } = this.state;
+        const { onSetDisplay, currDisplay } = this.props;
         return (
             <form className='mail-filter' onSubmit={this.onFilter}>
                 <input
@@ -33,6 +34,16 @@ export class MailFilter extends React.Component {
                     value={txt}
                     onChange={this.handleChange}
                 />
+                <select name="displays" id="display-picker"
+                    value={currDisplay} 
+                    onChange={() => onSetDisplay(event.target.value)}>
+                    <option value="all">All</option>
+                    <option value="inbox">Inbox</option>
+                    <option value="starred">Starred</option>
+                    <option value="sent">Sent</option>
+                    <option value="drafts">Drafts</option>
+                    <option value="trash">Trash</option>
+                </select>
             </form>
         );
     }

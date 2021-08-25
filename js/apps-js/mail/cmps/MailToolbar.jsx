@@ -1,34 +1,33 @@
 export class MailToolbar extends React.Component {
-    componentDidMount() {
-    }
 
     render() {
         const { onSetDisplay } = this.props;
         return (
             <section className="mail-toolbar">
-                <button className="compose-btn" onClick={() => onSetDisplay('compose')}>Compose</button>
+                <button className="compose-btn" onClick={() => onSetDisplay('compose')}><img src="./img/add-sign.svg"/>Compose</button>
+                
                 
                 <nav className="toolbar-btns">
 
                 <div className="inbox-btn"
                 onClick={() => onSetDisplay('inbox')}>
-                    Inbox</div>
+                    <img src="./img/inbox.svg"/> Inbox</div>
                 
                 <div className="starred-btn"
                 onClick={() => onSetDisplay('starred')}>
-                    Starred</div>
+                    <img src="./img/star-full.svg"/> Starred</div>
                 
                 <div className="sent-btn"
                 onClick={() => onSetDisplay('sent')}>
-                    Sent</div>
+                   <img src="./img/sent.svg"/> Sent</div>
                 
                 <div className="drafts-btn"
                 onClick={() => onSetDisplay('drafts')}>
-                    Drafts</div>
+                    <img src="./img/drafts.svg"/> Drafts</div>
                 
                 <div className="trash-btn"
                 onClick={() => onSetDisplay('trash')}>
-                    Trash</div>
+                   <img src="./img/delete.svg"/>  Trash</div>
                 
                 </nav>
 

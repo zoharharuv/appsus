@@ -17,7 +17,10 @@ export class MailApp extends React.Component {
         },
         selectedMail: null,
     }
+    initialFilter;
+
     componentDidMount() {
+        this.initialFilter = this.state.filterBy;
         this.loadMails();
     }
 
@@ -28,6 +31,7 @@ export class MailApp extends React.Component {
             console.log('mails:', this.state.mails);
         });
     };
+
     // SELECT MAIL FROM PREVIEWS
     onSelectMail = (selectedMail) => {
         this.setState({ selectedMail }, () => {
@@ -36,9 +40,12 @@ export class MailApp extends React.Component {
     }
     // SET THE DISPLAY: ALL/INBOX/SEND..
     onSetDisplay = (val) => {
-        this.setState({ filterBy: { ...this.state.filterBy, display: val }, }, () => {
-            this.loadMails();
-        });
+        this.setState({filterBy: this.initialFilter}, () => {
+            this.setState({ filterBy: { ...this.state.filterBy, display: val }, }, () => {
+                console.log(this.state);
+                this.loadMails();
+            });
+        })
     }
     // HANDLE SEARCH BAR INPUT
     onSearch = (val) => {
@@ -48,19 +55,31 @@ export class MailApp extends React.Component {
     }
     // SEND MAIL
     onSendMail = (mail) => {
-        console.log(mail);
+        mailService.composeMail(mail)
+            .then(() => this.onSetDisplay('sent'))
     }
     // SAVE TO DRAFTS
     onSaveDraft = (mail) => {
-        console.log(mail);
+        mailService.composeMail(mail, true)
+            .then(() => this.onSetDisplay('drafts'))
     }
+    // onStarMail = (mail) => {
+
+    // }
+
+    // onDeleteMail = (mailId) => {
+        
+    // }
 
 
     render() {
         const { mails, filterBy, selectedMail } = this.state;
         return (
             <section className="mail-app" >
-                <MailFilter onSearch={this.onSearch} />
+                <MailFilter onSearch={this.onSearch} 
+                onSetDisplay={this.onSetDisplay} 
+                currDisplay={filterBy.display}/>
+                
                 <MailToolbar onSetDisplay={this.onSetDisplay} />
 
                 {/* NO MAILS */}
