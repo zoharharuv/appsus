@@ -1,34 +1,34 @@
 @import 'setup.css';
-/* geNeral pageS*/
-@import '../css/general-css/pages/home.css';
-@import '../css/general-css/pages/about.css';
-/* geNeral cmpS */
-@import '../css/general-css/cmps/usermsg.css';
+/* GENERAL PAGES*/
+@import '../css/general-css/pages/Home.css';
+@import '../css/general-css/pages/About.css';
+/* GENERAL CMPS */
+@import '../css/general-css/cmps/UserMsg.css';
 @import '../css/general-css/cmps/Header.css';
-@import '../css/general-css/cmps/footer.css';
+@import '../css/general-css/cmps/Footer.css';
 
-/* bOOK pageS*/
-@import '../css/apps-css/book/pages/bookapp.css';
-@import '../css/apps-css/book/pages/bookdetails.css';
-/* bOOK cmpS*/
-@import '../css/apps-css/book/cmps/bookfilter.css';
-@import '../css/apps-css/book/cmps/googlebooks.css';
-@import '../css/apps-css/book/cmps/googlebookslist.css';
-@import '../css/apps-css/book/cmps/booklist.css';
-@import '../css/apps-css/book/cmps/bookpreview.css';
-@import '../css/apps-css/book/cmps/bookreview.css';
-@import '../css/apps-css/book/cmps/reviewadd.css';
+/* BOOK PAGES*/
+@import '../css/apps-css/book/pages/BookApp.css';
+@import '../css/apps-css/book/pages/BookDetails.css';
+/* BOOK CMPS*/
+@import '../css/apps-css/book/cmps/BookFilter.css';
+@import '../css/apps-css/book/cmps/GoogleBooks.css';
+@import '../css/apps-css/book/cmps/GoogleBooksList.css';
+@import '../css/apps-css/book/cmps/BookList.css';
+@import '../css/apps-css/book/cmps/BookPreview.css';
+@import '../css/apps-css/book/cmps/BookReview.css';
+@import '../css/apps-css/book/cmps/ReviewAdd.css';
 
-/* NOTe pageS */
+/* NOTE PAGES */
 
-/* NOTe cmpS */
+/* NOTE CMPS */
 @import '../css/apps-css/note/cmps/notes-list.css';
 
-/* maIl pageS */
-@import '../css/apps-css/mail/pages/mailapp.css';
-/* maIl cmpS */
-@import '../css/apps-css/mail/cmps/mailcompose.css';
-@import '../css/apps-css/mail/cmps/mailfilter.css';
-@import '../css/apps-css/mail/cmps/mailToolbar.css';
-@import '../css/apps-css/mail/cmps/mailslist.css';
-@import '../css/apps-css/mail/cmps/mailpreview.css';
+/* MAIL PAGES */
+@import '../css/apps-css/mail/pages/MailApp.css';
+/* MAIL CMPS */
+@import '../css/apps-css/mail/cmps/MailCompose.css';
+@import '../css/apps-css/mail/cmps/MailFilter.css';
+@import '../css/apps-css/mail/cmps/MailToolbar.css';
+@import '../css/apps-css/mail/cmps/MailsList.css';
+@import '../css/apps-css/mail/cmps/MailPreview.css';
