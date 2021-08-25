@@ -91,9 +91,10 @@ function addGoogleBook(googleBook) {
 
   const date = googleBook.volumeInfo.publishedDate;
   const onlyYear = date ? date.substring(0, 4) : '2018';
+  const title = googleBook.volumeInfo.title.toLowerCase();
   const newBook = {
     "id": googleBook.id,
-    "title": googleBook.volumeInfo.title,
+    "title": title,
     "subtitle": googleBook.volumeInfo.subtitle || '',
     "authors": googleBook.volumeInfo.authors,
     "publishedDate": +onlyYear,

@@ -14,11 +14,11 @@ import { BookDetails } from './js/apps-js/book/pages/BookDetails.jsx';
 
 // MAIL PAGES
 import { MailApp } from './js/apps-js/mail/pages/MailApp.jsx';
-import { MailDetails } from './js/apps-js/mail/pages/MailDetails.jsx';
+import { MailDetails } from './js/apps-js/mail/cmps/MailDetails.jsx';
 
 // NOTE PAGES
 import { NoteApp } from './js/apps-js/note/pages/NoteApp.jsx';
-import { NoteDetails } from './js/apps-js/note/pages/NoteDetails.jsx';
+import { NoteDetails } from './js/apps-js/note/cmps/NoteDetails.jsx';
 
 export function App() {
   return (
