@@ -1,0 +1,12 @@
+.mail-compose{
+    display: flex;
+    flex-direction: column;
+}
+
+.mail-compose input{
+    margin-bottom: 10px;
+}
+.mail-compose textarea{
+    margin-bottom: 15px;
+    resize: none;
+}

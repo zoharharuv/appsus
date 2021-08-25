@@ -24,13 +24,13 @@ loadMails();
 // FUNCS
 function query(filterBy) {
     if (filterBy) {
-        const { display, txt, lables } = filterBy;
+        const { display, txt, lables, isRead } = filterBy;
         if (display === 'all'
             || display === 'details'
             || display === 'compose')
             return Promise.resolve(gMails);
-
-        if (display !== 'all') {
+        // DISPLAY
+        if (display === 'all') {
             console.log('display');
         }
         if (txt) {
@@ -39,6 +39,7 @@ function query(filterBy) {
         if (lables && lables.length) {
             console.log('labels');
         }
+
 
         return Promise.resolve(mailsToShow);
     }
@@ -90,7 +91,7 @@ function composeMail(mail) {
         id,
         subject: mail.subject,
         body: mail.body,
-        isRead: mail.isRead,
+        isRead: true,
         sentAt: mail.sentAt,
         to: mail.to
     }
@@ -113,7 +114,7 @@ function _createMail() {
         body: 'Would love to catch up sometimes',
         isRead: false,
         sentAt: 1551133930594,
-        to: 'momo@momo.com'
+        to: loggedinUser.email
     }
     return newMail;
 }

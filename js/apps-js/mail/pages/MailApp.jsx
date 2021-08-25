@@ -12,6 +12,7 @@ export class MailApp extends React.Component {
         filterBy: {
             display: 'all',
             txt: '',
+            isRead: false,
             lables: []
         },
         selectedMail: null,
@@ -21,34 +22,42 @@ export class MailApp extends React.Component {
     }
 
     loadMails = () => {
-        console.log('state:',this.state.filterBy);
+        console.log('state:', this.state.filterBy);
         mailService.query(this.state.filterBy).then((mails) => {
             this.setState({ mails });
             console.log('mails:', this.state.mails);
         });
     };
-
+    // SELECT MAIL FROM PREVIEWS
     onSelectMail = (selectedMail) => {
         this.setState({ selectedMail }, () => {
             this.onSetDisplay('details')
         })
     }
-
+    // SET THE DISPLAY: ALL/INBOX/SEND..
     onSetDisplay = (val) => {
         this.setState({ filterBy: { ...this.state.filterBy, display: val }, }, () => {
             this.loadMails();
         });
     }
-
+    // HANDLE SEARCH BAR INPUT
     onSearch = (val) => {
         this.setState({ filterBy: { ...this.state.filterBy, txt: val }, }, () => {
             this.loadMails();
         });
     }
+    // SEND MAIL
+    onSendMail = (mail) => {
+        console.log(mail);
+    }
+    // SAVE TO DRAFTS
+    onSaveDraft = (mail) => {
+        console.log(mail);
+    }
 
 
     render() {
-        const { mails, filterBy , selectedMail} = this.state;
+        const { mails, filterBy, selectedMail } = this.state;
         return (
             <section className="mail-app" >
                 <MailFilter onSearch={this.onSearch} />
@@ -73,7 +82,7 @@ export class MailApp extends React.Component {
                 {/* COMPOSE NEW MAIL */}
                 {
                     filterBy.display === 'compose' &&
-                    <MailCompose />
+                    <MailCompose onSaveDraft={this.onSaveDraft} onSendMail={this.onSendMail} />
                 }
 
             </section >
