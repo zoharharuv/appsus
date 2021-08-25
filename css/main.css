@@ -1,23 +1,23 @@
 @import 'setup.css';
 /* GENERAL PAGES*/
-@import '../css/general-css/pages/home.css';
-@import '../css/general-css/pages/about.css';
+@import '../css/general-css/pages/Home.css';
+@import '../css/general-css/pages/About.css';
 /* GENERAL CMPS */
-@import '../css/general-css/cmps/usermsg.css';
-@import '../css/general-css/cmps/header.css';
-@import '../css/general-css/cmps/footer.css';
+@import '../css/general-css/cmps/UserMsg.css';
+@import '../css/general-css/cmps/Header.css';
+@import '../css/general-css/cmps/Footer.css';
 
 /* BOOK PAGES*/
-@import '../css/apps-css/book/pages/bookapp.css';
-@import '../css/apps-css/book/pages/bookdetails.css';
+@import '../css/apps-css/book/pages/BookApp.css';
+@import '../css/apps-css/book/pages/BookDetails.css';
 /* BOOK CMPS*/
-@import '../css/apps-css/book/cmps/bookfilter.css';
-@import '../css/apps-css/book/cmps/googlebooks.css';
-@import '../css/apps-css/book/cmps/googlebookslist.css';
-@import '../css/apps-css/book/cmps/booklist.css';
-@import '../css/apps-css/book/cmps/bookpreview.css';
-@import '../css/apps-css/book/cmps/bookreview.css';
-@import '../css/apps-css/book/cmps/reviewadd.css';
+@import '../css/apps-css/book/cmps/BookFilter.css';
+@import '../css/apps-css/book/cmps/GoogleBooks.css';
+@import '../css/apps-css/book/cmps/GoogleBooksList.css';
+@import '../css/apps-css/book/cmps/BookList.css';
+@import '../css/apps-css/book/cmps/BookPreview.css';
+@import '../css/apps-css/book/cmps/BookReview.css';
+@import '../css/apps-css/book/cmps/ReviewAdd.css';
 
 /* NOTE PAGES */
 /* NOTE CMPS */
