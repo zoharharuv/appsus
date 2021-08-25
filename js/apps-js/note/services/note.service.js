@@ -97,7 +97,7 @@ function _createNotes() {
         txt: "Fullstack Me Baby!"
       },
       style: {
-        
+        bgColor:'white'
       }
     },
     {
@@ -108,7 +108,7 @@ function _createNotes() {
         title: "Bobi and Me"
       },
       style: {
-       
+        bgColor:'white'
       }
     },
     {
@@ -122,7 +122,7 @@ function _createNotes() {
         ]
       },
       style: {
-      
+        bgColor:'white'
       }
     },
     {
@@ -133,7 +133,7 @@ function _createNotes() {
         title: "video"
       },
       style: {
-      
+        bgColor:'white'
       }
     }
   ]
@@ -175,7 +175,7 @@ function getNoteIdx(noteId) {
 
 function setNoteBgColor(noteId, color) {
   const idx = getNoteIdx(noteId)
-  gNotes[idx].style.backgroundColor = color
+  gNotes[idx].style.bgColor = color
   _saveNotesToStorage();
   return Promise.resolve()
 
