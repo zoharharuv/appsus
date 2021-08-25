@@ -4,7 +4,8 @@ header {
     background-color: rgb(38, 39, 42);
     color: #fff;
 }
-header a{
+
+header a {
     color: #fff;
 }
 
@@ -20,9 +21,10 @@ header a{
 }
 
 .app-header h1 {
-    text-shadow: -2px 2px 10px #210707;
+    text-shadow: -2px 2px 10px #071221;
     cursor: pointer;
     transition: text-shadow 0.2s;
+    color: #b6d9ee;
 }
 
 .app-header h1:hover {
@@ -40,4 +42,33 @@ header a{
 
 .app-header a.active {
     color: rgb(70, 195, 218);
+}
+
+/* NAVBAR */
+
+.nav-bar {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 50px;
+    right: 30px;
+    background-color: #071221;
+}
+
+.navbar-toggle-btn {
+    display: inline-block;
+    border: none;
+    color: #fff;
+    background-color: transparent;
+    padding: 7px 15px;
+    font-size: 1.3em;
+    transition: all 0.2s ease-in-out;
+}
+
+.navbar-toggle-btn:hover {
+    text-shadow: 1px 1px 10px rgb(233, 228, 228);
+}
+
+.navbar-toggle-btn.rotated{
+    transform: rotate(90deg);
 }

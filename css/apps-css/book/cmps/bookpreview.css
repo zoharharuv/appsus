@@ -1,7 +1,7 @@
 .book-preview {
     background-color: rgb(20, 24, 66);
     color: #fff;
-    box-shadow: rgb(237 239 245 / 27%) 5px 5px 0.25em, rgb(90 125 188 / 5%) 0px 0.25em 1em;
+    box-shadow: rgb(48 74 149 / 80%) 5px 5px 10px 2px;
     padding: 5px;
     transition: opacity 0.3s ease-out;
     min-height: 285px;

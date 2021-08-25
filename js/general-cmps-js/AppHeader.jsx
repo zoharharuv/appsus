@@ -3,21 +3,25 @@ const { NavLink, withRouter } = ReactRouterDOM
 
 class _AppHeader extends React.Component {
 
-  // state = {
-  // }
+  state = {
+    isOpen: false
+  }
 
+  openNavbar = () => {
+    this.setState({ isOpen: !this.state.isOpen })
+  }
 
 
   render() {
-
+    const { isOpen } = this.state;
     return (
       <section className="app-header main-layout">
-        <h1 onClick={() => this.props.history.goBack()}>Appsus</h1>
-        <nav>
-          <NavLink exact to="/" >Home</NavLink>
-          <NavLink to="/about" >About</NavLink>
-          <NavLink to="/book" >Books</NavLink>
-        </nav>
+        <NavLink exact to="/" ><h1>Appsus</h1></NavLink>
+        {isOpen && <nav className="nav-bar">
+          <NavLink to="/about" onClick={this.openNavbar}>About</NavLink>
+          <NavLink to="/book" onClick={this.openNavbar}>Books</NavLink>
+        </nav>}
+        <button className={`navbar-toggle-btn ${isOpen && 'rotated'}`} onClick={this.openNavbar}>☰</button>
       </section>
     )
   }
