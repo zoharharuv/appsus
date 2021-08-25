@@ -1,5 +1,6 @@
 .mail-preview{
     display: flex;
+    border: 1px rgb(98, 94, 94) solid;
 }
 .mail-preview button{
     background: transparent;
