@@ -33,6 +33,8 @@ export class NoteOptions extends React.Component{
 
 
       <button onClick={this.toggleColors}>🎨</button>
+
+      <button>📧</button>
       </div>
 
     { isColorsShown&& 

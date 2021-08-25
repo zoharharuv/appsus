@@ -22,7 +22,9 @@
 /* NOTE PAGES */
 
 /* NOTE CMPS */
+@import '../css/apps-css/note/cmps/note-add.css';
 @import '../css/apps-css/note/cmps/notes-list.css';
+@import '../css/apps-css/note/cmps/note-filter.css';
 
 /* MAIL PAGES */
 @import '../css/apps-css/mail/pages/MailApp.css';

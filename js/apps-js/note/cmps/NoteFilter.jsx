@@ -28,6 +28,7 @@ export class NoteFilter extends React.Component {
     const { filter } = this.state;
     return (
       <div className="note-filter">
+        <h1>Filter Your Notes!</h1>
         <input
           name="search"
           onChange={this.handleChange}

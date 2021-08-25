@@ -5,7 +5,8 @@ export const NotesService = {
   togglePin,
   addNote,
   setNoteBgColor,
-  setNoteTxt
+  setNoteTxt,
+  addNewNote
 }
 
 import { storageService } from './../../../general-services-js/storage.service.js';
@@ -65,7 +66,7 @@ function getNoteById(noteId) {
 }
 
 function deleteNote(noteId) {
-  var noteIdx = getNoteById(noteId)
+  var noteIdx = getNoteIdx(noteId)
   gNotes.splice(noteIdx, 1);
   _saveNotesToStorage();
   return Promise.resolve(`Deleted ${noteId}`)
@@ -96,7 +97,7 @@ function _createNotes() {
         txt: "Fullstack Me Baby!"
       },
       style: {
-        backgroundColor: "#00d"
+        
       }
     },
     {
@@ -107,7 +108,7 @@ function _createNotes() {
         title: "Bobi and Me"
       },
       style: {
-        backgroundColor: "#00d"
+       
       }
     },
     {
@@ -121,7 +122,7 @@ function _createNotes() {
         ]
       },
       style: {
-        backgroundColor: "#00d"
+      
       }
     },
     {
@@ -132,7 +133,7 @@ function _createNotes() {
         title: "video"
       },
       style: {
-        backgroundColor: "#00d"
+      
       }
     }
   ]
@@ -150,7 +151,10 @@ function togglePin(noteId) {
 }
 
 function sortPinnedFirst() {
-  gNotes.sort((noteA, noteB) => noteB.isPinned - noteA.isPinned)
+  gNotes.forEach(() => {
+    gNotes.sort((noteA, noteB) => noteB.isPinned - noteA.isPinned)
+  })
+ 
 }
 
 function addNote(note) {
@@ -195,6 +199,12 @@ function setNoteTxt(noteId, newTxt) {
       break
 
   }
+  _saveNotesToStorage()
+  return Promise.resolve()
+}
+
+function addNewNote(note){
+  gNotes.push(note)
   _saveNotesToStorage()
   return Promise.resolve()
 }

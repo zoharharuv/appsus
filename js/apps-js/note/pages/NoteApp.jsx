@@ -1,6 +1,7 @@
 import { NotesService } from "../services/note.service.js";
 import { NoteList } from './../cmps/NoteList.jsx';
 import { NoteFilter } from "../cmps/NoteFilter.jsx";
+import { NoteAdd } from "../cmps/NoteAdd.jsx";
 export class NoteApp extends React.Component {
 
     state = {
@@ -55,12 +56,20 @@ export class NoteApp extends React.Component {
         })
     }
 
+    onAdd = (note) => {
+        NotesService.addNewNote(note)
+        .then(() => {
+            this.loadNotes()
+        })
+    }
+
     funcs = {
         onDelete: this.onDelete,
         onPin: this.togglePin,
         onCopy: this.onCopy,
         loadNotes: this.loadNotes,
-        onBlur: this.onBlur
+        onBlur: this.onBlur,
+        onAdd: this.onAdd
     }
 
 
@@ -71,6 +80,7 @@ export class NoteApp extends React.Component {
 
         return (
             <section className="note-app">
+                <NoteAdd funcs={this.funcs}/>
                 <NoteFilter onFilter={this.onFilter}/>
                 {
                   notes&&  <NoteList funcs={this.funcs} notes={notes}/> 
