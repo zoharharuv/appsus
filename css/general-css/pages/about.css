@@ -1,0 +1,24 @@
+/* ABOUT */
+
+.about {
+    text-align: center;
+}
+
+.about ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about nav a {
+    text-decoration: overline;
+    margin: 0 20px;
+}
+
+.about a.active {
+    color: rgb(51, 145, 161);
+    text-decoration: none;
+}
+
+.about nav a:hover {
+    text-decoration: none;
+}

@@ -1,0 +1,43 @@
+/* NAV-BAR */
+
+header {
+    background-color: rgb(38, 39, 42);
+    color: #fff;
+}
+header a{
+    color: #fff;
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.app-header nav>*:not(:last-child) {
+    padding-right: 20px;
+}
+
+.app-header h1 {
+    text-shadow: -2px 2px 10px #210707;
+    cursor: pointer;
+    transition: text-shadow 0.2s;
+}
+
+.app-header h1:hover {
+    text-shadow: -2px 2px 8px #c3bfdb;
+}
+
+.app-header p {
+    margin: 0 auto;
+}
+
+.app-header a {
+    font-weight: 500;
+    transition: color 0.25s ease-in-out;
+}
+
+.app-header a.active {
+    color: rgb(70, 195, 218);
+}

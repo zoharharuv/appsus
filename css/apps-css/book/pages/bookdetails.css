@@ -1,0 +1,97 @@
+/* DETAILS */
+
+.book-details {
+    display: flex;
+    padding: 15px 0;
+    background-color: rgb(20, 24, 66);
+    color: #fff;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book-details h2, h3, h4, h5 {
+    margin: 8px 0;
+}
+
+.veteran-book {
+    color: bisque;
+}
+
+.new-book {
+    color: chartreuse;
+}
+
+.page-count-long {
+    color: rgb(179, 49, 26);
+}
+
+.page-count-decent {
+    color: rgb(226, 215, 59);
+}
+
+.page-count-light {
+    color: rgb(163, 253, 234);
+}
+
+.sale {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 7px;
+    margin: 15px 0;
+    background-color: orange;
+    font-style: italic;
+}
+
+.low-price {
+    color: rgb(24, 149, 24);
+}
+
+.high-price {
+    color: rgb(224, 33, 15);
+}
+
+.read-more {
+    margin: 0px 0.5em;
+    cursor: pointer;
+    color: #bab1b1;
+    transition: color 0.2s ease-in-out;
+}
+
+.read-more:hover {
+    color: #dfdcb2;
+}
+
+p .long-text {
+    text-align: center;
+}
+
+/* ACTIONS BUTTONS */
+
+.actions button{
+    margin: 0 15px;
+}
+
+.back-btn {
+    background-color: #578b39;
+}
+
+.delete-btn {
+    background-color: #e4312e;
+}
+
+.next-btn {
+    background-color: #20a3d6;
+}
+
+.delete-btn, .back-btn, .next-btn {
+    text-transform: uppercase;
+    padding: 15px;
+    border-radius: 5px;
+    border: none;
+    transition: opacity 0.4s ease 0s;
+    color: #fff;
+    opacity: 1;
+}
+
+.delete-btn:hover, .back-btn:hover, .next-btn:hover {
+    opacity: 0.7;
+}

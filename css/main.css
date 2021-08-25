@@ -1,0 +1,26 @@
+@import 'setup.css';
+/* GENERAL PAGES*/
+@import '../css/general-css/pages/home.css';
+@import '../css/general-css/pages/about.css';
+/* GENERAL CMPS */
+@import '../css/general-css/cmps/usermsg.css';
+@import '../css/general-css/cmps/header.css';
+@import '../css/general-css/cmps/footer.css';
+
+/* BOOK PAGES*/
+@import '../css/apps-css/book/pages/bookapp.css';
+@import '../css/apps-css/book/pages/bookdetails.css';
+/* BOOK CMPS*/
+@import '../css/apps-css/book/cmps/bookfilter.css';
+@import '../css/apps-css/book/cmps/googlebooks.css';
+@import '../css/apps-css/book/cmps/googlebookslist.css';
+@import '../css/apps-css/book/cmps/booklist.css';
+@import '../css/apps-css/book/cmps/bookpreview.css';
+@import '../css/apps-css/book/cmps/bookreview.css';
+@import '../css/apps-css/book/cmps/reviewadd.css';
+
+/* NOTE PAGES */
+/* NOTE CMPS */
+
+/* MAIL PAGES */
+/* MAIL CMPS */

@@ -1,0 +1,25 @@
+/* FILTER */
+
+.book-filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.book-filter input {
+    max-width: 120px;
+    margin-inline-end: 15px;
+    margin-inline-start: 5px;
+}
+
+.book-filter button {
+    background-color: transparent;
+    border: none;
+    font-size: 1.6em;
+    transition: text-shadow 0.2s ease-in-out;
+}
+
+.book-filter button:hover {
+    text-shadow: 1px 1px 10px #f4f4f4;
+}

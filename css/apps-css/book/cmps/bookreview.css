@@ -1,0 +1,36 @@
+/* REVIEWS SECTION */
+
+.reviews-toggle {
+    text-transform: uppercase;
+    background: rgb(164, 232, 255);
+    color: #2e5462;
+    padding: 15px;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: text-shadow 0.3s ease-out;
+    margin-bottom: 20px;
+}
+
+.reviews-toggle:hover {
+    text-shadow: 0px 0px 5px rgb(32, 70, 141);
+}
+
+/* .reviews{} */
+
+.book-review {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+    align-items: flex-start;
+}
+
+.delete-review-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: #fff;
+    background-color: rgb(248, 1, 1);
+    border: none;
+    padding: 2px 6px;
+}

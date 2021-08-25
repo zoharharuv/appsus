@@ -1,0 +1,23 @@
+/* REVIEW ADD */
+
+.review-add {
+    display: flex;
+    flex-direction: column;
+    margin: 25px 0;
+    align-items: center;
+}
+
+.review-add>*:nth-child(even) {
+    margin-bottom: 10px;
+}
+
+.review-add textarea {
+    resize: none;
+}
+
+.add-review-btn {
+    background-color: #ffc83d;
+    border: none;
+    font-family: cursive;
+    color: rgb(37, 36, 36);
+}
