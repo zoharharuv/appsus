@@ -20,7 +20,9 @@
 @import '../css/apps-css/book/cmps/ReviewAdd.css';
 
 /* NOTE PAGES */
+
 /* NOTE CMPS */
+@import '../css/apps-css/note/cmps/notes-list.css'
 
 /* MAIL PAGES */
 /* MAIL CMPS */
