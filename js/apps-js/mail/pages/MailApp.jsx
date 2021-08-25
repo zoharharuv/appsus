@@ -34,15 +34,32 @@ export class MailApp extends React.Component {
 
     // SELECT MAIL FROM PREVIEWS
     onSelectMail = (selectedMail) => {
+        this.onToggleRead(selectedMail)
         this.setState({ selectedMail }, () => {
             this.onSetDisplay('details')
         })
     }
+
+    // PREVIEW BUTTONS
+    // TOGGLE READ
+    onToggleRead = (selectedMail) => {
+        mailService.updateMailIsRead(selectedMail);
+        this.loadMails()
+    }
+    onStarMail = (selectedMail) => {
+        mailService.starMail(selectedMail);
+        this.loadMails()
+    }
+
+    onDeleteMail = (selectedMail) => {
+        mailService.deleteMail(selectedMail.id);
+        this.loadMails()
+    }
+
     // SET THE DISPLAY: ALL/INBOX/SEND..
     onSetDisplay = (val) => {
-        this.setState({filterBy: this.initialFilter}, () => {
+        this.setState({ filterBy: this.initialFilter }, () => {
             this.setState({ filterBy: { ...this.state.filterBy, display: val }, }, () => {
-                console.log(this.state);
                 this.loadMails();
             });
         })
@@ -63,23 +80,17 @@ export class MailApp extends React.Component {
         mailService.composeMail(mail, true)
             .then(() => this.onSetDisplay('drafts'))
     }
-    // onStarMail = (mail) => {
 
-    // }
-
-    // onDeleteMail = (mailId) => {
-        
-    // }
 
 
     render() {
         const { mails, filterBy, selectedMail } = this.state;
         return (
             <section className="mail-app" >
-                <MailFilter onSearch={this.onSearch} 
-                onSetDisplay={this.onSetDisplay} 
-                currDisplay={filterBy.display}/>
-                
+                <MailFilter onSearch={this.onSearch}
+                    onSetDisplay={this.onSetDisplay}
+                    currDisplay={filterBy.display} />
+
                 <MailToolbar onSetDisplay={this.onSetDisplay} />
 
                 {/* NO MAILS */}
@@ -89,7 +100,11 @@ export class MailApp extends React.Component {
                 {/* MAILS LIST */}
                 {
                     filterBy.display !== 'compose' && filterBy.display !== 'details' && mails.length &&
-                    <MailsList onSetDisplay={this.onSetDisplay} onSelectMail={this.onSelectMail} mails={mails} />
+                    <MailsList mails={mails}
+                        onSelectMail={this.onSelectMail}
+                        onToggleRead={this.onToggleRead}
+                        onStarMail={this.onStarMail}
+                        onDeleteMail={this.onDeleteMail} />
                 }
 
                 {/* SELECTED MAIL DETAILS */}
