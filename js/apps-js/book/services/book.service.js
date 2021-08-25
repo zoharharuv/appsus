@@ -50,7 +50,6 @@ function getPrevBookId(bookId) {
   return gBooks[prevBookIdx].id;
 }
 
-
 function deleteBook(bookId) {
   var bookIdx = gBooks.findIndex(function (book) {
     return bookId === book.id;
@@ -113,7 +112,6 @@ function addGoogleBook(googleBook) {
   _saveBooksToStorage()
   return Promise.resolve(`${googleBook.volumeInfo.title} was successfully added`);
 }
-
 
 function _saveBooksToStorage() {
   storageService.saveToStorage(KEY, gBooks);
