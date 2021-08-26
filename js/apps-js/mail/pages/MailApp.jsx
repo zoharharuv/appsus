@@ -21,7 +21,6 @@ export class MailApp extends React.Component {
     initialFilter;
 
     componentDidMount() {
-        debugger
         this.initialFilter = this.state.filterBy;
         const id = this.props.match.params.mailId;
         if (!id) {
@@ -45,7 +44,6 @@ export class MailApp extends React.Component {
 
     // SELECT MAIL FROM PREVIEWS
     onSelectMail = (selectedMail, isFromLink = false) => {
-        debugger
         this.onToggleRead(selectedMail, isFromLink)
         this.setState({ selectedMail }, () => {
             this.onSetDisplay('details')
@@ -102,6 +100,12 @@ export class MailApp extends React.Component {
                 this.onSetDisplay('drafts')
             })
     }
+    // REFRESH
+    onRefresh = () => {
+        this.setState({ filterBy: this.initialFilter }, () => {
+            this.loadMails();
+        });
+    }
 
 
 
@@ -111,7 +115,8 @@ export class MailApp extends React.Component {
             <section className="mail-app" >
                 <MailFilter onSearch={this.onSearch}
                     onSetDisplay={this.onSetDisplay}
-                    currDisplay={filterBy.display} />
+                    currDisplay={filterBy.display}
+                    onRefresh={this.onRefresh} />
 
                 <MailToolbar onSetDisplay={this.onSetDisplay} />
 

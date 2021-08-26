@@ -1,7 +1,6 @@
 @import 'setup.css';
 /* GENERAL PAGES*/
 @import '../css/general-css/pages/Home.css';
-@import '../css/general-css/pages/About.css';
 /* GENERAL CMPS */
 @import '../css/general-css/cmps/UserMsg.css';
 @import '../css/general-css/cmps/Header.css';
