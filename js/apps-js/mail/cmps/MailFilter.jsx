@@ -4,12 +4,7 @@ export class MailFilter extends React.Component {
         isRotate: false
     };
 
-    inputRef = React.createRef()
     refreshTimeout
-
-    componentDidMount() {
-        this.inputRef.current.focus();
-    }
 
     handleChange = (ev) => {
         const value = ev.target.value;
@@ -24,13 +19,12 @@ export class MailFilter extends React.Component {
     };
 
     onRotate = () => {
-        console.log('rot');
         this.setState({ isRotate: true }, () => {
             this.refreshTimeout = setTimeout(() => {
                 clearTimeout(this.refreshTimeout)
                 this.setState({ isRotate: false })
                 this.props.onRefresh()
-            }, 1000);
+            }, 500);
         })
     }
 
@@ -40,7 +34,6 @@ export class MailFilter extends React.Component {
         return (
             <form className='mail-filter' onSubmit={this.onFilter}>
                 <input
-                    ref={this.inputRef}
                     name='search-bar'
                     type='search'
                     placeholder='🔍 Search mails'

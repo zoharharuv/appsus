@@ -4,7 +4,16 @@
     display: flex;
     box-shadow: 0px 0px 5px 0px;
     width: 100%;
-    align-items: center
+    align-items: center;
+    background-color: #fff;
+}
+
+.mail-preview:hover {
+    background-color: rgb(231, 230, 230);
+}
+
+.read{
+    background-color: rgb(200, 207, 207);
 }
 
 .mail-preview button {

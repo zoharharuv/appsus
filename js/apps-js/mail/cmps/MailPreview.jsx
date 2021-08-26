@@ -4,7 +4,15 @@ import { LongTxt } from './../../../general-cmps-js/LongTxt.jsx';
 export class MailPreview extends React.Component {
     state = {
         subjectLength: window.innerWidth / 100,
-        bodyLength: window.innerWidth / 20
+        bodyLength: window.innerWidth / 20,
+        isHover: false
+    }
+    onHover = () => {
+        this.setState({ isHover: true })
+    }
+
+    offHover = () => {
+        this.setState({ isHover: false })
     }
     render() {
         const { mail,
@@ -14,9 +22,9 @@ export class MailPreview extends React.Component {
             onDeleteMail,
             onUndelete
         } = this.props
-        const { subjectLength, bodyLength } = this.state;
+        const { subjectLength, bodyLength, isHover } = this.state;
         return (
-            <article className="mail-preview">
+            <article className={`mail-preview ${mail.isRead && 'read'}`} onMouseEnter={this.onHover} onMouseLeave={this.offHover}>
 
                 <button onClick={() => onStarMail(mail)}>
                     <img src={`./img/${mail.isStarred ? 'star-full' : 'star-empty'}.svg`} />
@@ -28,7 +36,7 @@ export class MailPreview extends React.Component {
                         <p><LongTxt text={mail.body} maxLength={bodyLength} /></p>
                     </div>
                 </Link>
-                <div className="preview-action-btns">
+                {isHover && <div className="preview-action-btns">
 
                     <button onClick={() => onToggleRead(mail)}>
                         <img src={`./img/${mail.isRead ? 'read' : 'unread'}.svg`} />
@@ -39,7 +47,7 @@ export class MailPreview extends React.Component {
                     <button onClick={() => onDeleteMail(mail)}>
                         <img src={`./img/${mail.isDeleted ? 'delete-perm' : 'delete'}.svg`} />
                     </button>
-                </div>
+                </div>}
 
             </article>
 

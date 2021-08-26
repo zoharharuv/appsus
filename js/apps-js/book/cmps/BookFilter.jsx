@@ -7,11 +7,6 @@ export class BookFilter extends React.Component {
     },
   };
 
-  inputRef = React.createRef()
-
-  componentDidMount() {
-    this.inputRef.current.focus();
-  }
 
   handleChange = (ev) => {
     const field = ev.target.name;
@@ -34,7 +29,6 @@ export class BookFilter extends React.Component {
       <form className='book-filter' onSubmit={this.onFilter}>
         <label htmlFor='by-title'>By title</label>
         <input
-          ref={this.inputRef}
           name='title'
           id='by-title'
           type='text'

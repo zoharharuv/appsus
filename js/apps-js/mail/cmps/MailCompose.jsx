@@ -7,9 +7,24 @@ export class MailCompose extends React.Component {
         }
     }
 
+    mailState
+    interval
     inputRef = React.createRef()
+
     componentDidMount() {
         this.inputRef.current.focus();
+        this.mailState = this.state.mail
+        this.interval = setInterval(() => {
+            this.mailState = this.state.mail
+            console.log('saved draft state:', this.mailState);
+        }, 5000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.interval)
+        this.mailState = this.state.mail
+        console.log('out and: ', this.mailState);
+        if (this.mailState.body) this.props.onSaveDraft(this.mailState)
     }
 
     handleChange = (ev) => {
@@ -19,9 +34,11 @@ export class MailCompose extends React.Component {
     };
 
     onSend = (ev = null, toDraft = false) => {
-        if (!this.state.mail.to || !this.state.mail.subject || !this.state.mail.body) return;
+        if (!this.state.mail.to || !this.state.mail.to.includes('@') || !this.state.mail.subject || !this.state.mail.body) return;
         if (ev) ev.preventDefault();
-        toDraft ? this.props.onSaveDraft(this.state.mail) : this.props.onSendMail(this.state.mail);
+        this.props.onSendMail(this.state.mail);
+        this.setState({...mail, body: ''});
+        // toDraft ? this.props.onSaveDraft(this.state.mail) : this.props.onSendMail(this.state.mail);
     };
 
     render() {
@@ -61,7 +78,6 @@ export class MailCompose extends React.Component {
                 </textarea>
 
                 <div className="mail-compose-btns">
-                    <button className="compose-draft-btn" onClick={() => this.onSend(event, true)}>Save draft</button>
                     <button className="compose-send-btn" onClick={this.onSend}>Send mail</button>
                 </div>
             </form>
