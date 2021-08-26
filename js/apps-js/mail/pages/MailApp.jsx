@@ -150,7 +150,7 @@ export class MailApp extends React.Component {
 
                 {/* NO MAILS */}
                 {mails.length <= 0 && filterBy.display !== 'compose' && filterBy.display !== 'details' &&
-                    <h2>no mails</h2>}
+                    <h2 className="no-mails">No mails were found!</h2>}
 
                 {/* MAILS LIST */}
                 {

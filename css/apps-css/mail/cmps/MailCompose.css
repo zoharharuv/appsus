@@ -15,13 +15,17 @@
 
 .mail-compose-btns {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 .compose-send-btn {
-    color: rgb(76, 119, 32);
+    background-color: rgb(46, 85, 214);
+    color: #fff;
+    font-size: 1.5em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    transition: background-color 0.3s ease-in;
 }
 
-.compose-draft-btn {
-    color: crimson;
+.compose-send-btn:hover{
+    background-color: rgb(110, 140, 241);
 }

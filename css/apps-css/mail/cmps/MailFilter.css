@@ -29,11 +29,11 @@
 
 .mail-filter img {
     cursor: pointer;
-    padding-inline-start: 15px;
+    margin-inline-start: 10px;
 }
 
 .rotate {
-    animation: rotate-keyframes 1s;
+    animation: rotate-keyframes 0.5s;
 }
 
 @keyframes rotate-keyframes {
@@ -41,6 +41,6 @@
         transform: rotate(0deg);
     }
     to {
-        transform: rotate(180deg);
+        transform: rotate(360deg);
     }
 }

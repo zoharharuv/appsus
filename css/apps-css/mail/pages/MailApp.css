@@ -9,3 +9,9 @@
 .mail-app a {
     color: inherit;
 }
+
+.no-mails{
+    text-align: center;
+    font-style: italic;
+    color: rgb(92, 104, 102);
+}
