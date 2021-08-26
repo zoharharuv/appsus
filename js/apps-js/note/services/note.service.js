@@ -6,7 +6,8 @@ export const NotesService = {
   addNote,
   setNoteBgColor,
   setNoteTxt,
-  addNewNote
+  addNewNote,
+  toggleTodoDone
 }
 
 import { storageService } from './../../../general-services-js/storage.service.js';
@@ -117,8 +118,10 @@ function _createNotes() {
       info: {
         label: "Get my stuff together",
         todos: [
-          { txt: "Driving liscence", doneAt: null },
-          { txt: "Coding power", doneAt: 187111111 }
+          { txt: "Driving liscence", doneAt: null, isDone:true,
+        id:utilService.makeId() },
+          { txt: "Coding power", doneAt: 187111111,isDone:true,
+          id:utilService.makeId()}
         ]
       },
       style: {
@@ -129,7 +132,7 @@ function _createNotes() {
       id: utilService.makeId(),
       type: "note-video",
       info: {
-        url: "https://www.youtube.com/embed/A6XUVjK9W4o",
+        url: "https://www.youtube.com/embed/DUhq6PR7FW4",
         title: "video"
       },
       style: {
@@ -181,7 +184,7 @@ function setNoteBgColor(noteId, color) {
 
 }
 
-function setNoteTxt(noteId, newTxt) {
+function setNoteTxt(noteId, newTxt,isTodo=false,todoId='') {
   const idx = getNoteIdx(noteId)
 
   switch (gNotes[idx].type) {
@@ -208,3 +211,18 @@ function addNewNote(note){
   _saveNotesToStorage()
   return Promise.resolve()
 }
+
+function getTodoIdx(todoId,noteIdx){
+  return gNotes[noteIdx].info.todos.findIndex((todo) => {
+    return todo.id === todoId
+  })
+}
+
+function toggleTodoDone(todoId,noteId){
+  const noteIdx = getNoteIdx(noteId)
+  const todoIdx = getTodoIdx(todoId,noteIdx)
+  gNotes[noteIdx].info.todos[todoIdx].isDone = !gNotes[noteIdx].info.todos[todoIdx].isDone
+  _saveNotesToStorage()
+  return Promise.resolve()
+}
+

@@ -1,32 +1,4 @@
-/* NEED TO DIVIDE TO THE RIGHT CMPS! */
-
 .notes-list {
   display: flex;
   flex-wrap: wrap;
- 
-}
-
-.note-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 1px black solid;
- 
-  margin-inline-end: 1vw;
-}
-
-.note-img {
-  width: 100%;
-  height: 80%;
-}
-
-.note-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.pin {
-  background-color: gray;
 }

@@ -43,7 +43,7 @@ export class NoteApp extends React.Component {
     }
 
     onBlur = (noteId,newTxt) => {
-        console.log(newTxt)
+       
         NotesService.setNoteTxt(noteId,newTxt)
         .then(() => {
             this.loadNotes()
@@ -63,13 +63,21 @@ export class NoteApp extends React.Component {
         })
     }
 
+    onDone = (todoId,noteId) => {
+        NotesService.toggleTodoDone(todoId,noteId)
+        .then(() => {
+            this.loadNotes()
+        })
+    }
+
     funcs = {
         onDelete: this.onDelete,
         onPin: this.togglePin,
         onCopy: this.onCopy,
         loadNotes: this.loadNotes,
         onBlur: this.onBlur,
-        onAdd: this.onAdd
+        onAdd: this.onAdd,
+        onDone: this.onDone
     }
 
 

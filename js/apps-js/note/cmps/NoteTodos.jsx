@@ -25,7 +25,7 @@ export class NoteTodos extends React.Component{
        <ul>
 
          {this.props.info.todos.map((todo) => {
-           return <li key={utilService.makeId()}>{todo.txt}</li>
+           return <li onClick={() => {funcs.onDone(todo.id,note.id)}} className={todo.isDone&&'done'} key={utilService.makeId()}>{todo.txt}</li>
          })}
        </ul>
      </div>

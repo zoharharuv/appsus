@@ -19,12 +19,16 @@
 @import '../css/apps-css/book/cmps/BookReview.css';
 @import '../css/apps-css/book/cmps/ReviewAdd.css';
 
-/* NOTE PAGES */
+
 
 /* NOTE CMPS */
 @import '../css/apps-css/note/cmps/note-add.css';
-@import '../css/apps-css/note/cmps/notes-list.css';
 @import '../css/apps-css/note/cmps/note-filter.css';
+@import '../css/apps-css/note/cmps/note.css';
+@import '../css/apps-css/note/cmps/note-img.css';
+@import '../css/apps-css/note/cmps/note-options.css';
+@import '../css/apps-css/note/cmps/notes-list.css';
+@import '../css/apps-css/note/cmps/note-todos.css';
 
 /* MAIL PAGES */
 @import '../css/apps-css/mail/pages/MailApp.css';
