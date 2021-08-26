@@ -1,5 +1,11 @@
 const { Link } = ReactRouterDOM
+import { LongTxt } from './../../../general-cmps-js/LongTxt.jsx';
+
 export class MailPreview extends React.Component {
+    state = {
+        subjectLength: window.innerWidth / 100,
+        bodyLength: window.innerWidth / 20
+    }
     render() {
         const { mail,
             onSelectMail,
@@ -8,6 +14,7 @@ export class MailPreview extends React.Component {
             onDeleteMail,
             onUndelete
         } = this.props
+        const { subjectLength, bodyLength } = this.state;
         return (
             <article className="mail-preview">
 
@@ -16,9 +23,9 @@ export class MailPreview extends React.Component {
                 </button>
                 <Link to={`/mail/${mail.id}`}>
                     <div className="mail-preview-content" onClick={() => onSelectMail(mail)}>
-                        <h3>{mail.to.split('@')[0]} </h3>
-                        <h5>{mail.subject.substring(0, 10)}</h5>
-                        <p>{mail.body.substring(0, 30)}</p>
+                        <h2>{mail.to.split('@')[0]} </h2>
+                        <h4><LongTxt text={mail.subject} maxLength={subjectLength} /></h4>
+                        <p><LongTxt text={mail.body} maxLength={bodyLength} /></p>
                     </div>
                 </Link>
                 <div className="preview-action-btns">

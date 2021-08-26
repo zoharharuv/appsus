@@ -7,12 +7,14 @@ export const mailService = {
     getNextMailId,
     getPrevMailId,
     composeMail,
-    updateMailIsRead,
     deleteMail,
     undeleteMail,
     starMail,
-    checkUnreads
+    checkUnreads,
+    readMail,
+    toggleReadMail
 }
+
 
 // GLOBAL VARS
 const loggedinUser = {
@@ -169,8 +171,13 @@ function undeleteMail(mail) {
     _saveMailsToStorage();
 }
 
-function updateMailIsRead(mail, isFromLink) {
-    mail.isRead = isFromLink ? true : !mail.isRead;
+function readMail(mail) {
+    mail.isRead = true;
+    _saveMailsToStorage();
+}
+
+function toggleReadMail(mail) {
+    mail.isRead = !mail.isRead;
     _saveMailsToStorage();
 }
 function starMail(mail) {

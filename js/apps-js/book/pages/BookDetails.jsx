@@ -100,7 +100,7 @@ export class BookDetails extends React.Component {
 
         {book.listPrice.isOnSale && <span className="sale">On sale!</span>}
 
-        {book.description && <LongTxt text={book.description} isLongTxtShown={this.state.isLongTxtShown} readMore={this.readMore} />}
+        {book.description && <p><LongTxt text={book.description} isLongTxtShown={this.state.isLongTxtShown} isReadMore={true} readMore={this.readMore} /></p>}
 
         <button className="reviews-toggle" onClick={this.onShowReviews}>{!showReviews ? 'Show reviews' : 'Hide reviews'}</button>
         {showReviews && <div className="reviews">

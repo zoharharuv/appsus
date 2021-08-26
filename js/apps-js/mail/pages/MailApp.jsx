@@ -27,6 +27,7 @@ export class MailApp extends React.Component {
         const id = this.props.match.params.mailId;
         this.checkHrefParams(id);
     }
+
     // CHECKS IF MAILID / INBOX,TRASH ETC
     checkHrefParams = (id) => {
         if (!id) {
@@ -67,15 +68,19 @@ export class MailApp extends React.Component {
 
     // SELECT MAIL FROM PREVIEWS
     onSelectMail = (selectedMail, isFromLink = false) => {
-        this.onToggleRead(selectedMail, isFromLink)
+        isFromLink ? this.onToggleRead(selectedMail) : this.onReadMail(selectedMail);
         this.setState({ selectedMail }, () => {
             this.onSetDisplay('details')
         })
     }
 
     // PREVIEW BUTTONS
-    onToggleRead = (selectedMail, isFromLink) => {
-        mailService.updateMailIsRead(selectedMail, isFromLink);
+    onReadMail = (selectedMail) => {
+        mailService.readMail(selectedMail);
+        this.loadMails()
+    }
+    onToggleRead = (selectedMail) => {
+        mailService.toggleReadMail(selectedMail);
         this.loadMails()
     }
     onStarMail = (selectedMail) => {

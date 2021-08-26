@@ -1,8 +1,10 @@
 /* PREVIEW */
+
 .mail-preview {
     display: flex;
     box-shadow: 0px 0px 5px 0px;
     width: 100%;
+    align-items: center
 }
 
 .mail-preview button {
@@ -11,25 +13,17 @@
     padding: 5px;
     margin: 0 2px;
     display: flex;
-    align-items: center;
-}
-
-.mail-preview a {
-    color: inherit;
 }
 
 .mail-preview-content {
     display: flex;
     cursor: pointer;
-    align-items: center
+    align-items: center;
+    gap: 20px;
 }
 
-.mail-preview-content p{
+.preview-action-btns {
     display: flex;
+    flex: 1;
     justify-content: flex-end;
-}
-
-.preview-action-btns{
-    display: flex;
-    justify-self: flex-end;
 }

@@ -1,8 +1,11 @@
 /* MAIL APP */
 .mail-app {
     display: grid;
-    grid-template-columns: 20vw 1fr;
-    grid-template-rows: 70px 1fr;
-    justify-items: center;
+    grid-template-columns: 220px 1fr;
+    grid-template-rows: 80px 1fr;
     align-items: start;
+}
+
+.mail-app a {
+    color: inherit;
 }
