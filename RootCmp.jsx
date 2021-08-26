@@ -1,8 +1,7 @@
 const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
 // GENERAL PAGES
-import { Home } from './js/general-pages-js/Home.jsx'
-import { About } from './js/general-pages-js/About.jsx'
+import { Home } from './js/Home.jsx'
 // GENERAL CMPS
 import { AppHeader } from './js/general-cmps-js/AppHeader.jsx';
 import { AppFooter } from './js/general-cmps-js/AppFooter.jsx';
@@ -14,7 +13,6 @@ import { BookDetails } from './js/apps-js/book/pages/BookDetails.jsx';
 
 // MAIL PAGES
 import { MailApp } from './js/apps-js/mail/pages/MailApp.jsx';
-import { MailDetails } from './js/apps-js/mail/cmps/MailDetails.jsx';
 
 // NOTE PAGES
 import { NoteApp } from './js/apps-js/note/pages/NoteApp.jsx';
@@ -32,13 +30,12 @@ export function App() {
           <Route path="/note/:noteId" component={NoteDetails} />
           <Route path="/note" component={NoteApp} />
           {/* MAIL */}
-          <Route path="/mail/:mailId" component={MailDetails} />
+          <Route path="/mail/:mailId" component={MailApp} />
           <Route path="/mail" component={MailApp} />
           {/* BOOK */}
           <Route path="/book/:bookId" component={BookDetails} />
           <Route path="/book" component={BookApp} />
-          {/* GENERAL */}
-          <Route path="/about" component={About} />
+          {/* HOME */}
           <Route path="/" component={Home} />
         </Switch>
       </main>

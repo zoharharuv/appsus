@@ -21,8 +21,18 @@ export class MailApp extends React.Component {
     initialFilter;
 
     componentDidMount() {
+        debugger
         this.initialFilter = this.state.filterBy;
-        this.loadMails();
+        const id = this.props.match.params.mailId;
+        if (!id) {
+            this.props.history.push('/mail')
+            this.loadMails()
+        } else {
+            mailService.getMailById(id)
+                .then(mail => {
+                    if (mail) this.onSelectMail(mail, true);
+                })
+        }
     }
 
     loadMails = () => {
@@ -34,16 +44,17 @@ export class MailApp extends React.Component {
     };
 
     // SELECT MAIL FROM PREVIEWS
-    onSelectMail = (selectedMail) => {
-        this.onToggleRead(selectedMail)
+    onSelectMail = (selectedMail, isFromLink = false) => {
+        debugger
+        this.onToggleRead(selectedMail, isFromLink)
         this.setState({ selectedMail }, () => {
             this.onSetDisplay('details')
         })
     }
 
     // PREVIEW BUTTONS
-    onToggleRead = (selectedMail) => {
-        mailService.updateMailIsRead(selectedMail);
+    onToggleRead = (selectedMail, isFromLink) => {
+        mailService.updateMailIsRead(selectedMail, isFromLink);
         this.loadMails()
     }
     onStarMail = (selectedMail) => {
@@ -105,12 +116,12 @@ export class MailApp extends React.Component {
                 <MailToolbar onSetDisplay={this.onSetDisplay} />
 
                 {/* NO MAILS */}
-                {filterBy.display !== 'compose' && filterBy.display !== 'details' && !mails.length &&
+                {mails.length <= 0 && filterBy.display !== 'compose' && filterBy.display !== 'details' &&
                     <h2>no mails</h2>}
 
                 {/* MAILS LIST */}
                 {
-                    filterBy.display !== 'compose' && filterBy.display !== 'details' && mails.length &&
+                    mails.length > 0 && filterBy.display !== 'compose' && filterBy.display !== 'details' &&
                     <MailsList mails={mails}
                         onSelectMail={this.onSelectMail}
                         onToggleRead={this.onToggleRead}
@@ -122,7 +133,7 @@ export class MailApp extends React.Component {
                 {/* SELECTED MAIL DETAILS */}
                 {
                     filterBy.display === 'details' && selectedMail &&
-                    <MailDetails mail={selectedMail} />
+                    <MailDetails mail={selectedMail} onSelectMail={this.onSelectMail} />
                 }
 
                 {/* COMPOSE NEW MAIL */}
