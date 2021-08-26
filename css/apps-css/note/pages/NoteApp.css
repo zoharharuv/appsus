@@ -7,6 +7,13 @@
 
 .add-icon, .filter-icon{
   font-size: 75px !important;
+  
+}
+
+.add-icon:hover, .filter-icon:hover{
+  transform: rotate(360deg);
+  transition: 0.5s;
+  
 }
 
 input {
@@ -16,6 +23,11 @@ input {
 
 button {
   margin:1px
+}
+
+button:hover {
+  background-color: rgb(153, 153, 153);
+  transition: 0.2s;
 }
 
 
