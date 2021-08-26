@@ -25,7 +25,7 @@
 .about-comps {
     display: flex;
     justify-content: space-around;
-    /* flex-direction: column; */
+    flex-wrap: wrap;
 }
 
 .about-comps a {
@@ -64,4 +64,10 @@
 
 .about nav a:hover {
     color: rgb(104, 211, 230);
+}
+
+@media screen and (max-width: 1080px) {
+    .about-comps {
+        flex-direction: column;
+    }
 }

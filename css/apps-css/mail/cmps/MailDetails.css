@@ -1,0 +1,7 @@
+.mail-details{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    color: rgb(63, 61, 61);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

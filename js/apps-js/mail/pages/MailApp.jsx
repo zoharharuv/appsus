@@ -90,11 +90,11 @@ export class MailApp extends React.Component {
     onDeleteMail = (selectedMail) => {
         mailService.deleteMail(selectedMail.id)
             .then(txt => eventBusService.emit('user-msg', { txt, type: 'success' }))
-        this.loadMails()
+        this.state.filterBy.display === 'details' ? this.onSetDisplay('trash') : this.loadMails();
     }
     onUndelete = (selectedMail) => {
         mailService.undeleteMail(selectedMail);
-        this.loadMails()
+        this.state.filterBy.display === 'details' ? this.onSetDisplay('all') : this.loadMails();
     }
 
     // SET THE DISPLAY: ALL/INBOX/SEND..
@@ -166,7 +166,11 @@ export class MailApp extends React.Component {
                 {/* SELECTED MAIL DETAILS */}
                 {
                     filterBy.display === 'details' && selectedMail &&
-                    <MailDetails mail={selectedMail} onSelectMail={this.onSelectMail} />
+                    <MailDetails
+                        mail={selectedMail}
+                        onStarMail={this.onStarMail}
+                        onDeleteMail={this.onDeleteMail}
+                        onUndelete={this.onUndelete} />
                 }
 
                 {/* COMPOSE NEW MAIL */}
