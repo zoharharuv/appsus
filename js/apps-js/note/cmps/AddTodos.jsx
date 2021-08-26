@@ -18,7 +18,9 @@ export class AddTodos extends React.Component{
         todos: txt.split(',').map((txt) => {
           return {
             txt,
-            doneAt: null
+            doneAt: null,
+            isDonel:false,
+            id:utilService.makeId()
           }
         })
         

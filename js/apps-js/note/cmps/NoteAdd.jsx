@@ -9,8 +9,8 @@ export class NoteAdd extends React.Component {
     type: "txt",
   };
 
-  handleChange = (ev) => {
-    this.setState({type: ev.target.value})
+  onSelect = (type) => {
+    this.setState({type})
   }
 
   render() {
@@ -21,12 +21,10 @@ export class NoteAdd extends React.Component {
         <h1>Add Note!</h1>
 
         <div className="add-choice">
-        <select onChange={this.handleChange} value={type} name="choice" id="choice">
-          <option value="txt">Txt</option>
-          <option value="img">Img</option>
-          <option value="video">Video</option>
-          <option value="todos">Todos</option>
-        </select>
+        <span onClick={() => {this.onSelect('txt')}}>📋</span>
+        <span onClick={() => {this.onSelect('todos')}}>📝</span>
+        <span onClick={() => {this.onSelect('img')}}>🖼️</span>
+        <span onClick={() => {this.onSelect('video')}}>🎞️</span>
         </div>
 
         <div className="add-input">
