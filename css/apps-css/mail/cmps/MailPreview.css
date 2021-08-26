@@ -13,6 +13,10 @@
     align-items: center;
 }
 
+.mail-preview a {
+    color: inherit;
+}
+
 .mail-preview-content {
     flex: 2;
     display: flex;
