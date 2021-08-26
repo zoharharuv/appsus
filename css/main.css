@@ -1,14 +1,22 @@
 @import 'setup.css';
+
+/* PAGES */
 /* GENERAL PAGES */
 @import '../css/general-css/pages/Home.css';
+/* BOOK PAGES*/
+@import '../css/apps-css/book/pages/BookApp.css';
+@import '../css/apps-css/book/pages/BookDetails.css';
+/* MAIL PAGES */
+@import '../css/apps-css/mail/pages/MailApp.css';
+/*NOTE PAGES*/
+@import '../css/apps-css/note/pages/NoteApp.css';
+
+
+/* COMPONENTS */
 /* GENERAL CMPS */
 @import '../css/general-css/cmps/UserMsg.css';
 @import '../css/general-css/cmps/Header.css';
 @import '../css/general-css/cmps/Footer.css';
-
-/* BOOK PAGES*/
-@import '../css/apps-css/book/pages/BookApp.css';
-@import '../css/apps-css/book/pages/BookDetails.css';
 /* BOOK CMPS*/
 @import '../css/apps-css/book/cmps/BookFilter.css';
 @import '../css/apps-css/book/cmps/GoogleBooks.css';
@@ -17,10 +25,12 @@
 @import '../css/apps-css/book/cmps/BookPreview.css';
 @import '../css/apps-css/book/cmps/BookReview.css';
 @import '../css/apps-css/book/cmps/ReviewAdd.css';
-
-
-/*NOTE PAGES*/
-@import '../css/apps-css/note/pages/NoteApp.css';
+/* MAIL CMPS */
+@import '../css/apps-css/mail/cmps/MailCompose.css';
+@import '../css/apps-css/mail/cmps/MailFilter.css';
+@import '../css/apps-css/mail/cmps/MailToolbar.css';
+@import '../css/apps-css/mail/cmps/MailsList.css';
+@import '../css/apps-css/mail/cmps/MailPreview.css';
 /* NOTE CMPS  */
 @import '../css/apps-css/note/cmps/NoteAdd.css';
 @import '../css/apps-css/note/cmps/NoteFilter.css';
@@ -30,11 +40,6 @@
 @import '../css/apps-css/note/cmps/NotesList.css';
 @import '../css/apps-css/note/cmps/NoteTodos.css';
 
-/* MAIL PAGES */
-@import '../css/apps-css/mail/pages/MailApp.css';
-/* MAIL CMPS */
-@import '../css/apps-css/mail/cmps/MailCompose.css';
-@import '../css/apps-css/mail/cmps/MailFilter.css';
-@import '../css/apps-css/mail/cmps/MailToolbar.css';
-@import '../css/apps-css/mail/cmps/MailsList.css';
-@import '../css/apps-css/mail/cmps/MailPreview.css';
+
+
+

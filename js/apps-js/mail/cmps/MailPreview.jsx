@@ -27,7 +27,7 @@ export class MailPreview extends React.Component {
             <article className={`mail-preview ${mail.isRead && 'read'}`} onMouseEnter={this.onHover} onMouseLeave={this.offHover}>
 
                 <button onClick={() => onStarMail(mail)}>
-                    <img src={`./img/${mail.isStarred ? 'star-full' : 'star-empty'}.svg`} />
+                    <img className="mail-star" src={`./img/${mail.isStarred ? 'star-full' : 'star-empty'}.svg`} />
                 </button>
                 <Link to={`/mail/${mail.id}`}>
                     <div className="mail-preview-content" onClick={() => onSelectMail(mail)}>

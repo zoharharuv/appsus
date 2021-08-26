@@ -4,13 +4,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
 }
 
 .mail-filter input {
-    padding: 10px;
-    border: 1px solid rgb(26, 62, 141);
+    font-family: monospace;
+    outline: 0;
+    text-align: center;
+    border: 1px solid rgb(88, 127, 211);
     color: #111;
     letter-spacing: 0.1em;
+    width: 250px;
+    font-size: large;
+}
+.mail-filter input:focus{
+    border: 2px solid rgb(26, 62, 141);
 }
 
 /* FILTER */
@@ -29,7 +38,11 @@
 
 .mail-filter img {
     cursor: pointer;
-    margin-inline-start: 10px;
+    transition: all 0.2s;
+}
+
+.mail-filter img:hover{
+    transform: rotate(-120deg);
 }
 
 .rotate {
@@ -38,7 +51,7 @@
 
 @keyframes rotate-keyframes {
     from {
-        transform: rotate(0deg);
+        transform: rotate(-120deg);
     }
     to {
         transform: rotate(360deg);

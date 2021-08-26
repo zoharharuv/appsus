@@ -32,7 +32,7 @@ function query(filterBy) {
     if (!gMails || !gMails.length) loadMails()
     if (filterBy) {
         let mailsToShow;
-        const { display, txt, lables, isRead } = filterBy;
+        const { display, txt, lables } = filterBy;
         if (display === 'details' || display === 'compose')
             return Promise.resolve([]);
         // DISPLAY
@@ -46,38 +46,38 @@ function query(filterBy) {
         }
         if (display === 'sent') {
             mailsToShow = gMails.filter(mail => {
-                return mail.to !== loggedinUser.email
+                return (mail.to !== loggedinUser.email && !mail.isDraft)
             })
         }
         if (display === 'starred') {
             mailsToShow = gMails.filter(mail => {
-                return mail.isStarred === true
+                return mail.isStarred
             })
         }
         if (display === 'drafts') {
             mailsToShow = gMails.filter(mail => {
-                return mail.isDraft === true
+                return mail.isDraft
             })
         }
         if (display === 'unread') {
             mailsToShow = gMails.filter(mail => {
-                return mail.isRead === false
+                return !mail.isRead
             })
         }
         if (display === 'read') {
             mailsToShow = gMails.filter(mail => {
-                return mail.isRead === true
+                return mail.isRead
             })
         }
         if (display !== 'trash') {
             let beforeFilter = mailsToShow.slice();
             mailsToShow = beforeFilter.filter(mail => {
-                return mail.isDeleted === false
+                return !mail.isDeleted
             })
         }
         if (display === 'trash') {
             mailsToShow = gMails.filter(mail => {
-                return mail.isDeleted === true
+                return mail.isDeleted
             })
         }
 
@@ -162,7 +162,9 @@ function deleteMail(mailId) {
         _saveMailsToStorage();
         return Promise.resolve(`Deleted Forever`)
     }
+    gMails[mailIdx].isRead = true;
     gMails[mailIdx].isDeleted = true;
+    _saveMailsToStorage();
     return Promise.resolve(`Moved to trash!`)
 }
 
@@ -188,21 +190,21 @@ function starMail(mail) {
 function checkUnreads() {
     var count = 0;
     gMails.forEach(mail => !mail.isRead ? count++ : '')
-    return Promise.resolve(count);
+    return Promise.resolve((count / gMails.length) * 100);
 }
 
 // PRIVATE FUNCS
 function _createMails() {
-    for (let i = 0; i < 5; i++) {
-        const mail = _createMail();
+    for (let i = 0; i < 10; i++) {
+        let mail = _createMail();
         gMails.push(mail);
     }
 }
 
 function _createMail() {
     const id = utilService.makeId();
-    const subject = utilService.makeLorem(1);
-    const body = utilService.makeLorem(5);
+    const subject = utilService.makeLorem(2);
+    const body = utilService.makeLorem(30);
     const sentAt = new Date(Date.now()).toLocaleString();
     const newMail = {
         id,

@@ -6,6 +6,7 @@
     grid-column: 1/2;
     display: flex;
     flex-direction: column;
+    margin-bottom: 15px;
 }
 
 .compose-btn {
@@ -18,13 +19,14 @@
     border-radius: 3px;
     border: 1px solid #f39406;
     line-height: 1.5em;
-    background-color: linear-gradient( #eee7e5, #db7b0d);
-    transition: all 0.2s;
+    background: linear-gradient( #eee7e5, #d6d1cc);
+    transition: all 0.1s;
 }
 
 .compose-btn:hover {
     box-shadow: 0px 0px 4px #999696;
-    background-color: linear-gradient( #b84f32, #db7b0d);
+    color: #fff;
+    background: linear-gradient( #e46b4a, #db7b0d);
     border: 1px solid #B3320E;
 }
 
@@ -42,5 +44,40 @@
 }
 
 .toolbar-btns div:hover {
-    box-shadow: 1px 1px 5px black;
+    box-shadow: 1px 1px 5px rgb(63, 61, 61);
+}
+.unread-msg{
+    font-size: 0.8em;
+    color: #6954c5;
+}
+.unread-container {
+    width: 100%;
+    box-shadow:  0px 0px 3px 0px #4b2ed3;
+    background: linear-gradient( #c5cfe7, #b3c9f3);
+}
+
+.unread-percent {
+    background: linear-gradient( #3e62b4, #3925e7);
+    color: #fff;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+@media screen and (max-width: 660px) {
+    .mail-toolbar {
+        display: flex;
+        flex-direction: row;
+    }
+    .compose-btn {
+        width: 90px;
+        height: 30px;
+        line-height: 1em;
+    }
+    .toolbar-btns {
+        flex-direction: row;
+    }
+    .toolbar-btns div {
+        padding: 5px;
+        gap: 5px;
+    }
 }

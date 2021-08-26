@@ -12,10 +12,6 @@
     background-color: rgb(231, 230, 230);
 }
 
-.read{
-    background-color: rgb(200, 207, 207);
-}
-
 .mail-preview button {
     background: transparent;
     border: none;
@@ -35,4 +31,13 @@
     display: flex;
     flex: 1;
     justify-content: flex-end;
+}
+
+.read {
+    background-color: rgb(200, 207, 207);
+}
+
+.mail-star {
+    height: 40px;
+    width: 40px;
 }

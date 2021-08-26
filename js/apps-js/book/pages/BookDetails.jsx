@@ -76,7 +76,7 @@ export class BookDetails extends React.Component {
       if (book.listPrice.amount > 150) priceColor = 'high-price';
     }
 
-    if (!book) return <div>Loading...</div>
+    if(!book) return <img className="loader" src="../../../../img/loader.svg" alt="loader" />
     return (
       <section className='book-details'>
         {book.thumbnail && <img src={book.thumbnail} alt='book-img' />}

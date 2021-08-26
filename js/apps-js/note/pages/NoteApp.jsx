@@ -15,59 +15,59 @@ export class NoteApp extends React.Component {
 
     loadNotes = () => {
         NotesService.query(this.state.filter)
-        .then((notes) => {
-            this.setState({notes})
-        })
+            .then((notes) => {
+                this.setState({ notes })
+            })
     }
 
     onDelete = (noteId) => {
         NotesService.deleteNote(noteId)
-        .then(() => {
-            this.loadNotes()
-        })
+            .then(() => {
+                this.loadNotes()
+            })
     }
 
     togglePin = (noteId) => {
 
         NotesService.togglePin(noteId)
-        .then(() => {
-            this.loadNotes()
-        })
+            .then(() => {
+                this.loadNotes()
+            })
     }
 
     onCopy = (note) => {
         NotesService.addNote(note)
-        .then(() => {
-            this.loadNotes()
-        })
+            .then(() => {
+                this.loadNotes()
+            })
     }
 
-    onBlur = (noteId,newTxt) => {
-       
-        NotesService.setNoteTxt(noteId,newTxt)
-        .then(() => {
-            this.loadNotes()
-        })
+    onBlur = (noteId, newTxt) => {
+
+        NotesService.setNoteTxt(noteId, newTxt)
+            .then(() => {
+                this.loadNotes()
+            })
     }
 
     onFilter = (filter) => {
-        this.setState({filter}, () => {
+        this.setState({ filter }, () => {
             this.loadNotes()
         })
     }
 
     onAdd = (note) => {
         NotesService.addNewNote(note)
-        .then(() => {
-            this.loadNotes()
-        })
+            .then(() => {
+                this.loadNotes()
+            })
     }
 
-    onDone = (todoId,noteId) => {
-        NotesService.toggleTodoDone(todoId,noteId)
-        .then(() => {
-            this.loadNotes()
-        })
+    onDone = (todoId, noteId) => {
+        NotesService.toggleTodoDone(todoId, noteId)
+            .then(() => {
+                this.loadNotes()
+            })
     }
 
     funcs = {
@@ -84,17 +84,17 @@ export class NoteApp extends React.Component {
 
     render() {
 
-        const {notes} = this.state
-
+        const { notes } = this.state
+        if (!notes) return <img className="loader" src="../../../../img/loader.svg" alt="loader" />
         return (
             <section className="note-app">
                 <div className="note-app-title"><h1>AppsusKeep</h1></div>
                 <section className="filter-add-section">
-                <NoteAdd funcs={this.funcs}/>
-                <NoteFilter onFilter={this.onFilter}/>
+                    <NoteAdd funcs={this.funcs} />
+                    <NoteFilter onFilter={this.onFilter} />
                 </section>
                 {
-                  notes&&  <NoteList funcs={this.funcs} notes={notes}/> 
+                    notes && <NoteList funcs={this.funcs} notes={notes} />
                 }
             </section>
 

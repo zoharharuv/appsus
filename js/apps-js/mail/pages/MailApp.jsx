@@ -13,7 +13,6 @@ export class MailApp extends React.Component {
         filterBy: {
             display: 'all',
             txt: '',
-            isRead: false,
             lables: []
         },
         selectedMail: null,
@@ -139,6 +138,7 @@ export class MailApp extends React.Component {
 
     render() {
         const { mails, filterBy, selectedMail, unreadMails } = this.state;
+        if (!mails && !filterBy && !selectedMail) return <img className="loader" src="../../../../img/loader.svg" alt="loader" />
         return (
             <section className="mail-app" >
                 <MailFilter onSearch={this.onSearch}

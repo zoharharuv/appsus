@@ -1,7 +1,5 @@
 /* HOME */
 
-
-
 .home {
     text-align: center;
 }
@@ -22,19 +20,19 @@
     padding: 0;
 }
 
-
-
-
 /* APPS  */
+
 .about-comps {
     display: flex;
     justify-content: space-around;
     /* flex-direction: column; */
 }
-.about-comps a{
+
+.about-comps a {
     font-style: oblique;
     transition: color 0.4s ease-in-out;
 }
+
 .about-comps a:hover {
     color: #28a5f3;
 }
@@ -52,6 +50,7 @@
 }
 
 /* TEAM+VISION */
+
 .about nav a {
     color: rgb(42, 40, 40);
     text-decoration: overline;

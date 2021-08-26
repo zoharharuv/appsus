@@ -78,7 +78,7 @@ export class MailCompose extends React.Component {
                 </textarea>
 
                 <div className="mail-compose-btns">
-                    <button className="compose-send-btn" onClick={this.onSend}>Send mail</button>
+                    <button className="compose-send-btn" onClick={this.onSend}>Send mail <img src="../../../../img/send-icon.svg" /></button>
                 </div>
             </form>
 

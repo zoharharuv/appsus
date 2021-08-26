@@ -1,7 +1,36 @@
 /* COMPOSE */
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Open Sans Bold'), local('OpenSans-Bold'), url(https://themes.googleusercontent.com/static/fonts/opensans/v8/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Merriweather';
+    src: url(https://fonts.googleapis.com/css?family=Merriweather);
+}
+
 .mail-compose {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+}
+
+.mail-compose input, textarea {
+    border: 0;
+    outline: 0;
+    padding: 1em;
+    border-radius: 8px;
+    width: 100%;
+    margin-top: 1em;
+    font-family: 'Merriweather', sans-serif;
+    resize: none;
+}
+
+.mail-compose input:focus, textarea:focus {
+    box-shadow: 0px 0px 3px 0px #e74c3c;
 }
 
 .mail-compose input {
@@ -19,13 +48,20 @@
 }
 
 .compose-send-btn {
-    background-color: rgb(46, 85, 214);
-    color: #fff;
-    font-size: 1.5em;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    transition: background-color 0.3s ease-in;
+    height: 2.5em;
+    padding: 10px 20px;
+    font-size: 2em;
+    font-family: 'Open Sans';
+    text-transform: uppercase;
+    color: #696666;
+    background-color: #fff;
+    border-radius: 2em;
+    border: 0.15em solid #F9C23C;
+    transition: all 0.25s ease-out;
 }
 
-.compose-send-btn:hover{
-    background-color: rgb(110, 140, 241);
+.compose-send-btn:hover {
+    color: #fff;
+    background-color: #EAA502;
+    border-color: #EAA502;
 }

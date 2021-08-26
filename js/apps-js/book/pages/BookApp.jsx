@@ -48,6 +48,7 @@ export class BookApp extends React.Component {
 
   render() {
     const { books, googleBooks } = this.state;
+    if(!books) return <img className="loader" src="../../../../img/loader.svg" alt="loader" />
     return (
       <section className='book-app'>
         <BookFilter onSetFilter={this.onSetFilter} />
