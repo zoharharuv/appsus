@@ -7,12 +7,12 @@
   margin-inline-end: 1vw;
   border:1px black solid;
   box-shadow: 0px 0px 10px 0px;
-  margin: 5px;
-  
+  margin: 30px;
+  transition: 0.3s;
 }
 
 .note-content:hover{
   transform: scale(1.1);
-  transition: 0.3s;
+ 
 }
 

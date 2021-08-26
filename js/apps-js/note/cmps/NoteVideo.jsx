@@ -1,7 +1,7 @@
 import { NoteOptions } from "./NoteOptions.jsx";
 export function NoteVideo({ note,funcs }) {
   return (
-    <section style={{backgroundColor:note.style.bgColor}} className="note-content">
+    <section style={{backgroundColor:note.style.bgColor,color:(note.style.bgColor === 'black')? 'white' : 'black'}} className="note-content">
      
       <div className="note-video">
         <iframe src={note.info.url}>

@@ -15,7 +15,7 @@ export class NoteTodos extends React.Component{
     const {todos} = this.state
     const {note,funcs} = this.props
 
-    return <section style={{backgroundColor:this.props.note.style.bgColor}} className="note-content">
+    return <section style={{backgroundColor:note.style.bgColor,color:(note.style.bgColor === 'black')? 'white' : 'black'}} className="note-content">
      
     <div className="note-list">
      <div onBlur={(ev) => {funcs.onBlur(note.id,ev.target.innerText)}} contentEditable='true' className="list-label">{this.props.info.label}</div>
