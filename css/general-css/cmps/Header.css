@@ -17,53 +17,38 @@ header a {
 }
 
 .app-header h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2em;
+    letter-spacing: 3px;
     text-shadow: -2px 2px 10px #071221;
     cursor: pointer;
     transition: text-shadow 0.2s;
-    color: #b6d9ee;
+    color: #28a5f3;
 }
 
 .app-header h1:hover {
-    text-shadow: -2px 2px 8px #c3bfdb;
+    text-shadow: -2px 2px 20px #81c4ee;
 }
-
 
 /* NAVBAR  */
 
 .nav-bar {
-    z-index: 1;
-    position: absolute;
     display: flex;
-    flex-direction: column;
-    top: 70px;
-    right: calc(3vw);
-    background-color: #071221;
-}
-
-.navbar-toggle-btn {
-    transition: all 0.1s ease-in-out, background-color 0.2s ease-in-out;
-    cursor: pointer;
-    background-color: #94c3ec00;
-}
-
-.navbar-toggle-btn:hover {
-    background-color: #94c3ec55;
-}
-
-.navbar-toggle-btn.rotated {
-    transform: rotate(90deg);
 }
 
 .app-header a {
-    font-weight: 500;
     transition: color 0.25s ease-in-out;
     padding: 15px;
 }
 
-.app-header a:hover {
-    color: rgb(48, 140, 156);
+.nav-btn{
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    border-radius: 10px;
+    transition: background-color 0.2s ease-out ;
 }
 
-.app-header a.active {
-    color: rgb(70, 195, 218);
+.nav-btn:hover{
+    background-color: #cee8f8;
 }

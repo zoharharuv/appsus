@@ -1,4 +1,4 @@
-const { NavLink, Route } = ReactRouterDOM
+const { NavLink, Route, Link } = ReactRouterDOM
 function Team() {
   return (
     <ul>
@@ -30,21 +30,22 @@ export function Home() {
 
         <div className="about-comps">
           <ul>
-            <h3>Mails</h3>
+            <Link className="book-link"to="/mail"><h3>Books</h3></Link>
+            <li> Manage your favourite books!</li>
+            <li>Supports Google books.</li>
+          </ul>
+          <ul>
+            <Link className="mail-link"to="/mail"><h3>Mails</h3></Link>
             <li>Fast and qualified Email-Services these days!</li>
             <li>Easier for you to manage your emails.</li>
           </ul>
 
           <ul>
-            <h3>Notes</h3>
+            <Link className="note-link"to="/note"><h3>Notes</h3></Link>
             <li> Manage your thoughts!</li>
             <li>Supports videos and pictures to be kept.</li>
           </ul>
-          <ul>
-            <h3>Books</h3>
-            <li> Manage your favourite books!</li>
-            <li>Supports Google books.</li>
-          </ul>
+
         </div>
         <hr />
         <nav>

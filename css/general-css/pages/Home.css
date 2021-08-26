@@ -20,21 +20,46 @@
     padding: 0;
 }
 
+
+
+
+/* APPS */
 .about-comps {
     display: flex;
     flex-direction: column;
 }
+.about-comps a{
+    font-style: oblique;
+    transition: color 0.4s ease-in-out;
+}
+.about-comps a:hover {
+    color: #28a5f3;
+}
 
+.book-link {
+    color: #32a350;
+}
+
+.mail-link {
+    color: #dc5247;
+}
+
+.note-link {
+    color: #ffba00;
+}
+
+/* TEAM+VISION */
 .about nav a {
+    color: rgb(42, 40, 40);
     text-decoration: overline;
     margin: 0 20px;
 }
 
 .about a.active {
     color: rgb(51, 145, 161);
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 .about nav a:hover {
-    text-decoration: none;
+    color: rgb(104, 211, 230);
 }
