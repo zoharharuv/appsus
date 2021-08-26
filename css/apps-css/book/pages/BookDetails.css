@@ -3,7 +3,7 @@
 .book-details {
     display: flex;
     padding: 15px 0;
-    background-color: rgb(20, 24, 66);
+    background-color: rgb(83 87 128);
     color: #fff;
     flex-direction: column;
     align-items: center;
@@ -60,7 +60,9 @@
     color: #dfdcb2;
 }
 
-p .long-text {
+.book-details p {
+    font-size: 1.1em;
+    margin: 15px 10px;
     text-align: center;
 }
 

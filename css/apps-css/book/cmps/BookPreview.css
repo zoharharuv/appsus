@@ -1,11 +1,15 @@
 /* PREV */
 .book-preview {
-    background-color: rgb(20, 24, 66);
+    display: flex;
+    background-color: rgb(52 58 114);
     color: #fff;
     box-shadow: rgb(48 74 149 / 80%) 5px 5px 10px 2px;
     padding: 5px;
     transition: opacity 0.3s ease-out;
     min-height: 285px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .book-preview:hover {

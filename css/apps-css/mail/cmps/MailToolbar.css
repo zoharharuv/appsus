@@ -26,3 +26,7 @@
     display: flex;
     align-items: center;
 }
+
+.toolbar-btns div:hover{
+    box-shadow: 1px 1px 5px black;
+}
