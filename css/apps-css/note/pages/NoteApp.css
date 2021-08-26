@@ -1,26 +1,8 @@
-body {
-  background: #abbaab;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #ffffff, #abbaab);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #ffffff, #abbaab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-font-style: italic;
-}
 
 .filter-add-section{
   
   display: flex;
   justify-content: space-around;
-}
-
-.note-content{
-  border:1px black solid;
-  box-shadow: 0px 0px 5px 0px;
-  margin: 5px;
-}
-
-.add-input-form{
-  display: flex;
-  margin-top: 5px;
-  
 }
 
 .add-icon, .filter-icon{
@@ -31,11 +13,6 @@ input {
   width: 165px;
   height: 35px;
 }
-
-.filter-choices {
-  margin-bottom: 5px;
-}
-
 
 button {
   margin:1px

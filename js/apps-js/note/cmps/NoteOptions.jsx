@@ -50,12 +50,12 @@ email
 
     { isColorsShown&& 
     <div>
-<button onClick={() => {this.onColor('yellow')}}> 🟡 </button>
-<button onClick={() => {this.onColor('green')}}> 🟢 </button>
+<button onClick={() => {this.onColor('white')}}> ⚪️ </button>
+<button onClick={() => {this.onColor('black')}}> ⚫️ </button>
 <button onClick={() => {this.onColor('blue')}}> 🔵 </button>
 <button onClick={() => {this.onColor('purple')}}> 🟣 </button>
-<button onClick={() => {this.onColor('red')}}> 🔴 </button>
-<button onClick={() => {this.onColor('orange')}}> 🟠 </button>
+<button onClick={() => {this.onColor('yellow')}}> 🟡 </button>
+<button onClick={() => {this.onColor('brown')}}> 🟤 </button>
     </div>
 
     }
