@@ -22,7 +22,7 @@ function query(filterBy) {
     let { title, minPrice, maxPrice } = filterBy;
     maxPrice = maxPrice ? maxPrice : Infinity;
     minPrice = minPrice ? minPrice : 0;
-    const booksToShow = gBooks.filter(book => book.title.includes(title)
+    const booksToShow = gBooks.filter(book => book.title.toLowerCase().includes(title.toLowerCase())
       && book.listPrice.amount >= minPrice && book.listPrice.amount <= maxPrice)
     return Promise.resolve(booksToShow);
   }
@@ -91,10 +91,9 @@ function addGoogleBook(googleBook) {
 
   const date = googleBook.volumeInfo.publishedDate;
   const onlyYear = date ? date.substring(0, 4) : '2018';
-  const title = googleBook.volumeInfo.title.toLowerCase();
   const newBook = {
     "id": googleBook.id,
-    "title": title,
+    "title": googleBook.volumeInfo.title,
     "subtitle": googleBook.volumeInfo.subtitle || '',
     "authors": googleBook.volumeInfo.authors,
     "publishedDate": +onlyYear,

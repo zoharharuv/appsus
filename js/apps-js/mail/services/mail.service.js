@@ -84,8 +84,9 @@ function query(filterBy) {
             mailsToShow = beforeFilter.filter(mail => {
                 return (
                     mail.subject.toLowerCase().includes(txt.toLowerCase())
-                     || mail.to.toLowerCase().includes(txt.toLowerCase())
-                    )
+                    || mail.to.toLowerCase().includes(txt.toLowerCase())
+                    || mail.body.toLowerCase().includes(txt.toLowerCase())
+                )
             })
         }
         // LABELS
@@ -167,8 +168,8 @@ function undeleteMail(mail) {
     _saveMailsToStorage();
 }
 
-function updateMailIsRead(mail) {
-    mail.isRead = !mail.isRead;
+function updateMailIsRead(mail, isFromLink) {
+    mail.isRead = isFromLink ? true : !mail.isRead;
     _saveMailsToStorage();
 }
 function starMail(mail) {

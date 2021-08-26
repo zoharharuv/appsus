@@ -17,7 +17,6 @@ class _AppHeader extends React.Component {
       <section className="app-header main-layout">
         <NavLink exact to="/" ><h1>Appsus</h1></NavLink>
         {isOpen && <nav className="nav-bar">
-          <NavLink to="/about" onClick={this.openNavbar}>About</NavLink>
           <NavLink to="/book" onClick={this.openNavbar}>Books</NavLink>
           <NavLink to="/mail" onClick={this.openNavbar}>Mails</NavLink>
           <NavLink to="/note" onClick={this.openNavbar}>Notes</NavLink>
