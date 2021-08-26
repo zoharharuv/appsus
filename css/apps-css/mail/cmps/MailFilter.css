@@ -13,6 +13,7 @@
     letter-spacing: 0.1em;
 }
 
+/* FILTER */
 .mail-filter select {
     padding: 9px 2px;
     margin-inline-start: 10px;

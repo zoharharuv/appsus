@@ -1,7 +1,6 @@
 @import 'setup.css';
 /* GENERAL PAGES*/
-/* @import '../css/general-css/pages/Home.css'; */
-@import'./general-css/pages/Home.css';
+@import '../css/general-css/pages/Home.css';
 /* GENERAL CMPS */
 @import '../css/general-css/cmps/UserMsg.css';
 @import '../css/general-css/cmps/Header.css';
@@ -22,13 +21,13 @@
 
 
 /* NOTE CMPS */
-@import '../css/apps-css/note/cmps/note-add.css';
-@import '../css/apps-css/note/cmps/note-filter.css';
-@import '../css/apps-css/note/cmps/note.css';
-@import '../css/apps-css/note/cmps/note-img.css';
-@import '../css/apps-css/note/cmps/note-options.css';
-@import '../css/apps-css/note/cmps/notes-list.css';
-@import '../css/apps-css/note/cmps/note-todos.css';
+@import '../css/apps-css/note/cmps/NoteAdd.css';
+@import '../css/apps-css/note/cmps/NoteFilter.css';
+@import '../css/apps-css/note/cmps/Note.css';
+@import '../css/apps-css/note/cmps/NoteImg.css';
+@import '../css/apps-css/note/cmps/NoteOptions.css';
+@import '../css/apps-css/note/cmps/NotesList.css';
+@import '../css/apps-css/note/cmps/NoteTodos.css';
 
 /* MAIL PAGES */
 @import '../css/apps-css/mail/pages/MailApp.css';

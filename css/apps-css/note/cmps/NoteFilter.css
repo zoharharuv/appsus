@@ -1,5 +1,7 @@
-.note-add {
+/* FILTER */
+.note-filter {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 2vh;
 }
