@@ -25,16 +25,27 @@ export class NoteOptions extends React.Component{
     const {note,funcs} = this.props
     return <section className="options-section">
 <div className="options-actions">
-      <button onClick={() => {funcs.onDelete(note.id)}}>🗑️</button>
+      <button  onClick={() => {funcs.onDelete(note.id)}}><span class="material-icons">
+delete
+</span></button>
 
-      <button className={(note.isPinned)? 'pin': ''} onClick={() => {funcs.onPin(note.id)}}>📌</button>
+      <button className={(note.isPinned)? 'pin': ''  } onClick={() => {funcs.onPin(note.id)}}><span class="material-icons">
+place
+</span></button>
 
-      <button onClick={() => {funcs.onCopy(note)}}>➕</button>
+      <button onClick={() => {funcs.onCopy(note)}}><span class="material-icons">
+file_copy
+</span></button>
 
 
-      <button onClick={this.toggleColors}>🎨</button>
+      <button onClick={this.toggleColors}><span class="material-icons">
+palette
+</span></button>
 
-      <button>📧</button>
+      <button><span class="material-icons">
+email
+</span></button>
+      
       </div>
 
     { isColorsShown&& 
@@ -44,6 +55,7 @@ export class NoteOptions extends React.Component{
 <button onClick={() => {this.onColor('blue')}}> 🔵 </button>
 <button onClick={() => {this.onColor('purple')}}> 🟣 </button>
 <button onClick={() => {this.onColor('red')}}> 🔴 </button>
+<button onClick={() => {this.onColor('orange')}}> 🟠 </button>
     </div>
 
     }

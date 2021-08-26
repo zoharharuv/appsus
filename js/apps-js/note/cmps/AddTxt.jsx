@@ -31,10 +31,12 @@ export class AddTxt extends React.Component{
   render(){
     const {txt} = this.state
   return (
-    <section>
-      <form onSubmit={this.onAdd} action="">
+    <section >
+      <form className='add-input-form' onSubmit={this.onAdd} action="">
       <input onChange={this.handleChange} value={txt} placeholder="Enter Note" type="text" />
-      <button>Add</button>
+      <button><span class="material-icons">
+add
+</span></button>
       </form>
     </section>
   );

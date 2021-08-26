@@ -1,5 +1,7 @@
 /* HOME */
 
+
+
 .home {
     text-align: center;
 }
@@ -26,7 +28,8 @@
 /* APPS  */
 .about-comps {
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
+    /* flex-direction: column; */
 }
 .about-comps a{
     font-style: oblique;

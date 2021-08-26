@@ -7,6 +7,7 @@ export class NoteFilter extends React.Component {
   };
 
   handleChange = (ev) => {
+    ev.preventDefault()
     if (ev.target.name === "search")
       this.setState({
         filter: { ...this.state.filter, ["search"]: ev.target.value },
@@ -28,7 +29,17 @@ export class NoteFilter extends React.Component {
     const { filter } = this.state;
     return (
       <div className="note-filter">
-        <h1>Filter Your Notes!</h1>
+        <h1><span class="material-icons filter-icon">
+filter_alt
+</span></h1>
+  
+        <form className='filter-choices' action="">
+          <button className='material-icons' onClick={this.handleChange} value='txt'>description</button>
+          <button className='material-icons' onClick={this.handleChange} value='todos'>checklist</button>
+          <button className='material-icons' onClick={this.handleChange} value='img'>add_photo_alternate</button>
+          <button className='material-icons' onClick={this.handleChange} value='video'> ondemand_video</button>
+        </form>
+
         <input
           name="search"
           onChange={this.handleChange}
@@ -36,14 +47,6 @@ export class NoteFilter extends React.Component {
           placeholder="Search Notes"
           type="text"
         />
-
-<select onChange={this.handleChange} value={filter.show} name="show" id="show">
-  <option value="all">all</option>
-  <option value="txt">txt</option>
-  <option value="img">img</option>
-  <option value="video">video</option>
-  <option value="todos">todos</option>
-</select>
         
       </div>
     );

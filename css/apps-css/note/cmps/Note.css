@@ -2,9 +2,8 @@
 .note-content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  border: 1px black solid;
   margin-inline-end: 1vw;
   
 }

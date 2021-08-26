@@ -19,7 +19,8 @@
 @import '../css/apps-css/book/cmps/ReviewAdd.css';
 
 
-
+/*NOTE PAGES*/
+@import '../css/apps-css/note/pages/NoteApp.css';
 /* NOTE CMPS  */
 @import '../css/apps-css/note/cmps/NoteAdd.css';
 @import '../css/apps-css/note/cmps/NoteFilter.css';

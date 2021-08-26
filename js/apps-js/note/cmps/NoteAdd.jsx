@@ -18,13 +18,15 @@ export class NoteAdd extends React.Component {
     return (
       <div className="note-add">
 
-        <h1>Add Note!</h1>
+        <h1><span class="material-icons add-icon">
+search
+</span></h1>
 
         <div className="add-choice">
-        <span onClick={() => {this.onSelect('txt')}}>📋</span>
-        <span onClick={() => {this.onSelect('todos')}}>📝</span>
-        <span onClick={() => {this.onSelect('img')}}>🖼️</span>
-        <span onClick={() => {this.onSelect('video')}}>🎞️</span>
+        <button className='material-icons' onClick={() => {this.onSelect('txt')}}>description</button>
+        <button className='material-icons' onClick={() => {this.onSelect('todos')}}>checklist</button>
+        <button className='material-icons' onClick={() => {this.onSelect('img')}}>add_photo_alternate</button>
+        <button className='material-icons' onClick={() => {this.onSelect('video')}}>ondemand_video</button>
         </div>
 
         <div className="add-input">

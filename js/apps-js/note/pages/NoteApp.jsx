@@ -88,8 +88,10 @@ export class NoteApp extends React.Component {
 
         return (
             <section className="note-app">
+                <section className="filter-add-section">
                 <NoteAdd funcs={this.funcs}/>
                 <NoteFilter onFilter={this.onFilter}/>
+                </section>
                 {
                   notes&&  <NoteList funcs={this.funcs} notes={notes}/> 
                 }
