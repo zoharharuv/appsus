@@ -10,7 +10,8 @@ export const mailService = {
     updateMailIsRead,
     deleteMail,
     undeleteMail,
-    starMail
+    starMail,
+    checkUnreads
 }
 
 // GLOBAL VARS
@@ -175,6 +176,12 @@ function updateMailIsRead(mail, isFromLink) {
 function starMail(mail) {
     mail.isStarred = !mail.isStarred;
     _saveMailsToStorage();
+}
+
+function checkUnreads() {
+    var count = 0;
+    gMails.forEach(mail => !mail.isRead ? count++ : '')
+    return Promise.resolve(count);
 }
 
 // PRIVATE FUNCS

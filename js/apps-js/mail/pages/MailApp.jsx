@@ -17,30 +17,53 @@ export class MailApp extends React.Component {
             lables: []
         },
         selectedMail: null,
+        unreadMails: 0
     }
     initialFilter;
 
     componentDidMount() {
+        console.log(this.props.match.params);
         this.initialFilter = this.state.filterBy;
         const id = this.props.match.params.mailId;
+        this.checkHrefParams(id);
+    }
+    // CHECKS IF MAILID / INBOX,TRASH ETC
+    checkHrefParams = (id) => {
         if (!id) {
             this.props.history.push('/mail')
             this.loadMails()
         } else {
-            mailService.getMailById(id)
-                .then(mail => {
-                    if (mail) this.onSelectMail(mail, true);
-                })
+            if (id === 'compose'
+                || id === 'inbox'
+                || id === 'sent'
+                || id === 'drafts'
+                || id === 'trash'
+                || id === 'starred') {
+                this.onSetDisplay(id)
+            }
+            else {
+
+                mailService.getMailById(id)
+                    .then(mail => {
+                        if (mail) this.onSelectMail(mail, true);
+                    })
+            }
         }
     }
-
+    // MAIN FUNC THAT LOADS MAILS
     loadMails = () => {
         console.log('state:', this.state.filterBy);
-        mailService.query(this.state.filterBy).then((mails) => {
-            this.setState({ mails });
-            console.log('mails:', this.state.mails);
-        });
+        mailService.query(this.state.filterBy)
+            .then((mails) => {
+                this.setState({ mails }, this.setUnreadMails());
+                console.log('mails:', this.state.mails);
+            });
     };
+    // SETS UNREAD COUNT
+    setUnreadMails = () => {
+        mailService.checkUnreads()
+            .then(unreadMails => this.setState({ unreadMails }))
+    }
 
     // SELECT MAIL FROM PREVIEWS
     onSelectMail = (selectedMail, isFromLink = false) => {
@@ -100,7 +123,7 @@ export class MailApp extends React.Component {
                 this.onSetDisplay('drafts')
             })
     }
-    // REFRESH
+    // REFRESH THE FILTER
     onRefresh = () => {
         this.setState({ filterBy: this.initialFilter }, () => {
             this.loadMails();
@@ -110,7 +133,7 @@ export class MailApp extends React.Component {
 
 
     render() {
-        const { mails, filterBy, selectedMail } = this.state;
+        const { mails, filterBy, selectedMail, unreadMails } = this.state;
         return (
             <section className="mail-app" >
                 <MailFilter onSearch={this.onSearch}
@@ -118,7 +141,7 @@ export class MailApp extends React.Component {
                     currDisplay={filterBy.display}
                     onRefresh={this.onRefresh} />
 
-                <MailToolbar onSetDisplay={this.onSetDisplay} />
+                <MailToolbar onSetDisplay={this.onSetDisplay} unreadMails={unreadMails} />
 
                 {/* NO MAILS */}
                 {mails.length <= 0 && filterBy.display !== 'compose' && filterBy.display !== 'details' &&

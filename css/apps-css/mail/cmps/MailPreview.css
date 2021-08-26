@@ -2,7 +2,7 @@
 .mail-preview {
     display: flex;
     box-shadow: 0px 0px 5px 0px;
-    width: 500px;
+    width: 100%;
 }
 
 .mail-preview button {
@@ -19,14 +19,17 @@
 }
 
 .mail-preview-content {
-    flex: 2;
     display: flex;
     cursor: pointer;
     align-items: center
 }
 
 .mail-preview-content p{
-    flex: 1;
     display: flex;
     justify-content: flex-end;
+}
+
+.preview-action-btns{
+    display: flex;
+    justify-self: flex-end;
 }

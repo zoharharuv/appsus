@@ -30,7 +30,7 @@ export function Home() {
 
         <div className="about-comps">
           <ul>
-            <Link className="book-link"to="/mail"><h3>Books</h3></Link>
+            <Link className="book-link"to="/book"><h3>Books</h3></Link>
             <li> Manage your favourite books!</li>
             <li>Supports Google books.</li>
           </ul>

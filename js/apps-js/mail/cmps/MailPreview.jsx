@@ -21,15 +21,18 @@ export class MailPreview extends React.Component {
                         <p>{mail.body.substring(0, 30)}</p>
                     </div>
                 </Link>
-                <button onClick={() => onToggleRead(mail)}>
-                    <img src={`./img/${mail.isRead ? 'read' : 'unread'}.svg`} />
-                </button>
+                <div className="preview-action-btns">
 
-                {mail.isDeleted && <button onClick={() => onUndelete(mail)}><img src="./img/undelete.svg" /></button>}
+                    <button onClick={() => onToggleRead(mail)}>
+                        <img src={`./img/${mail.isRead ? 'read' : 'unread'}.svg`} />
+                    </button>
 
-                <button onClick={() => onDeleteMail(mail)}>
-                    <img src={`./img/${mail.isDeleted ? 'delete-perm' : 'delete'}.svg`} />
-                </button>
+                    {mail.isDeleted && <button onClick={() => onUndelete(mail)}><img src="./img/undelete.svg" /></button>}
+
+                    <button onClick={() => onDeleteMail(mail)}>
+                        <img src={`./img/${mail.isDeleted ? 'delete-perm' : 'delete'}.svg`} />
+                    </button>
+                </div>
 
             </article>
 
