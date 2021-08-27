@@ -2,15 +2,23 @@ import { NotesService } from "../services/note.service.js";
 import { NoteList } from './../cmps/NoteList.jsx';
 import { NoteFilter } from "../cmps/NoteFilter.jsx";
 import { NoteAdd } from "../cmps/NoteAdd.jsx";
+import { mailService } from './../../mail/services/mail.service.js';
+
 export class NoteApp extends React.Component {
 
     state = {
         notes: null,
-        filter: null
+        filter: null,
+        mailTxt: ''
     }
 
     componentDidMount() {
-        console.log('mailId',this.props.match.params)
+        const mailId = this.props.match.params.mailId
+        if (mailId) mailService.getMailById(mailId)
+        .then((mail) => {
+            this.setState({mailTxt: mail.body})
+        })
+            
         this.loadNotes()
 
     }
@@ -86,13 +94,13 @@ export class NoteApp extends React.Component {
 
     render() {
 
-        const { notes } = this.state
+        const { notes,mailTxt } = this.state
         if (!notes) return <img className="loader" src="../../../../img/loader.svg" alt="loader" />
         return (
             <section className="note-app">
               
                 <section className="filter-add-section">
-                    <NoteAdd funcs={this.funcs} />
+                    <NoteAdd mailTxt={(mailTxt)? mailTxt : ''} funcs={this.funcs} />
                     <NoteFilter onFilter={this.onFilter} />
                 </section>
                 {

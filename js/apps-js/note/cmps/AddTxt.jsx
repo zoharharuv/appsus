@@ -4,6 +4,11 @@ export class AddTxt extends React.Component{
     txt: ''
   }
 
+  componentDidMount() {
+    const {mailTxt} = this.props
+    if (mailTxt) this.setState({txt: mailTxt})
+  }
+
   onAdd = (ev) => {
     ev.preventDefault()
     const {txt} = this.state

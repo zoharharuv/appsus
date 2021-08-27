@@ -9,11 +9,14 @@ export class NoteAdd extends React.Component {
     type: "txt",
   };
 
+ 
+
   onSelect = (type) => {
     this.setState({type})
   }
 
   render() {
+    const {mailTxt} = this.props
     const { type } = this.state;
     return (
       <div className="note-add">
@@ -33,7 +36,7 @@ search
         {
 
         {
-          'txt': <AddTxt funcs={this.props.funcs} />,
+          'txt': <AddTxt mailTxt={(mailTxt)? mailTxt : ''} funcs={this.props.funcs} />,
           'img': <AddImg funcs={this.props.funcs} />,
           'video': <AddVideo funcs={this.props.funcs} />,
           'todos': <AddTodos funcs={this.props.funcs} />
