@@ -9,6 +9,12 @@
   margin-top: 50px;
 }
 
+@media screen and (max-width:374px) {
+.filter-add-section{
+  flex-direction: column;
+  align-items: center;
+}
+}
 
 .notes-section {
   border-radius: 10px;
