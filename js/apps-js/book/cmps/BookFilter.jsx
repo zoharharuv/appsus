@@ -19,7 +19,7 @@ export class BookFilter extends React.Component {
 
   onFilter = (ev = null) => {
     if (!this.state.filterBy.title && !this.state.filterBy.minPrice && !this.state.filterBy.maxPrice) return;
-    if(ev) ev.preventDefault();
+    if (ev) ev.preventDefault();
     this.props.onSetFilter(this.state.filterBy)
   };
 
@@ -27,7 +27,7 @@ export class BookFilter extends React.Component {
     const { title, minPrice, maxPrice } = this.state.filterBy;
     return (
       <form className='book-filter' onSubmit={this.onFilter}>
-        <label htmlFor='by-title'>By title</label>
+        <h3 className="book-filter-header">Book filter</h3>
         <input
           name='title'
           id='by-title'
@@ -36,25 +36,25 @@ export class BookFilter extends React.Component {
           value={title}
           onChange={this.handleChange}
         />
-        <label htmlFor='min-Price'>Min Price</label>
-        <input
-          name='minPrice'
-          id='min-Price'
-          type='number'
-          placeholder='Min Price'
-          value={minPrice}
-          onChange={this.handleChange}
-        />
-        <label htmlFor='max-Price'>Max Price</label>
-        <input
-          name='maxPrice'
-          id='max-Price'
-          type='number'
-          placeholder='Max Price'
-          value={maxPrice}
-          onChange={this.handleChange}
-        />
-        <button>🔍</button>
+        <div className="filter-price">
+
+          <input
+            name='minPrice'
+            id='min-Price'
+            type='number'
+            placeholder='Min Price'
+            value={minPrice}
+            onChange={this.handleChange}
+          />
+          <input
+            name='maxPrice'
+            id='max-Price'
+            type='number'
+            placeholder='Max Price'
+            value={maxPrice}
+            onChange={this.handleChange}
+          />
+        </div>
       </form>
     );
   }

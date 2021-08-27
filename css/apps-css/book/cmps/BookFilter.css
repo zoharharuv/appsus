@@ -5,21 +5,37 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.book-filter-header {
+    width: 100%;
+    color: rgb(53 58 114);
+    font-size: 1.8em;
+    font-family: monospace;
+    letter-spacing: 2px;
 }
 
 .book-filter input {
-    max-width: 120px;
     margin-inline-end: 15px;
     margin-inline-start: 5px;
 }
 
-.book-filter button {
-    background-color: transparent;
-    border: none;
-    font-size: 1.6em;
-    transition: text-shadow 0.2s ease-in-out;
+.book-filter input[name="title"] {
+    width: 180px;
 }
 
-.book-filter button:hover {
-    text-shadow: 1px 1px 10px #f4f4f4;
+.book-filter input:not([name="title"]) {
+    width: 100px;
+}
+
+@media screen and (max-width: 660px) {
+    .book-filter {
+        flex-direction: column;
+        margin-bottom: 30px;
+    }
+    .book-filter input[name="title"] {
+        width: 90%;
+    }
 }

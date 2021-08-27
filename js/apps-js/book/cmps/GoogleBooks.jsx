@@ -25,7 +25,7 @@ export class GoogleBooks extends React.Component {
                 <input type="search"
                     name="title"
                     id="title"
-                    placeholder="Search for a book"
+                    placeholder="Search Google 🔍"
                     autoComplete="off"
                     value={title}
                     onChange={this.onSearchChange} />
