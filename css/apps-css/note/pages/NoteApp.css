@@ -1,15 +1,4 @@
-.note-app-title {
-  color: rgb(180, 176, 176);
-  transform: rotate(10deg);
-  text-align: center;
-  font-size: 40px;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  transition: 0.3s;
-}
 
-.note-app-title:hover {
-  transform: rotate(-10deg);
-}
 .filter-add-section{
   
   display: flex;

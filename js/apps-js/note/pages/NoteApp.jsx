@@ -88,7 +88,7 @@ export class NoteApp extends React.Component {
         if (!notes) return <img className="loader" src="../../../../img/loader.svg" alt="loader" />
         return (
             <section className="note-app">
-                <div className="note-app-title"><h1>AppsusKeep</h1></div>
+              
                 <section className="filter-add-section">
                     <NoteAdd funcs={this.funcs} />
                     <NoteFilter onFilter={this.onFilter} />

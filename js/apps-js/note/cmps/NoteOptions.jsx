@@ -1,4 +1,4 @@
-
+const { Link } = ReactRouterDOM
 import { NotesService } from './../services/note.service.js';
 
 export class NoteOptions extends React.Component{
@@ -42,9 +42,33 @@ file_copy
 palette
 </span></button>
 
-      <button><span class="material-icons">
+      <Link to='/mail/compose' params={
+        
+          {
+            'note-txt': 
+              {
+
+              title: 'no title',
+              content: `${note.info.txt}`
+            }
+          ,
+            'note-img': {
+              title: `${note.info.title}`,
+              content: `${note.info.url}`
+            },
+            'note-video': {
+              title: `${note.info.title}`,
+              content: `${note.info.url}`
+            },
+            'note-todos': {
+              title: `${note.info.title}`,
+              content: `todos here`
+            }
+          }[note.type]
+        
+      }><span class="material-icons">
 email
-</span></button>
+</span></Link>
       
       </div>
 
