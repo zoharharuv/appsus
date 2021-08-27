@@ -59,11 +59,9 @@ export class MailApp extends React.Component {
 
     // MAIN FUNC THAT LOADS MAILS
     loadMails = () => {
-        console.log('Filter:', this.state.filterBy);
         mailService.query(this.state.filterBy)
             .then((mails) => {
                 this.setState({ mails }, this.setUnreadMails());
-                console.log('State mails:', this.state.mails);
             });
     };
     // SETS UNREAD COUNT

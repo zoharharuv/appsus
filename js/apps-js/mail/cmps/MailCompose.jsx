@@ -20,7 +20,6 @@ export class MailCompose extends React.Component {
         this.mailState = this.state.mail
         this.interval = setInterval(() => {
             this.mailState = this.state.mail
-            console.log('saved draft state:', this.mailState);
         }, 5000);
     }
 
@@ -52,7 +51,6 @@ export class MailCompose extends React.Component {
     componentWillUnmount() {
         clearInterval(this.interval)
         this.mailState = this.state.mail
-        console.log('out and: ', this.mailState);
         if (this.mailState.body) this.props.onSaveDraft(this.mailState)
     }
 

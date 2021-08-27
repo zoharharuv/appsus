@@ -7,7 +7,6 @@ export class MailToolbar extends React.Component {
         this.setState({ width: window.innerWidth });
     }
     componentDidMount() {
-        console.log(window.innerWidth);
         window.addEventListener('resize', this.handleResize);
     }
     componentWillUnmount() {
