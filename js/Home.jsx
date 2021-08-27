@@ -40,16 +40,40 @@ export function Home() {
       </div>
 
       <h2 className="team-header">Our team members</h2>
-      <div className="social-links">
+
+      <div className="about-team">
         <article className="social-container">
-          <img className="social-img" src="img/zohar.jpg"/>
-          <h3>Zohar Haruv</h3>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum a at id ab eos! Blanditiis odio quae repudiandae earum eum!</p>
+          <img className="social-img" src="../img/zohar.jpg" />
+          <h3 className="social-header">Zohar Haruv</h3>
+          <p className="social-info">Hey I am Zohar, 24 years old, a fullstack developer from Dekel, southern Israel.</p>
+          <div className="social-links">
+            <a href="https://www.linkedin.com/in/zohar-haruv-a6690b210/">
+              <img className="social-icon linkedin" src="../img/linkedin-brands.svg" alt="linkedin" />
+            </a>
+            <a href="https://github.com/zoharharuv/">
+              <img className="social-icon git" src="../img/git-brands.svg" alt="git" />
+            </a>
+            <a href="https://www.instagram.com/muzic_by_z/">
+              <img className="social-icon instagram" src="../img/instagram-brands.svg" alt="linkedin" />
+            </a>
+          </div>
         </article>
+
         <article className="social-container">
-          <img className="social-img" src="img/guy.jpg"/>
-          <h3>Guy Kamin</h3>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum a at id ab eos! Blanditiis odio quae repudiandae earum eum!</p>
+          <img className="social-img" src="../img/guy.jpg" />
+          <h3 className="social-header">Guy Kamin</h3>
+          <p className="social-info">And I am Guy, 25 years old, a fullstack developer from Dafna, northen Israel.</p>
+          <div className="social-links">
+            <a href="https://www.linkedin.com/in/guy-kamin-499565182/">
+              <img className="social-icon linkedin" src="../img/linkedin-brands.svg" alt="linkedin" />
+            </a>
+            <a href="https://github.com/guykamin1/">
+              <img className="social-icon git" src="../img/git-brands.svg" alt="git" />
+            </a>
+            <a href="https://www.instagram.com/guykaminn/">
+              <img className="social-icon instagram" src="../img/instagram-brands.svg" alt="linkedin" />
+            </a>
+          </div>
         </article>
 
       </div>
