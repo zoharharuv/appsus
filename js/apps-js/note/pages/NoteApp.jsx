@@ -10,7 +10,9 @@ export class NoteApp extends React.Component {
     }
 
     componentDidMount() {
+        console.log('mailId',this.props.match.params)
         this.loadNotes()
+
     }
 
     loadNotes = () => {

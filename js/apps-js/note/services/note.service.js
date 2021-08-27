@@ -63,6 +63,7 @@ function getNoteById(noteId) {
   var note = gNotes.find(note => {
     return noteId === note.id;
   })
+  if (!note) return Promise.reject('No Such Note!')
   return Promise.resolve(note);
 }
 

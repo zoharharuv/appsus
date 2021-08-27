@@ -21,7 +21,7 @@ export class MailApp extends React.Component {
     initialFilter;
 
     componentDidMount() {
-        console.log(this.props.match.params);
+        console.log('noteid',this.props.match.params);
         this.initialFilter = this.state.filterBy;
         const id = this.props.match.params.mailId;
         this.checkHrefParams(id);

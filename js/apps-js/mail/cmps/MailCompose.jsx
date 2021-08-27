@@ -12,6 +12,7 @@ export class MailCompose extends React.Component {
     inputRef = React.createRef()
 
     componentDidMount() {
+        
         this.inputRef.current.focus();
         this.mailState = this.state.mail
         this.interval = setInterval(() => {

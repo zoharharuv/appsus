@@ -27,9 +27,10 @@ export function App() {
       <main className="main-layout">
         <Switch>
           {/* NOTE */}
-          <Route path="/note/:noteId" component={NoteDetails} />
+          <Route path="/note/:mailId" component={NoteApp} />
           <Route path="/note" component={NoteApp} />
           {/* MAIL */}
+          <Route path="/mail/compose/:noteId" component={MailApp} />
           <Route path="/mail/:mailId" component={MailApp} />
           <Route path="/mail/compose" component={MailApp} />
           <Route path="/mail/inbox" component={MailApp} />
