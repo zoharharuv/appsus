@@ -12,7 +12,7 @@
     width: 100%;
 }
 
-.book-details *{
+.book-details * {
     margin: 5px 0;
 }
 
@@ -70,8 +70,15 @@
 
 /* ACTIONS BUTTONS  */
 
-.actions button{
-    margin: 0 15px;
+.actions {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.actions button {
     width: 150px;
 }
 
@@ -99,4 +106,13 @@
 
 .delete-btn:hover, .back-btn:hover, .next-btn:hover {
     opacity: 0.7;
+}
+
+@media screen and (max-width: 660px) {
+    .book-details img {
+        max-width: 250px;
+    }
+    .actions {
+        flex-direction: column;
+    }
 }

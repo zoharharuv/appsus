@@ -46,9 +46,9 @@ export function App() {
         </Switch>
       </main>
       <footer>
-        <AppFooter/>
+        <AppFooter />
       </footer>
-      <UserMsg/>
+      <UserMsg />
     </Router>
   );
 }

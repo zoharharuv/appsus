@@ -7,6 +7,7 @@ export class MailToolbar extends React.Component {
         this.setState({ width: window.innerWidth });
     }
     componentDidMount() {
+        console.log(window.innerWidth);
         window.addEventListener('resize', this.handleResize);
     }
     componentWillUnmount() {
@@ -54,7 +55,7 @@ export class MailToolbar extends React.Component {
                     </Link>
 
                 </nav>
-                {unreadMails && width >= 660 ? <p className="unread-msg">Unread mails</p> : ''}
+                {width > 660 && unreadMails ? <p className="unread-msg">Unread mails</p> : ''}
                 <div className="unread-container">
                     <div className="unread-percent" style={{ width: `${unreadMails}%` }}>{unreadMails && width >= 660? unreadMails.toFixed(0) + '%' : ''}</div>
                 </div>
