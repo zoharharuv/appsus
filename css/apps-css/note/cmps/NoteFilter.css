@@ -8,6 +8,10 @@
   width: 50%;
 }
 
+.filter-choices {
+   margin-bottom: 3px;
+}
+
 .filter-icon {
   font-size: 75px !important;
   transition: 0.5s;

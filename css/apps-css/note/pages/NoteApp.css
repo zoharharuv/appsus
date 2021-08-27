@@ -23,6 +23,8 @@
 }
 
 button {
+  padding: 3px;
+  border-radius: 10px;
   margin:1px;
   transition: 0.3s;
 }
