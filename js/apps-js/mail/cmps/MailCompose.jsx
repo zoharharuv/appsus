@@ -12,13 +12,18 @@ export class MailCompose extends React.Component {
     inputRef = React.createRef()
 
     componentDidMount() {
-        
+        const { noteData } = this.props;
+        noteData ? this.handleNoteData(noteData) : console.log('no note');
         this.inputRef.current.focus();
         this.mailState = this.state.mail
         this.interval = setInterval(() => {
             this.mailState = this.state.mail
             console.log('saved draft state:', this.mailState);
         }, 5000);
+    }
+
+    handleNoteData = (note) => {
+        console.log('got note', note);
     }
 
     componentWillUnmount() {
@@ -38,7 +43,7 @@ export class MailCompose extends React.Component {
         if (!this.state.mail.to || !this.state.mail.to.includes('@') || !this.state.mail.subject || !this.state.mail.body) return;
         if (ev) ev.preventDefault();
         this.props.onSendMail(this.state.mail);
-        this.setState({...mail, body: ''});
+        this.setState({ ...mail, body: '' });
         // toDraft ? this.props.onSaveDraft(this.state.mail) : this.props.onSendMail(this.state.mail);
     };
 

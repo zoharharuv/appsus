@@ -1,3 +1,4 @@
+const { Link } = ReactRouterDOM
 export class MailDetails extends React.Component {
     render() {
         const { mail } = this.props;
@@ -10,8 +11,9 @@ export class MailDetails extends React.Component {
                 <button onClick={() => this.props.onStarMail(mail)}>
                     <img className="mail-star" src={`./img/${mail.isStarred ? 'star-full' : 'star-empty'}.svg`} />
                 </button>
-                <button onClick={() => this.props.onDeleteMail(mail)}><img src={`./img/${mail.isDeleted ? 'delete-perm' : 'delete'}.svg`} /></button>
+                <button><Link to={`/note/${mail.id}`}>Make a note!</Link></button>
                 {mail.isDeleted && <button onClick={() => this.props.onUndelete(mail)}><img src="./img/undelete.svg" /></button>}
+                <button onClick={() => this.props.onDeleteMail(mail)}><img src={`./img/${mail.isDeleted ? 'delete-perm' : 'delete'}.svg`} /></button>
             </article>
         )
     }

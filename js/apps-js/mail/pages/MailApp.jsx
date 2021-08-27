@@ -3,7 +3,7 @@ import { MailToolbar } from "../cmps/MailToolbar.jsx";
 import { MailsList } from "../cmps/MailsList.jsx";
 import { MailDetails } from "../cmps/MailDetails.jsx";
 import { MailCompose } from "../cmps/MailCompose.jsx";
-
+import { NotesService } from "../../note/services/note.service.js";
 import { mailService } from "../services/mail.service.js";
 import { eventBusService } from './../../../general-services-js/event-bus-service.js';
 
@@ -16,25 +16,33 @@ export class MailApp extends React.Component {
             lables: []
         },
         selectedMail: null,
+        noteData: null,
         unreadMails: 0
     }
     initialFilter;
 
     componentDidMount() {
-        console.log('noteid',this.props.match.params);
         this.initialFilter = this.state.filterBy;
-        const id = this.props.match.params.mailId;
+        const noteId = this.props.match.params.noteId;
+        const mailId = this.props.match.params.mailId;
+        const id = mailId || noteId;
         this.checkHrefParams(id);
     }
 
     // CHECKS IF MAILID / INBOX,TRASH ETC
     checkHrefParams = (id) => {
+        console.log(id);
         if (!id) {
             this.props.history.push('/mail')
             this.loadMails()
         } else {
-            if (id === 'compose'
-                || id === 'inbox'
+            if (this.props.match.path.includes('compose')) {
+                NotesService.getNoteById(id)
+                    .then(note => {
+                        if (note) this.onComposeNote(note);
+                    })
+            }
+            if (id === 'inbox'
                 || id === 'sent'
                 || id === 'drafts'
                 || id === 'trash'
@@ -42,7 +50,6 @@ export class MailApp extends React.Component {
                 this.onSetDisplay(id)
             }
             else {
-
                 mailService.getMailById(id)
                     .then(mail => {
                         if (mail) this.onSelectMail(mail, true);
@@ -50,6 +57,7 @@ export class MailApp extends React.Component {
             }
         }
     }
+
     // MAIN FUNC THAT LOADS MAILS
     loadMails = () => {
         console.log('state:', this.state.filterBy);
@@ -70,6 +78,12 @@ export class MailApp extends React.Component {
         isFromLink ? this.onToggleRead(selectedMail) : this.onReadMail(selectedMail);
         this.setState({ selectedMail }, () => {
             this.onSetDisplay('details')
+        })
+    }
+
+    onComposeNote = (noteData) => {
+        this.setState({ noteData }, () => {
+            this.onSetDisplay('compose')
         })
     }
 
@@ -137,7 +151,7 @@ export class MailApp extends React.Component {
 
 
     render() {
-        const { mails, filterBy, selectedMail, unreadMails } = this.state;
+        const { mails, filterBy, selectedMail, unreadMails, noteData } = this.state;
         if (!mails && !filterBy && !selectedMail) return <img className="loader" src="../../../../img/loader.svg" alt="loader" />
         return (
             <section className="mail-app" >
@@ -176,7 +190,7 @@ export class MailApp extends React.Component {
                 {/* COMPOSE NEW MAIL */}
                 {
                     filterBy.display === 'compose' &&
-                    <MailCompose onSaveDraft={this.onSaveDraft} onSendMail={this.onSendMail} />
+                    <MailCompose onSaveDraft={this.onSaveDraft} onSendMail={this.onSendMail} noteData={noteData} />
                 }
 
             </section >
