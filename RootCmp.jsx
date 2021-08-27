@@ -16,7 +16,6 @@ import { MailApp } from './js/apps-js/mail/pages/MailApp.jsx';
 
 // NOTE PAGES
 import { NoteApp } from './js/apps-js/note/pages/NoteApp.jsx';
-import { NoteDetails } from './js/apps-js/note/cmps/NoteDetails.jsx';
 
 export function App() {
   return (

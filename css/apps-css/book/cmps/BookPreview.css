@@ -5,9 +5,8 @@
     background-color: rgba(41, 88, 163, 0.863);
     color: #fff;
     box-shadow: rgb(48 74 149 / 80%) 5px 5px 10px 2px;
-    padding: 5px;
     transition: opacity 0.3s ease-out;
-    min-height: 285px;
+    height: 300px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -25,6 +24,7 @@
 @media screen and (max-width: 660px) {
     .book-preview {
         flex: 1;
-        min-width: 100%;
+        width: 90%;
+        margin: 0 auto;
     }
 }

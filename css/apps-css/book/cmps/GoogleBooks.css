@@ -27,3 +27,9 @@
     border: none;
     border-radius: 50%
 }
+
+@media screen and (max-width: 660px) {
+    .google-books input {
+        width: 90%;
+    }
+}
