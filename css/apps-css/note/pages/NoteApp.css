@@ -9,7 +9,7 @@
   margin-top: 50px;
 }
 
-@media screen and (max-width:374px) {
+@media screen and (max-width:660px) {
 .filter-add-section{
   flex-direction: column;
   align-items: center;
