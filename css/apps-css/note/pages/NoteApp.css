@@ -27,11 +27,6 @@
   
 }
 
-input {
-  width: 165px;
-  height: 35px;
-}
-
 button {
   margin:1px;
   transition: 0.3s;
@@ -45,6 +40,7 @@ button:hover {
 a {
   color: unset;
 }
+
 
 
 

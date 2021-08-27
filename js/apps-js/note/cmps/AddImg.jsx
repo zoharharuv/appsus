@@ -34,9 +34,7 @@ export class AddImg extends React.Component{
     return <section>
     <input name='label' onChange={this.handleChange} value={label} placeholder="Img Label" type="text" />
     <input name='url' onChange={this.handleChange} value={url} placeholder="Img Url" type="text" />
-    <button  onClick={this.onAdd}><span className="material-icons">
-add
-</span></button>
+    <button  onClick={this.onAdd}>+</button>
   </section>
   }
     

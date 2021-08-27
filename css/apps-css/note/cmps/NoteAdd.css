@@ -1,5 +1,7 @@
 /* NOTE ADD */
 .note-add {
+  height: 100%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,6 +10,8 @@
 
 .add-input-form{
   display: flex;
-  margin-top: 5px;
+  justify-content: center;
+  align-items: center;
+
   
 }
