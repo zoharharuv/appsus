@@ -9,6 +9,7 @@
     border-radius: 30px;
     transition: all 0.3s ease-out;
     margin-bottom: 20px;
+    border: 0;
 }
 
 .reviews-toggle:hover {
