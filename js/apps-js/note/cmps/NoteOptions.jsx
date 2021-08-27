@@ -52,62 +52,39 @@ export class NoteOptions extends React.Component {
             <span className="material-icons">palette</span>
           </button>
 
-          <Link to={`/mail/compose/${note.id}`}>
+          <button><Link to={`/mail/compose/${note.id}`}>
             <span className="material-icons">email</span>
-          </Link>
+          </Link></button>
         </div>
 
         {isColorsShown && (
-          <div>
-            <button
-              onClick={() => {
-                this.onColor("white");
-              }}
-            >
-              {" "}
-              ⚪️{" "}
-            </button>
-            <button
-              onClick={() => {
-                this.onColor("black");
-              }}
-            >
-              {" "}
-              ⚫️{" "}
-            </button>
-            <button
-              onClick={() => {
-                this.onColor("blue");
-              }}
-            >
-              {" "}
-              🔵{" "}
-            </button>
-            <button
-              onClick={() => {
-                this.onColor("purple");
-              }}
-            >
-              {" "}
-              🟣{" "}
-            </button>
-            <button
-              onClick={() => {
-                this.onColor("yellow");
-              }}
-            >
-              {" "}
-              🟡{" "}
-            </button>
-            <button
-              onClick={() => {
-                this.onColor("brown");
-              }}
-            >
-              {" "}
-              🟤{" "}
-            </button>
+          <section className="options-colors-section">
+            <div className="option-color">
+          <div onClick={() => {this.onColor('white')}} className="option-color-circle white">
+
           </div>
+            </div>
+            <div className="option-color">
+<div onClick={() => {this.onColor('rgb(190, 189, 189)')}} className="option-color-circle gray">
+            
+          </div>
+            </div>
+            <div className="option-color">
+            <div onClick={() => {this.onColor('rgb(114, 114, 253)')}} className="option-color-circle blue">
+            
+            </div>
+            </div>
+            <div className="option-color">
+            <div onClick={() => {this.onColor('pink')}}  className="option-color-circle pink">
+            
+            </div>
+            </div>
+            <div className="option-color">
+            <div onClick={() => {this.onColor('rgb(243, 243, 114)')}} className="option-color-circle yellow">
+            
+            </div>
+            </div>
+          </section>
         )}
       </section>
     );

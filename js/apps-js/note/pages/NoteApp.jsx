@@ -103,9 +103,11 @@ export class NoteApp extends React.Component {
                     <NoteAdd mailTxt={(mailTxt)? mailTxt : ''} funcs={this.funcs} />
                     <NoteFilter onFilter={this.onFilter} />
                 </section>
+                <section className='notes-section'>
                 {
                     notes && <NoteList funcs={this.funcs} notes={notes} />
                 }
+                </section>
             </section>
 
         );

@@ -2,3 +2,44 @@
 .pin {
   background-color: gray;
 }
+
+.options-colors-section{
+  display: flex;
+}
+
+.option-color-circle {
+  border:1px black solid;
+  height: 75%;
+  width: 65%;
+  border-radius: 50%;
+}
+
+.option-color {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1px;
+  width: 40px;
+  height: 35px;
+
+}
+
+.white{
+  background-color: white;
+}
+
+.gray {
+  background-color: rgb(190, 189, 189);
+}
+
+.blue {
+  background-color: rgb(114, 114, 253);
+}
+
+.pink {
+  background-color: pink;
+}
+
+.yellow {
+  background-color: rgb(243, 243, 114);
+}
