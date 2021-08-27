@@ -16,6 +16,10 @@
   
 }
 
+.add-input-form input {
+  max-width: 73%;
+}
+
 .add-icon{
   font-size: 75px !important;
   transition: 0.5s;
@@ -30,9 +34,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-
+ 
 }
+
+
 
 
 
