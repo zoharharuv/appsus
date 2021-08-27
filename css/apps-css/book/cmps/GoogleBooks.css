@@ -2,14 +2,19 @@
 
 .google-books input {
     text-align: center;
-    width: 220px;
+    width: 350px;
     height: 40px;
     margin: 10px 0;
     padding: 10px;
-    border: 1px solid rgb(65, 62, 62);
+    border: 1px solid rgb(21, 55, 134);
     color: rgb(36, 35, 35);
-    box-shadow: 3px 1px 0px 2px, 0px -1px 0px 2px rgba(37, 36, 36, 0.62);
     letter-spacing: 2px;
+}
+
+.google-books input:focus{
+    box-shadow: 1px 1px 10px rgba(37, 127, 143, 0.62);
+    outline: 0;
+    
 }
 
 .google-books-list li {

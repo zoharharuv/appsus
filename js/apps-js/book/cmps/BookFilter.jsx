@@ -27,7 +27,6 @@ export class BookFilter extends React.Component {
     const { title, minPrice, maxPrice } = this.state.filterBy;
     return (
       <form className='book-filter' onSubmit={this.onFilter}>
-        <h3 className="book-filter-header">Book filter</h3>
         <input
           name='title'
           id='by-title'
