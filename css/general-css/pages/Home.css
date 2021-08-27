@@ -80,13 +80,14 @@
 }
 
 .social-container {
-    padding-top: 10px;
     align-items: center;
-    width: 400px;
-    height: 400px;
+    width: 450px;
+    height: 450px;
     box-shadow: 0px 0px 5px 1px #3f39399c;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: rgba(255, 255, 255, 0.534);
 }
 

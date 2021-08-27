@@ -46,13 +46,15 @@
 .toolbar-btns div:hover {
     box-shadow: 1px 1px 5px rgb(63, 61, 61);
 }
-.unread-msg{
+
+.unread-msg {
     font-size: 0.8em;
     color: #6954c5;
 }
+
 .unread-container {
     width: 100%;
-    box-shadow:  0px 0px 3px 0px #4b2ed3;
+    box-shadow: 0px 0px 3px 0px #4b2ed3;
     background: linear-gradient( #c5cfe7, #b3c9f3);
 }
 
@@ -67,11 +69,15 @@
     .mail-toolbar {
         display: flex;
         flex-direction: row;
+        justify-content: center;
+    }
+    .unread-container {
+        display: none;
     }
     .compose-btn {
         width: 90px;
         height: 30px;
-        line-height: 1em;
+        line-height: 0.5em;
     }
     .toolbar-btns {
         flex-direction: row;
@@ -79,5 +85,8 @@
     .toolbar-btns div {
         padding: 5px;
         gap: 5px;
+    }
+    .toolbar-btns div img{
+        width: 30px;
     }
 }

@@ -39,4 +39,10 @@
     .book-filter input[name="title"] {
         width: 90%;
     }
+    .filter-price {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
 }

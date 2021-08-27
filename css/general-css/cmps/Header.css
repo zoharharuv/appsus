@@ -41,14 +41,25 @@ header a {
     padding: 15px;
 }
 
-.nav-btn{
+.nav-btn {
     height: 40px;
     background-color: transparent;
     border: none;
     border-radius: 10px;
-    transition: background-color 0.2s ease-out ;
+    transition: background-color 0.2s ease-out;
 }
 
-.nav-btn:hover{
+.nav-btn:hover {
     background-color: #cee8f8;
+}
+
+@media screen and (max-width: 400px) {
+    .app-header {
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .app-header h1 {
+        font-size: 1.8em;
+    }
 }

@@ -18,11 +18,13 @@
     width: 250px;
     font-size: large;
 }
-.mail-filter input:focus{
+
+.mail-filter input:focus {
     border: 2px solid rgb(26, 62, 141);
 }
 
 /* FILTER */
+
 .mail-filter select {
     padding: 9px 2px;
     margin-inline-start: 10px;
@@ -41,7 +43,7 @@
     transition: all 0.2s;
 }
 
-.mail-filter img:hover{
+.mail-filter img:hover {
     transform: rotate(-120deg);
 }
 
@@ -55,5 +57,16 @@
     }
     to {
         transform: rotate(360deg);
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .mail-filter select {
+        padding: 0;
+        margin-inline-start: 0;
+        border: 1px solid #d0d2d4;
+        border-radius: 5px;
+        box-shadow: 0 1px 3px -2px #9098a9;
+        transition: all 150ms ease;
     }
 }
