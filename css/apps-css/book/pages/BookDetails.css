@@ -1,28 +1,30 @@
 /* DETAILS */
 
 .book-details {
+    text-align: center;
+    border-radius: 10%;
     display: flex;
     padding: 15px 0;
-    background-color: rgb(83 87 128);
+    background-color: rgb(23, 67, 139);
     color: #fff;
     flex-direction: column;
     align-items: center;
 }
 
-.book-details h2, h3, h4, h5 {
-    margin: 8px 0;
+.book-details *{
+    margin: 5px 0;
 }
 
 .veteran-book {
-    color: bisque;
+    color: rgb(240, 209, 170);
 }
 
 .new-book {
-    color: chartreuse;
+    color: rgb(26, 235, 50);
 }
 
 .page-count-long {
-    color: rgb(179, 49, 26);
+    color: rgb(186, 49, 25);
 }
 
 .page-count-decent {
@@ -42,7 +44,7 @@
 }
 
 .low-price {
-    color: rgb(24, 149, 24);
+    color: rgb(54, 149, 54);
 }
 
 .high-price {
@@ -63,17 +65,17 @@
 .book-details p {
     font-size: 1.1em;
     margin: 15px 10px;
-    text-align: center;
 }
 
 /* ACTIONS BUTTONS  */
 
 .actions button{
     margin: 0 15px;
+    width: 150px;
 }
 
 .back-btn {
-    background-color: #578b39;
+    background-color: #447429;
 }
 
 .delete-btn {
@@ -89,7 +91,7 @@
     padding: 15px;
     border-radius: 5px;
     border: none;
-    transition: opacity 0.4s ease 0s;
+    transition: opacity 0.4s ease-in-out;
     color: #fff;
     opacity: 1;
 }

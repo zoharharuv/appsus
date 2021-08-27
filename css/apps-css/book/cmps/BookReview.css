@@ -2,16 +2,18 @@
 
 .reviews-toggle {
     text-transform: uppercase;
-    background: rgb(164, 232, 255);
+    background: rgb(249, 255, 164);
     color: #2e5462;
     padding: 15px;
     font-weight: bold;
     border-radius: 30px;
-    transition: text-shadow 0.3s ease-out;
+    transition: all 0.3s ease-out;
     margin-bottom: 20px;
 }
 
 .reviews-toggle:hover {
+    color: rgb(249, 255, 164);
+    background: #2e5462;
     text-shadow: 0px 0px 5px rgb(32, 70, 141);
 }
 

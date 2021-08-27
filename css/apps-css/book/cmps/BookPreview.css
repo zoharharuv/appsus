@@ -2,7 +2,7 @@
 
 .book-preview {
     display: flex;
-    background-color: rgb(52 58 114);
+    background-color: rgba(41, 88, 163, 0.863);
     color: #fff;
     box-shadow: rgb(48 74 149 / 80%) 5px 5px 10px 2px;
     padding: 5px;
