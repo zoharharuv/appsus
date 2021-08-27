@@ -6,7 +6,21 @@ export class AddTxt extends React.Component{
 
   componentDidMount() {
     const {mailTxt} = this.props
-    if (mailTxt) this.setState({txt: mailTxt})
+    if (mailTxt) this.setState({txt: mailTxt},() => {
+      const note =   {
+        id: utilService.makeId(),
+        type: "note-txt",
+        isPinned: false,
+        info: {
+          txt: `${mailTxt}`
+        },
+        style: {
+          
+        }
+      }
+  
+      this.props.funcs.onAdd(note)
+    })
   }
 
   onAdd = (ev) => {
