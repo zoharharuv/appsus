@@ -9,12 +9,14 @@ export class MailCompose extends React.Component {
 
     mailState
     interval
-    inputRef = React.createRef()
 
     componentDidMount() {
+        // HANDLE NOTE DATA AND START SAVE MAIL STATE
         const { noteData } = this.props;
-        noteData ? this.handleNoteData(noteData) : console.log('no note');
-        this.inputRef.current.focus();
+        noteData ? this.handleNoteData(noteData) : this.startInterval();
+    }
+
+    startInterval = () => {
         this.mailState = this.state.mail
         this.interval = setInterval(() => {
             this.mailState = this.state.mail
@@ -22,8 +24,29 @@ export class MailCompose extends React.Component {
         }, 5000);
     }
 
-    handleNoteData = (note) => {
-        console.log('got note', note);
+    handleNoteData = ({ type, info }) => {
+        let subject = '';
+        let body = '';
+        // HANDLE BY TYPE
+        if (type === 'note-txt') {
+            body = info.txt;
+        }
+        if (type === 'note-img' || type === 'note-video') {
+            subject = info.title;
+            body = info.url;
+        }
+        if (type === 'note-todos') {
+            subject = info.label;
+            body = info.todos.map(todo => {
+                return todo.txt;
+            }).join(', ')
+        }
+        const newMail = {
+            to: '',
+            subject,
+            body
+        }
+        this.setState({ mail: { ...newMail } }, this.startInterval)
     }
 
     componentWillUnmount() {
@@ -39,20 +62,18 @@ export class MailCompose extends React.Component {
         this.setState({ mail: { ...this.state.mail, [field]: value } });
     };
 
-    onSend = (ev = null, toDraft = false) => {
+    onSend = (ev = null) => {
         if (!this.state.mail.to || !this.state.mail.to.includes('@') || !this.state.mail.subject || !this.state.mail.body) return;
         if (ev) ev.preventDefault();
         this.props.onSendMail(this.state.mail);
         this.setState({ ...mail, body: '' });
-        // toDraft ? this.props.onSaveDraft(this.state.mail) : this.props.onSendMail(this.state.mail);
     };
 
     render() {
-        const { to, subject, body } = this.state
+        const { to, subject, body } = this.state.mail
         return (
             <form className="mail-compose">
                 <input
-                    ref={this.inputRef}
                     type="email"
                     name="to"
                     value={to}

@@ -31,7 +31,6 @@ export class MailApp extends React.Component {
 
     // CHECKS IF MAILID / INBOX,TRASH ETC
     checkHrefParams = (id) => {
-        console.log(id);
         if (!id) {
             this.props.history.push('/mail')
             this.loadMails()
@@ -60,11 +59,11 @@ export class MailApp extends React.Component {
 
     // MAIN FUNC THAT LOADS MAILS
     loadMails = () => {
-        console.log('state:', this.state.filterBy);
+        console.log('Filter:', this.state.filterBy);
         mailService.query(this.state.filterBy)
             .then((mails) => {
                 this.setState({ mails }, this.setUnreadMails());
-                console.log('mails:', this.state.mails);
+                console.log('State mails:', this.state.mails);
             });
     };
     // SETS UNREAD COUNT

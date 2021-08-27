@@ -31,9 +31,9 @@ export class MailPreview extends React.Component {
                 </button>
                 <Link to={`/mail/${mail.id}`}>
                     <div className="mail-preview-content" onClick={() => onSelectMail(mail)}>
-                        <h2>{mail.to.split('@')[0]} </h2>
-                        <h4><LongTxt text={mail.subject} maxLength={subjectLength} /></h4>
-                        <p><LongTxt text={mail.body} maxLength={bodyLength} /></p>
+                        {mail.to && <h2>{mail.to.split('@')[0]}</h2>}
+                        {mail.subject && <h4><LongTxt text={mail.subject} maxLength={subjectLength} /></h4>}
+                        {mail.body && <p><LongTxt text={mail.body} maxLength={bodyLength} /></p>}
                     </div>
                 </Link>
                 {isHover && <div className="preview-action-btns">
