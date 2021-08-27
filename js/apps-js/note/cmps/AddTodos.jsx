@@ -46,7 +46,7 @@ export class AddTodos extends React.Component{
       <form onSubmit={this.onAdd} action="">
       <input name='label' onChange={this.handleChange} value={label} placeholder="Enter Todos Label" type="text" />
       <input name='txt' onChange={this.handleChange} value={txt} placeholder="Enter Todos Separated By," type="text" />
-      <button><span class="material-icons">
+      <button><span className="material-icons">
 add
 </span></button>
       </form>

@@ -1,4 +1,4 @@
-export const NotesService = {
+export const noteService = {
   query,
   getNoteById,
   deleteNote,

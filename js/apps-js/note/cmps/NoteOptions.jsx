@@ -1,5 +1,5 @@
 const { Link } = ReactRouterDOM;
-import { NotesService } from "./../services/note.service.js";
+import { noteService } from "./../services/note.service.js";
 
 export class NoteOptions extends React.Component {
   state = {
@@ -12,7 +12,7 @@ export class NoteOptions extends React.Component {
 
   onColor = (color) => {
     const { id } = this.props.note;
-    NotesService.setNoteBgColor(id, color).then(() => {
+    noteService.setNoteBgColor(id, color).then(() => {
       this.props.funcs.loadNotes();
     });
   };

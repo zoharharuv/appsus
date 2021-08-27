@@ -1,4 +1,4 @@
-import { NotesService } from "../services/note.service.js";
+import { noteService } from "../services/note.service.js";
 import { NoteList } from './../cmps/NoteList.jsx';
 import { NoteFilter } from "../cmps/NoteFilter.jsx";
 import { NoteAdd } from "../cmps/NoteAdd.jsx";
@@ -24,14 +24,14 @@ export class NoteApp extends React.Component {
     }
 
     loadNotes = () => {
-        NotesService.query(this.state.filter)
+        noteService.query(this.state.filter)
             .then((notes) => {
                 this.setState({ notes })
             })
     }
 
     onDelete = (noteId) => {
-        NotesService.deleteNote(noteId)
+        noteService.deleteNote(noteId)
             .then(() => {
                 this.loadNotes()
             })
@@ -39,14 +39,14 @@ export class NoteApp extends React.Component {
 
     togglePin = (noteId) => {
 
-        NotesService.togglePin(noteId)
+        noteService.togglePin(noteId)
             .then(() => {
                 this.loadNotes()
             })
     }
 
     onCopy = (note) => {
-        NotesService.addNote(note)
+        noteService.addNote(note)
             .then(() => {
                 this.loadNotes()
             })
@@ -54,7 +54,7 @@ export class NoteApp extends React.Component {
 
     onBlur = (noteId, newTxt) => {
 
-        NotesService.setNoteTxt(noteId, newTxt)
+        noteService.setNoteTxt(noteId, newTxt)
             .then(() => {
                 this.loadNotes()
             })
@@ -67,14 +67,14 @@ export class NoteApp extends React.Component {
     }
 
     onAdd = (note) => {
-        NotesService.addNewNote(note)
+        noteService.addNewNote(note)
             .then(() => {
                 this.loadNotes()
             })
     }
 
     onDone = (todoId, noteId) => {
-        NotesService.toggleTodoDone(todoId, noteId)
+        noteService.toggleTodoDone(todoId, noteId)
             .then(() => {
                 this.loadNotes()
             })

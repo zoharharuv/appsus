@@ -34,7 +34,7 @@ export class AddVideo extends React.Component{
     return <section>
     <input name='label' onChange={this.handleChange} value={label} placeholder="Video Label" type="text" />
     <input name='url' onChange={this.handleChange} value={url} placeholder="Video Url" type="text" />
-    <button onClick={this.onAdd}><span class="material-icons">
+    <button onClick={this.onAdd}><span className="material-icons">
 add
 </span></button>
   </section>

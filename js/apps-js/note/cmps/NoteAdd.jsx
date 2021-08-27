@@ -21,7 +21,7 @@ export class NoteAdd extends React.Component {
     return (
       <div className="note-add">
 
-        <h1><span title='Add New Note!' class="material-icons add-icon">
+        <h1><span title='Add New Note!' className="material-icons add-icon">
 search
 </span></h1>
 

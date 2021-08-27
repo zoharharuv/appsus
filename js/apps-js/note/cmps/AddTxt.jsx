@@ -53,7 +53,7 @@ export class AddTxt extends React.Component{
     <section >
       <form className='add-input-form' onSubmit={this.onAdd} action="">
       <input onChange={this.handleChange} value={txt} placeholder="Enter Note" type="text" />
-      <button><span class="material-icons">
+      <button><span className="material-icons">
 add
 </span></button>
       </form>

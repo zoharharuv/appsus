@@ -3,7 +3,7 @@ import { MailToolbar } from "../cmps/MailToolbar.jsx";
 import { MailsList } from "../cmps/MailsList.jsx";
 import { MailDetails } from "../cmps/MailDetails.jsx";
 import { MailCompose } from "../cmps/MailCompose.jsx";
-import { NotesService } from "../../note/services/note.service.js";
+import { noteService } from "../../note/services/note.service.js";
 import { mailService } from "../services/mail.service.js";
 import { eventBusService } from './../../../general-services-js/event-bus-service.js';
 
@@ -36,7 +36,7 @@ export class MailApp extends React.Component {
             this.loadMails()
         } else {
             if (this.props.match.path.includes('compose')) {
-                NotesService.getNoteById(id)
+                noteService.getNoteById(id)
                     .then(note => {
                         if (note) this.onComposeNote(note);
                     })

@@ -39,12 +39,17 @@ export function Home() {
         </article>
       </div>
 
+      <h2 className="team-header">Our team members</h2>
       <div className="social-links">
         <article className="social-container">
-          zohar
+          <img className="social-img" src="img/zohar.jpg"/>
+          <h3>Zohar Haruv</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum a at id ab eos! Blanditiis odio quae repudiandae earum eum!</p>
         </article>
         <article className="social-container">
-          guy
+          <img className="social-img" src="img/guy.jpg"/>
+          <h3>Guy Kamin</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum a at id ab eos! Blanditiis odio quae repudiandae earum eum!</p>
         </article>
 
       </div>

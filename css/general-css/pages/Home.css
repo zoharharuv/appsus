@@ -28,6 +28,10 @@
     flex-wrap: wrap;
 }
 
+.about-comps aside{
+    width: 200px;
+}
+
 .about-comps a {
     font-style: oblique;
     transition: color 0.4s ease-in-out;
@@ -49,25 +53,49 @@
     color: #ffba00;
 }
 
-/* TEAM+VISION */
+/* TEAM */
 
-.about nav a {
-    color: rgb(42, 40, 40);
-    text-decoration: overline;
-    margin: 0 20px;
+.team-header {
+    text-align: center;
+    color: #106c94;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: 1px 1px 1px black;
+    letter-spacing: 0.1em;
+    font-size: 2em;
 }
 
-.about a.active {
-    color: rgb(51, 145, 161);
-    text-decoration: underline;
+.social-links {
+    display: flex;
+    width: 100%;
+    gap: 80px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    color: rgb(51, 48, 48);
 }
 
-.about nav a:hover {
-    color: rgb(104, 211, 230);
+.social-container {
+    padding-top: 10px;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+    box-shadow: 0px 0px 5px 1px #3f39399c;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.534);
 }
 
-@media screen and (max-width: 1080px) {
+.social-img {
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px 1px #3f39399c;
+    width: 200px;
+    height: 200px;
+    object-fit: fill;
+}
+
+@media screen and (max-width: 978px) {
     .about-comps {
         flex-direction: column;
+        align-items: center;
     }
 }
