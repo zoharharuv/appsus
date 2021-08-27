@@ -9,6 +9,10 @@
   margin-top: 50px;
 }
 
+.filter-add-section >*{
+  margin:5px ;
+}
+
 .notes-section {
   border-radius: 10px;
   background-color: rgb(245, 240, 218);
@@ -39,6 +43,14 @@ button:hover {
 
 a {
   color: unset;
+}
+
+.input-add-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+
 }
 
 

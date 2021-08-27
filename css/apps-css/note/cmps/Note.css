@@ -15,9 +15,11 @@
 
 .note-info-section {
   height: 68%;
+  width: 100%;
 }
 
 .note-options-section {
+  width: 100%;
   height: 20%;
   margin-bottom:30px;
 }

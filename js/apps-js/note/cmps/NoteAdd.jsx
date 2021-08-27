@@ -22,9 +22,10 @@ export class NoteAdd extends React.Component {
       <div className="note-add">
 
         <h1><span title='Add New Note!' className="material-icons add-icon">
-search
+add
 </span></h1>
-
+        <section className="input-add-section">
+          
         <div className="add-choice">
         <button className='material-icons' onClick={() => {this.onSelect('txt')}}>description</button>
         <button className='material-icons' onClick={() => {this.onSelect('todos')}}>checklist</button>
@@ -45,7 +46,7 @@ search
       }
         </div>
 
-      
+        </section>
       </div>
     );
   }
