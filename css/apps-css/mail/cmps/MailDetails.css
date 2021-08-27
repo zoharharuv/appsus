@@ -16,6 +16,20 @@
     border-radius: 8px;
 }
 
+.mail-info h3 {
+    box-shadow: 0px 2px 0px 0px #757272ab;
+}
+
+.mail-info h1 {
+    margin: 10px 0;
+    box-shadow: 0px 2px 0px 0px #757272ab;
+}
+
+.mail-info p:last-child{
+    font-size: 0.8em;
+    color: #646262ab;
+}
+
 .mail-actions {
     display: flex;
     flex-wrap: wrap;

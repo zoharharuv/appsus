@@ -5,6 +5,7 @@
 }
 
 .hero {
+    border-radius: 15px;
     object-fit: contain;
     width: 100%;
 }
@@ -13,7 +14,10 @@
     font-size: 3em;
     letter-spacing: 3px;
 }
-
+.main-title span{
+    font-style: italic;
+    color: #177fc0;
+}
 /* ABOUT */
 
 .about {
@@ -105,7 +109,7 @@
 }
 
 .social-header {
-    color: #584f52;
+    color: #4c4749;
     letter-spacing: 2px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 1.3em;
