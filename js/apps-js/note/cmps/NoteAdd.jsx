@@ -21,9 +21,11 @@ export class NoteAdd extends React.Component {
     return (
       <div className="note-add">
 
+        
         <h1><span title='Add New Note!' className="material-icons add-icon">
 add
 </span></h1>
+
         <section className="input-add-section">
           
         <div className="add-choice">

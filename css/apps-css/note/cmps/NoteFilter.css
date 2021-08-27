@@ -8,9 +8,15 @@
   width: 50%;
 }
 
-.filter-choices {
-  margin-bottom: 5px;
+.filter-icon {
+  font-size: 75px !important;
+  transition: 0.5s;
 }
+
+.filter-icon:hover{
+  transform: rotate(360deg);
+}
+
 
 
 

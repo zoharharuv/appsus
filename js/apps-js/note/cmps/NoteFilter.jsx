@@ -28,7 +28,9 @@ export class NoteFilter extends React.Component {
   render() {
     const { filter } = this.state;
     return (
+
       <div className="note-filter">
+        
         <h1><span title='Filter Your Notes!' className="material-icons filter-icon">
 filter_alt
 </span></h1>

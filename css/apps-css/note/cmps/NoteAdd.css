@@ -15,3 +15,30 @@
 
   
 }
+
+.add-input-form input {
+  max-width: 73%;
+}
+
+.add-icon{
+  font-size: 75px !important;
+  transition: 0.5s;
+}  
+
+.add-icon:hover{
+
+  transform: rotate(360deg);
+}
+
+.input-add-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+}
+
+
+
+
+
+
