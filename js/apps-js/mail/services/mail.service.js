@@ -13,7 +13,9 @@ export const mailService = {
     checkUnreads,
     readMail,
     toggleReadMail,
-    getLoggedinUser
+    getLoggedinUser,
+    setLabel,
+    removeLabel
 }
 
 
@@ -37,6 +39,30 @@ loadMails();
 function getLoggedinUser() {
     return loggedinUser;
 }
+function setLabel(mail, label) {
+    getMailById(mail.id)
+        .then(mail => {
+            if (!mail.labels.includes(label)) {
+                mail.labels.push(label)
+                _saveMailsToStorage();
+                return mail;
+            }
+        })
+    return Promise.resolve(mail);
+}
+function removeLabel(mail, label) {
+    getMailById(mail.id)
+        .then(mail => {
+            if (mail.labels.includes(label)) {
+                const idx = mail.labels.findIndex(target => target === label);
+                mail.labels.splice(idx, 1);
+                _saveMailsToStorage();
+                return mail;
+            }
+        })
+    return Promise.resolve(mail);
+}
+
 function query(filterBy) {
     if (!gMails || !gMails.length) loadMails()
     if (filterBy) {
@@ -166,6 +192,7 @@ function composeMail(mail, isDraft = false) {
         isStarred: false,
         isDraft,
         isDeleted: false,
+        labels: []
     }
     gMails.push(newMail);
     _saveMailsToStorage();
@@ -238,6 +265,7 @@ function _createMail(idx) {
         isStarred: false,
         isDraft: false,
         isDeleted: false,
+        labels: []
     }
     return newMail;
 }

@@ -1,5 +1,4 @@
-
-.filter-add-section{
+.filter-add-section {
   border-radius: 10px;
   background-color: rgb(217, 226, 243);
   box-shadow: 0px 0px 5px 0px;
@@ -10,13 +9,14 @@
 }
 
 @media screen and (max-width:660px) {
-.filter-add-section{
-  flex-direction: column;
-  align-items: center;
-}
+  .filter-add-section {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .notes-section {
+  padding: 30px;
   border-radius: 10px;
   background-color: rgb(245, 240, 218);
   box-shadow: 0px 0px 5px 0px;
@@ -25,16 +25,14 @@
 button {
   padding: 3px;
   border-radius: 10px;
-  margin:1px;
+  margin: 1px;
   transition: 0.3s;
 }
 
 button:hover {
   background-color: rgb(153, 153, 153);
-  
 }
 
 a {
   color: unset;
 }
-

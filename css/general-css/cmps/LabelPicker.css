@@ -1,0 +1,67 @@
+.label-picker {
+  cursor: pointer;
+}
+
+.label-btn {
+  z-index: 15;
+  padding: 0 10px;
+  color: #fff;
+  width: 120px;
+  height: 30px;
+  border: 0;
+  text-align: start;
+  position: relative;
+}
+
+.labels {
+  z-index: 10;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+/* WHAT IS PRINTED ON PAGE */
+
+.printed-labels {
+  display: flex;
+  gap: 5px;
+}
+
+.label {
+  cursor: pointer;
+  color: #fff;
+  width: 60px;
+  font-size: 0.6em;
+  padding: 2px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.label-critical {
+  background-color: rgb(211, 48, 48) !important;
+}
+
+.label-family {
+  background-color: rgb(29, 84, 202) !important;
+}
+
+.label-work {
+  background-color: rgb(35, 144, 35) !important;
+}
+
+.label-friends {
+  background-color: rgb(216, 219, 25) !important;
+}
+
+.label-spam {
+  background-color: rgb(245, 164, 13) !important;
+}
+
+.label-memories {
+  background-color: violet !important;
+}
+
+.label-romantic {
+  background-color: rgb(9, 109, 109) !important;
+}

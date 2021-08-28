@@ -4,6 +4,7 @@
     flex-wrap: wrap;
     color: rgb(63, 61, 61);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    min-height: 80vh;
 }
 
 .mail-info {

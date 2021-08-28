@@ -14,10 +14,10 @@
 
 /* COMPONENTS */
 /* GENERAL CMPS */
-@import '../css/general-css/cmps/Labels.css';
 @import '../css/general-css/cmps/UserMsg.css';
 @import '../css/general-css/cmps/Header.css';
 @import '../css/general-css/cmps/Footer.css';
+@import '../css/general-css/cmps/LabelPicker.css';
 /* BOOK CMPS*/
 @import '../css/apps-css/book/cmps/BookFilter.css';
 @import '../css/apps-css/book/cmps/GoogleBooks.css';

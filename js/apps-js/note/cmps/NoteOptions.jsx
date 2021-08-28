@@ -1,10 +1,9 @@
 const { Link } = ReactRouterDOM;
 import { noteService } from "./../services/note.service.js";
-import { Labels } from "../../../general-cmps-js/Labels.jsx";
+import { LabelPicker } from './../../../general-cmps-js/LabelPicker.jsx';
 export class NoteOptions extends React.Component {
   state = {
     isColorsShown: false,
-    isLabelsShown: false
   };
 
   toggleColors = () => {
@@ -22,8 +21,9 @@ export class NoteOptions extends React.Component {
     });
   };
 
+
   render() {
-    const { isColorsShown,isLabelsShown } = this.state;
+    const { isColorsShown, isLabelsShown } = this.state;
     const { note, funcs } = this.props;
     return (
       <section className="options-section">
@@ -64,39 +64,38 @@ export class NoteOptions extends React.Component {
           <button onClick={this.toggleLabels}>
             <span className="material-icons">label</span>
           </button>
-
         </div>
 
         {isColorsShown && (
           <section className="options-colors-section">
             <div className="option-color">
-          <div onClick={() => {this.onColor('white')}} className="option-color-circle white">
+              <div onClick={() => { this.onColor('white') }} className="option-color-circle white">
 
-          </div>
+              </div>
             </div>
             <div className="option-color">
-<div onClick={() => {this.onColor('rgb(190, 189, 189)')}} className="option-color-circle gray">
-            
-          </div>
+              <div onClick={() => { this.onColor('rgb(190, 189, 189)') }} className="option-color-circle gray">
+
+              </div>
             </div>
             <div className="option-color">
-            <div onClick={() => {this.onColor('rgb(114, 114, 253)')}} className="option-color-circle blue">
-            
-            </div>
-            </div>
-            <div className="option-color">
-            <div onClick={() => {this.onColor('pink')}}  className="option-color-circle pink">
-            
-            </div>
+              <div onClick={() => { this.onColor('rgb(114, 114, 253)') }} className="option-color-circle blue">
+
+              </div>
             </div>
             <div className="option-color">
-            <div onClick={() => {this.onColor('rgb(243, 243, 114)')}} className="option-color-circle yellow">
-            
+              <div onClick={() => { this.onColor('pink') }} className="option-color-circle pink">
+
+              </div>
             </div>
+            <div className="option-color">
+              <div onClick={() => { this.onColor('rgb(243, 243, 114)') }} className="option-color-circle yellow">
+
+              </div>
             </div>
           </section>
         )}
-        {/* {(isLabelsShown && !isColorsShown)? <Labels/> : ''} */}
+
       </section>
     );
   }
