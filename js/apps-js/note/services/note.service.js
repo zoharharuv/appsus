@@ -96,7 +96,7 @@ function _createNotes() {
       type: "note-txt",
       isPinned: true,
       info: {
-        txt: "Fullstack Me Baby!"
+        txt: 'This is a note!'
       },
       style: {
         bgColor:'white'
@@ -150,14 +150,13 @@ function togglePin(noteId) {
   gNotes[noteIdx].isPinned = !gNotes[noteIdx].isPinned
   sortPinnedFirst()
   _saveNotesToStorage();
-
   return Promise.resolve()
 }
 
 function sortPinnedFirst() {
-  gNotes.forEach(() => {
+  
     gNotes.sort((noteA, noteB) => noteB.isPinned - noteA.isPinned)
-  })
+  
  
 }
 
