@@ -23,7 +23,7 @@ export class ReviewAdd extends React.Component {
     onAdd = (ev) => {
         if (!this.state.review.name && !this.state.review.txt && !this.state.review.rate) return;
         ev.preventDefault();
-        const date = new Date(Date.now()).toLocaleString();
+        const date = new Date(Date.now());
         this.setState({ review: { ...this.state.review, readAt: date } }, () => {
             this.props.onAddReview(this.state.review)
             this.cleanInputs();

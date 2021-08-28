@@ -34,7 +34,7 @@ var gMails;
 loadMails();
 
 // FUNCS
-function getLoggedinUser(){
+function getLoggedinUser() {
     return loggedinUser;
 }
 function query(filterBy) {
@@ -75,9 +75,18 @@ function query(filterBy) {
         }
         if (display === 'read') {
             mailsToShow = gMails.filter(mail => {
-                return mail.isRead
+                return mail.isRead && !mail.isDeleted
             })
         }
+        if (display === 'title') {
+            mailsToShow = gMails.slice();
+            mailsToShow.sort((a, b) => a.subject.toLowerCase().localeCompare(b.subject.toLowerCase()));
+        }
+        if (display === 'date') {
+            mailsToShow = gMails.slice();
+            mailsToShow.sort((a, b) => new Date(b.sentAt) - new Date(a.sentAt));
+        }
+        // FILTER THE DELETED MAILS
         if (display !== 'trash') {
             let beforeFilter = mailsToShow.slice();
             mailsToShow = beforeFilter.filter(mail => {
@@ -145,7 +154,7 @@ function loadMails() {
 
 function composeMail(mail, isDraft = false) {
     const id = utilService.makeId();
-    const sentAt = new Date(Date.now()).toLocaleString();
+    const sentAt = new Date(Date.now());
     const newMail = {
         id,
         subject: mail.subject,
@@ -216,7 +225,7 @@ function _createMail(idx) {
     const id = utilService.makeId();
     const subject = utilService.makeLorem(2);
     const body = utilService.makeLorem(30);
-    const sentAt = new Date(Date.now()).toLocaleString();
+    const sentAt = new Date(Date.now());
     const from = rndMails[idx]
     const newMail = {
         id,

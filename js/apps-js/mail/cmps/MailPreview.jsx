@@ -24,30 +24,30 @@ export class MailPreview extends React.Component {
         } = this.props
         const { subjectLength, bodyLength, isHover } = this.state;
         return (
-            <article className={`mail-preview ${mail.isRead && 'read'}`} onMouseEnter={this.onHover} onMouseLeave={this.offHover}>
+            <article className={`mail-preview ${mail.isRead ? 'read': ''}`} onMouseEnter={this.onHover} onMouseLeave={this.offHover}>
 
                 <button onClick={() => onStarMail(mail)}>
                     <img className="mail-star" src={`./img/${mail.isStarred ? 'star-full' : 'star-empty'}.svg`} />
                 </button>
-                <Link to={`/mail/${mail.id}`}>
-                    <div className="mail-preview-content" onClick={() => onSelectMail(mail)}>
+                <Link to={`/mail/${mail.id}`} onClick={() => onSelectMail(mail)}>
+                    <div className="mail-preview-content" >
                         {mail.from && <h2>{mail.from.split('@')[0]}</h2>}
                         {mail.subject && <h4><LongTxt text={mail.subject} maxLength={subjectLength} /></h4>}
                         {mail.body && <p><LongTxt text={mail.body} maxLength={bodyLength} /></p>}
                     </div>
                 </Link>
-                {isHover && <div className="preview-action-btns">
+                    {isHover && <div className="preview-action-btns">
 
-                    <button onClick={() => onToggleRead(mail)}>
-                        <img src={`./img/${mail.isRead ? 'read' : 'unread'}.svg`} />
-                    </button>
+                        <button onClick={() => onToggleRead(mail)}>
+                            <img src={`./img/${mail.isRead ? 'read' : 'unread'}.svg`} />
+                        </button>
 
-                    {mail.isDeleted && <button onClick={() => onUndelete(mail)}><img src="./img/undelete.svg" /></button>}
+                        {mail.isDeleted && <button onClick={() => onUndelete(mail)}><img src="./img/undelete.svg" /></button>}
 
-                    <button onClick={() => onDeleteMail(mail)}>
-                        <img src={`./img/${mail.isDeleted ? 'delete-perm' : 'delete'}.svg`} />
-                    </button>
-                </div>}
+                        <button onClick={() => onDeleteMail(mail)}>
+                            <img src={`./img/${mail.isDeleted ? 'delete-perm' : 'delete'}.svg`} />
+                        </button>
+                    </div>}
 
             </article>
 

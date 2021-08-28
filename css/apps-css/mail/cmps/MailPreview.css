@@ -28,8 +28,8 @@
 }
 
 .preview-action-btns {
-    display: flex;
     flex: 1;
+    display: flex;
     justify-content: flex-end;
 }
 

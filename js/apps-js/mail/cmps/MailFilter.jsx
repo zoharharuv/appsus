@@ -46,6 +46,8 @@ export class MailFilter extends React.Component {
                     <option value="all">All</option>
                     <option value="unread">Unread</option>
                     <option value="read">Read</option>
+                    <option value="title">Title</option>
+                    <option value="date">Date</option>
                 </select>
                 <img className={isRotate ? 'rotate' : 'refresh'}
                     src="img/refresh.svg"

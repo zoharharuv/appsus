@@ -21,9 +21,9 @@ export function MailDetails({ mail, onStarMail, onUndelete, onDeleteMail, onRepl
                 <button onClick={() => onStarMail(mail)}>
                     <img className="mail-star" src={`./img/${mail.isStarred ? 'star-full' : 'star-empty'}.svg`} />
                 </button>
-                <button><Link to={`/note/${mail.id}`}><img src="./img/note-nav.svg" /></Link></button>
-                {mail.isDeleted && <button onClick={() => onUndelete(mail)}><img src="./img/undelete.svg" /></button>}
                 <button onClick={() => onDeleteMail(mail)}><img src={`./img/${mail.isDeleted ? 'delete-perm' : 'delete'}.svg`} /></button>
+                {mail.isDeleted && <button onClick={() => onUndelete(mail)}><img src="./img/undelete.svg" /></button>}
+                <button><Link to={`/note/${mail.id}`}><img src="./img/note-nav.svg" /></Link></button>
             </div>
         </article>
     )
