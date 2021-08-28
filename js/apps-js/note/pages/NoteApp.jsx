@@ -3,6 +3,7 @@ import { NoteList } from './../cmps/NoteList.jsx';
 import { NoteFilter } from "../cmps/NoteFilter.jsx";
 import { NoteAdd } from "../cmps/NoteAdd.jsx";
 import { mailService } from './../../mail/services/mail.service.js';
+import { eventBusService } from "../../../general-services-js/event-bus-service.js";
 
 export class NoteApp extends React.Component {
 
@@ -70,6 +71,8 @@ export class NoteApp extends React.Component {
         noteService.addNewNote(note)
             .then(() => {
                 this.loadNotes()
+                eventBusService.emit('user-msg',{txt:'Note Added Successfully'})
+
             })
     }
 
