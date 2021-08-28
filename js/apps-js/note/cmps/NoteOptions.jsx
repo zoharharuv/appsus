@@ -1,13 +1,18 @@
 const { Link } = ReactRouterDOM;
 import { noteService } from "./../services/note.service.js";
-
+import { Labels } from "../../../general-cmps-js/Labels.jsx";
 export class NoteOptions extends React.Component {
   state = {
     isColorsShown: false,
+    isLabelsShown: false
   };
 
   toggleColors = () => {
     this.setState({ isColorsShown: !this.state.isColorsShown });
+  };
+
+  toggleLabels = () => {
+    this.setState({ isLabelsShown: !this.state.isLabelsShown });
   };
 
   onColor = (color) => {
@@ -18,7 +23,7 @@ export class NoteOptions extends React.Component {
   };
 
   render() {
-    const { isColorsShown } = this.state;
+    const { isColorsShown,isLabelsShown } = this.state;
     const { note, funcs } = this.props;
     return (
       <section className="options-section">
@@ -55,6 +60,11 @@ export class NoteOptions extends React.Component {
           <button><Link to={`/mail/compose/${note.id}`}>
             <span className="material-icons">email</span>
           </Link></button>
+
+          <button onClick={this.toggleLabels}>
+            <span className="material-icons">label</span>
+          </button>
+
         </div>
 
         {isColorsShown && (
@@ -86,6 +96,7 @@ export class NoteOptions extends React.Component {
             </div>
           </section>
         )}
+        {/* {(isLabelsShown && !isColorsShown)? <Labels/> : ''} */}
       </section>
     );
   }

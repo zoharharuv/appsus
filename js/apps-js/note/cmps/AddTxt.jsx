@@ -30,6 +30,7 @@ export class AddTxt extends React.Component{
     const note =   {
       id: utilService.makeId(),
       type: "note-txt",
+      labels: [],
       isPinned: false,
       info: {
         txt: `${txt}`

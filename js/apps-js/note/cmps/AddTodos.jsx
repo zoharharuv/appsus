@@ -13,6 +13,7 @@ export class AddTodos extends React.Component{
     const note =  {
       id: utilService.makeId(),
       type: "note-todos",
+      labels: [],
       info: {
         label: `${label}`,
         todos: txt.split(',').map((txt) => {
@@ -42,11 +43,15 @@ export class AddTodos extends React.Component{
   render(){
     const {txt, label} = this.state
   return (
-    <section>
-      <form onSubmit={this.onAdd} action="">
+    <section  >
+      <form className='add-actions-section' onSubmit={this.onAdd} action="">
+      <section className="add-inputs-section">
       <input name='label' onChange={this.handleChange} value={label} placeholder="Enter Todos Label" type="text" />
       <input name='txt' onChange={this.handleChange} value={txt} placeholder="Enter Todos Separated By," type="text" />
+      </section>
+      <section className="add-button-section">
       <button>+</button>
+      </section>
       </form>
     </section>
   );
