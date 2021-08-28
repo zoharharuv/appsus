@@ -93,29 +93,32 @@ function _createNotes() {
   gNotes = [
     {
       id: utilService.makeId(),
+      labels: [],
       type: "note-txt",
       isPinned: true,
       info: {
         txt: 'This is a note!'
       },
       style: {
-        bgColor:'white'
+        bgColor:'rgb(190, 189, 189)'
       }
     },
     {
       id: utilService.makeId(),
       type: "note-img",
+      labels: [],
       info: {
         url: "https://picsum.photos/200",
         title: "Bobi and Me"
       },
       style: {
-        bgColor:'white'
+        bgColor:'rgb(114, 114, 253)'
       }
     },
     {
       id: utilService.makeId(),
       type: "note-todos",
+      labels: [],
       info: {
         label: "Get my stuff together",
         todos: [
@@ -126,18 +129,19 @@ function _createNotes() {
         ]
       },
       style: {
-        bgColor:'white'
+        bgColor:'pink'
       }
     },
     {
       id: utilService.makeId(),
       type: "note-video",
+      labels: [],
       info: {
         url: "https://www.youtube.com/embed/DUhq6PR7FW4",
         title: "video"
       },
       style: {
-        bgColor:'white'
+        bgColor:'rgb(243, 243, 114)'
       }
     }
   ]

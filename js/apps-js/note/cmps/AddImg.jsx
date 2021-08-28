@@ -17,6 +17,7 @@ export class AddImg extends React.Component{
     const note =    {
       id: utilService.makeId(),
       type: "note-img",
+      labels: [],
       info: {
         url: `${url}`,
         title: `${label}`
@@ -31,10 +32,14 @@ export class AddImg extends React.Component{
 
   render(){
     const {label,url} = this.state
-    return <section>
+    return <section  className='add-actions-section'>
+      <section className="add-inputs-section">
     <input name='label' onChange={this.handleChange} value={label} placeholder="Img Label" type="text" />
     <input name='url' onChange={this.handleChange} value={url} placeholder="Img Url" type="text" />
+    </section>
+    <section className="add-button-section">
     <button  onClick={this.onAdd}>+</button>
+    </section>
   </section>
   }
     

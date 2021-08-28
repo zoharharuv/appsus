@@ -37,6 +37,15 @@
  
 }
 
+.add-inputs-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-actions-section {
+  display: flex;
+}
+
 
 
 
