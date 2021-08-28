@@ -6,6 +6,7 @@ import { MailCompose } from "../cmps/MailCompose.jsx";
 import { noteService } from "../../note/services/note.service.js";
 import { mailService } from "../services/mail.service.js";
 import { eventBusService } from './../../../general-services-js/event-bus-service.js';
+import { Loader } from "../../../general-cmps-js/Loader.jsx";
 
 export class MailApp extends React.Component {
     state = {
@@ -160,7 +161,7 @@ export class MailApp extends React.Component {
 
     render() {
         const { mails, filterBy, selectedMail, unreadMails, noteData, repliedMail } = this.state;
-        if (!mails && !filterBy && !selectedMail) return <img className="loader" src="../../../../img/loader.svg" alt="loader" />
+        if (!mails && !filterBy && !selectedMail) return <Loader />
         return (
             <section className="mail-app" >
                 <MailFilter onSearch={this.onSearch}
@@ -168,7 +169,7 @@ export class MailApp extends React.Component {
                     currDisplay={filterBy.display}
                     onRefresh={this.onRefresh} />
 
-                <MailToolbar onSetDisplay={this.onSetDisplay} unreadMails={unreadMails} />
+                <MailToolbar onSetDisplay={this.onSetDisplay} unreadMails={unreadMails} currentDisplay={filterBy.display} />
 
                 {/* NO MAILS */}
                 {mails.length <= 0 && filterBy.display !== 'compose' && filterBy.display !== 'details' &&

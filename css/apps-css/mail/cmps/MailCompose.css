@@ -53,3 +53,13 @@
     background-color: #EAA502;
     border-color: #EAA502;
 }
+
+.compose-send-btn:hover::after{
+    content: url(../../../../img/send-icon.svg);
+}
+
+@media screen and (max-width: 660px) {
+    .mail-compose {
+        width: 100%;
+    }
+}

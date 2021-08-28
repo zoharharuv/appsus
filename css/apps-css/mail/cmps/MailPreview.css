@@ -41,3 +41,9 @@
     height: 40px;
     width: 40px;
 }
+
+@media screen and (max-width: 660px) {
+    .mail-preview-content h2, h4{
+        font-size: 1em;
+    }
+}

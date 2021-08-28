@@ -20,7 +20,7 @@
     border: 1px solid #f39406;
     line-height: 1.5em;
     background: linear-gradient( #eee7e5, #d6d1cc);
-    transition: all 0.1s;
+    transition: all 0.2s;
 }
 
 .compose-btn:hover {
@@ -33,6 +33,8 @@
 .toolbar-btns {
     display: flex;
     flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
 }
 
 .toolbar-btns div {
@@ -41,6 +43,42 @@
     gap: 10px;
     display: flex;
     align-items: center;
+    transition: background-color 0.2s ease-in;
+}
+
+/* TOOLBAR ACTIVES */
+
+.compose-btn.active {
+    box-shadow: 0px 0px 4px #999696;
+    color: #fff;
+    background: linear-gradient( #e46b4a, #db7b0d);
+    border: 1px solid #B3320E;
+}
+
+.compose-btn.active:hover{
+    border: 1px solid #f39406;
+    color: rgb(65, 62, 62);
+    background: linear-gradient( #eee7e5, #d6d1cc);
+}
+
+.inbox-btn.active {
+    background-color: #e0404059;
+}
+
+.starred-btn.active {
+    background-color: #f6900970;
+}
+
+.sent-btn.active {
+    background-color: #25a5db70;
+}
+
+.drafts-btn.active {
+    background-color: #369f0f4d;
+}
+
+.trash-btn.active {
+    background-color: #5151514d;
 }
 
 .toolbar-btns div:hover {
@@ -66,7 +104,7 @@
 }
 
 @media screen and (max-width: 660px) {
-    .mail-filter{
+    .mail-filter {
         flex-wrap: wrap;
     }
     .mail-toolbar {
@@ -85,14 +123,17 @@
         height: 30px;
         line-height: 0.5em;
     }
+    .compose-btn img {
+        width: 20px;
+    }
     .toolbar-btns {
         flex-direction: row;
-        gap: 8px;
+        margin-top: 0px;
     }
     .toolbar-btns div {
         padding: 5px;
     }
-    .toolbar-btns div img{
+    .toolbar-btns div img {
         width: 35px;
     }
 }
