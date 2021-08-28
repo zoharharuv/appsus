@@ -1,21 +1,18 @@
 import { MailPreview } from "./MailPreview.jsx";
-export class MailsList extends React.Component {
+export function MailsList(props) {
+    return (
+        <div className="mails-list">
+            {props.mails.map(mail => {
+                return <MailPreview key={mail.id}
+                    mail={mail}
+                    onSelectMail={props.onSelectMail}
+                    onToggleRead={props.onToggleRead}
+                    onStarMail={props.onStarMail}
+                    onDeleteMail={props.onDeleteMail}
+                    onUndelete={props.onUndelete} />
+            })}
+        </div>
 
-    render() {
-        const { mails, onSelectMail } = this.props
-        return (
-            <div className="mails-list">
-                {mails.map(mail => {
-                    return <MailPreview key={mail.id}
-                        mail={mail}
-                        onSelectMail={onSelectMail}
-                        onToggleRead={this.props.onToggleRead}
-                        onStarMail={this.props.onStarMail}
-                        onDeleteMail={this.props.onDeleteMail}
-                        onUndelete={this.props.onUndelete} />
-                })}
-            </div>
+    );
 
-        );
-    }
 }

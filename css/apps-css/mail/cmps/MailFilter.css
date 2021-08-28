@@ -15,8 +15,9 @@
     border: 1px solid rgb(88, 127, 211);
     color: #111;
     letter-spacing: 0.1em;
-    width: 250px;
+    width: 220px;
     font-size: large;
+    height: 40px;
 }
 
 .mail-filter input:focus {
@@ -68,5 +69,8 @@
         border-radius: 5px;
         box-shadow: 0 1px 3px -2px #9098a9;
         transition: all 150ms ease;
+    }
+    .mail-filter input {
+        height: 25px;
     }
 }

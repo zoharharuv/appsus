@@ -12,7 +12,8 @@ export class MailCompose extends React.Component {
 
     componentDidMount() {
         // HANDLE NOTE DATA AND START SAVE MAIL STATE
-        const { noteData } = this.props;
+        const { noteData, mailData } = this.props;
+        if (mailData) this.handleMailData(mailData)
         noteData ? this.handleNoteData(noteData) : this.startInterval();
     }
 
@@ -20,8 +21,16 @@ export class MailCompose extends React.Component {
         this.mailState = this.state.mail
         this.interval = setInterval(() => {
             this.mailState = this.state.mail
-            console.log('saved draft state:', this.mailState);
         }, 5000);
+    }
+
+    handleMailData = ({ from, subject }) => {
+        const newMail = {
+            to: from,
+            subject: 'Re:' + subject,
+            body: ''
+        }
+        this.setState({ mail: { ...newMail } }, this.startInterval)
     }
 
     handleNoteData = ({ type, info }) => {
@@ -52,21 +61,30 @@ export class MailCompose extends React.Component {
     componentWillUnmount() {
         clearInterval(this.interval)
         this.mailState = this.state.mail
-        console.log('out and: ', this.mailState);
         if (this.mailState.body) this.props.onSaveDraft(this.mailState)
+        this.clearState()
     }
-
+    
+    clearState = () =>{
+        const clearTemplate = {
+            to: '',
+            subject: '',
+            body: ''
+        }
+        this.setState({ mail: { ...clearTemplate } }, this.props.clearCompose())
+    }
+    
     handleChange = (ev) => {
         const field = ev.target.name;
         const value = ev.target.value;
         this.setState({ mail: { ...this.state.mail, [field]: value } });
     };
-
+    
     onSend = (ev = null) => {
         if (!this.state.mail.to || !this.state.mail.to.includes('@') || !this.state.mail.subject || !this.state.mail.body) return;
         if (ev) ev.preventDefault();
         this.props.onSendMail(this.state.mail);
-        this.setState({ ...mail, body: '' });
+        this.clearState()
     };
 
     render() {

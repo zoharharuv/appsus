@@ -17,6 +17,7 @@ export class MailApp extends React.Component {
         },
         selectedMail: null,
         noteData: null,
+        repliedMail: null,
         unreadMails: 0
     }
     initialFilter;
@@ -59,11 +60,9 @@ export class MailApp extends React.Component {
 
     // MAIN FUNC THAT LOADS MAILS
     loadMails = () => {
-        console.log('Filter:', this.state.filterBy);
         mailService.query(this.state.filterBy)
             .then((mails) => {
                 this.setState({ mails }, this.setUnreadMails());
-                console.log('State mails:', this.state.mails);
             });
     };
     // SETS UNREAD COUNT
@@ -82,6 +81,12 @@ export class MailApp extends React.Component {
 
     onComposeNote = (noteData) => {
         this.setState({ noteData }, () => {
+            this.onSetDisplay('compose')
+        })
+    }
+    // DETAILS BUTTONS
+    onReplyMail = (repliedMail) => {
+        this.setState({ repliedMail }, () => {
             this.onSetDisplay('compose')
         })
     }
@@ -120,6 +125,7 @@ export class MailApp extends React.Component {
     }
     // HANDLE SEARCH BAR INPUT
     onSearch = (val) => {
+        if (this.state.filterBy.display !== 'all') this.onSetDisplay('all')
         this.setState({ filterBy: { ...this.state.filterBy, txt: val }, }, () => {
             this.loadMails();
         });
@@ -140,6 +146,9 @@ export class MailApp extends React.Component {
                 this.onSetDisplay('drafts')
             })
     }
+    clearCompose = () => {
+        this.setState({repliedMail: null, noteData: null})
+    }
     // REFRESH THE FILTER
     onRefresh = () => {
         this.setState({ filterBy: this.initialFilter }, () => {
@@ -150,7 +159,7 @@ export class MailApp extends React.Component {
 
 
     render() {
-        const { mails, filterBy, selectedMail, unreadMails, noteData } = this.state;
+        const { mails, filterBy, selectedMail, unreadMails, noteData, repliedMail } = this.state;
         if (!mails && !filterBy && !selectedMail) return <img className="loader" src="../../../../img/loader.svg" alt="loader" />
         return (
             <section className="mail-app" >
@@ -183,13 +192,19 @@ export class MailApp extends React.Component {
                         mail={selectedMail}
                         onStarMail={this.onStarMail}
                         onDeleteMail={this.onDeleteMail}
-                        onUndelete={this.onUndelete} />
+                        onUndelete={this.onUndelete}
+                        onReplyMail={this.onReplyMail} />
                 }
 
                 {/* COMPOSE NEW MAIL */}
                 {
                     filterBy.display === 'compose' &&
-                    <MailCompose onSaveDraft={this.onSaveDraft} onSendMail={this.onSendMail} noteData={noteData} />
+                    <MailCompose
+                        onSaveDraft={this.onSaveDraft}
+                        onSendMail={this.onSendMail}
+                        noteData={noteData}
+                        mailData={repliedMail} 
+                        clearCompose={this.clearCompose}/>
                 }
 
             </section >

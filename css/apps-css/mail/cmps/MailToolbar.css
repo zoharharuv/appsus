@@ -66,10 +66,16 @@
 }
 
 @media screen and (max-width: 660px) {
+    .mail-filter{
+        flex-wrap: wrap;
+    }
     .mail-toolbar {
+        flex-wrap: wrap;
         display: flex;
         flex-direction: row;
         justify-content: center;
+        align-items: center;
+        gap: 8px;
     }
     .unread-container {
         display: none;
@@ -81,12 +87,12 @@
     }
     .toolbar-btns {
         flex-direction: row;
+        gap: 8px;
     }
     .toolbar-btns div {
         padding: 5px;
-        gap: 5px;
     }
     .toolbar-btns div img{
-        width: 30px;
+        width: 35px;
     }
 }

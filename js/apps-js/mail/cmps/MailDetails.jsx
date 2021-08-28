@@ -1,20 +1,30 @@
 const { Link } = ReactRouterDOM
-export class MailDetails extends React.Component {
-    render() {
-        const { mail } = this.props;
-        return (
-            <article className="mail-details" >
-                <h3>To: {mail.to}</h3>
+import { mailService } from "../services/mail.service.js"
+export function MailDetails({ mail, onStarMail, onUndelete, onDeleteMail, onReplyMail }) {
+    const user = mailService.getLoggedinUser();
+    return (
+        <article className="mail-details" >
+
+            <div className="mail-info">
+                <button className="mail-reply-btn" onClick={() => onReplyMail(mail)}>
+                    <img className="mail-reply" src="./img/reply.svg" />
+                </button>
+                <h3>
+                {mail.from !== user.email ? `From: ${mail.from}`: `To: ${mail.to}`}
+                </h3>
                 <h1>Subject: {mail.subject}</h1>
                 <p>{mail.body}</p>
                 <p>Sent at: {mail.sentAt.toLocaleString()}</p>
-                <button onClick={() => this.props.onStarMail(mail)}>
+            </div>
+
+            <div className="mail-actions">
+                <button onClick={() => onStarMail(mail)}>
                     <img className="mail-star" src={`./img/${mail.isStarred ? 'star-full' : 'star-empty'}.svg`} />
                 </button>
-                <button><Link to={`/note/${mail.id}`}>Make a note!</Link></button>
-                {mail.isDeleted && <button onClick={() => this.props.onUndelete(mail)}><img src="./img/undelete.svg" /></button>}
-                <button onClick={() => this.props.onDeleteMail(mail)}><img src={`./img/${mail.isDeleted ? 'delete-perm' : 'delete'}.svg`} /></button>
-            </article>
-        )
-    }
+                <button><Link to={`/note/${mail.id}`}><img src="./img/note-nav.svg" /></Link></button>
+                {mail.isDeleted && <button onClick={() => onUndelete(mail)}><img src="./img/undelete.svg" /></button>}
+                <button onClick={() => onDeleteMail(mail)}><img src={`./img/${mail.isDeleted ? 'delete-perm' : 'delete'}.svg`} /></button>
+            </div>
+        </article>
+    )
 }
