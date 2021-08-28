@@ -12,7 +12,8 @@ export const mailService = {
     starMail,
     checkUnreads,
     readMail,
-    toggleReadMail
+    toggleReadMail,
+    getLoggedinUser
 }
 
 
@@ -33,6 +34,9 @@ var gMails;
 loadMails();
 
 // FUNCS
+function getLoggedinUser(){
+    return loggedinUser;
+}
 function query(filterBy) {
     if (!gMails || !gMails.length) loadMails()
     if (filterBy) {

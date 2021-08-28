@@ -1,5 +1,7 @@
 const { Link } = ReactRouterDOM
+import { mailService } from "../services/mail.service.js"
 export function MailDetails({ mail, onStarMail, onUndelete, onDeleteMail, onReplyMail }) {
+    const user = mailService.getLoggedinUser();
     return (
         <article className="mail-details" >
 
@@ -7,7 +9,8 @@ export function MailDetails({ mail, onStarMail, onUndelete, onDeleteMail, onRepl
                 <button className="mail-reply-btn" onClick={() => onReplyMail(mail)}>
                     <img className="mail-reply" src="./img/reply.svg" />
                 </button>
-                <h3>From: {mail.from} 
+                <h3>
+                {mail.from !== user.email ? `From: ${mail.from}`: `To: ${mail.to}`}
                 </h3>
                 <h1>Subject: {mail.subject}</h1>
                 <p>{mail.body}</p>

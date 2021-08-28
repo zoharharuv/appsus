@@ -29,6 +29,10 @@
     top: 10px;
 }
 
+.mail-reply{
+    height: 35px;
+}
+
 .mail-info h1 {
     margin: 10px 0;
     box-shadow: 0px 2px 0px 0px #757272ab;
