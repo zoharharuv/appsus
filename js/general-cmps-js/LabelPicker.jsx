@@ -12,7 +12,7 @@ export class LabelPicker extends React.Component {
   }
   render() {
     return (
-      <section className='label-picker'>
+      <section title="add labels" className='label-picker'>
         <span className="material-icons" onClick={this.showLabels}>label
           {this.state.isShown && <div className="labels">
             <button className="label-btn label-critical" onClick={()=>this.addLabel('critical')}>Critical</button>

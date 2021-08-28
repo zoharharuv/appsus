@@ -23,9 +23,18 @@
 }
 
 .google-books-list button {
+    width: 25px;
+    font-size: 1.1em;
     margin-inline-start: 5px;
     border: none;
-    border-radius: 50%
+    border-radius: 50%;
+    background: #fff;
+}
+
+.google-books-list button:hover{
+    color: #fff;
+    background: rgb(54, 52, 52);
+
 }
 
 @media screen and (max-width: 660px) {

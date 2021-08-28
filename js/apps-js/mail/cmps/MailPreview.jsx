@@ -26,7 +26,7 @@ export class MailPreview extends React.Component {
         return (
             <article className={`mail-preview ${mail.isRead ? 'read': ''}`} onMouseEnter={this.onHover} onMouseLeave={this.offHover}>
 
-                <button onClick={() => onStarMail(mail)}>
+                <button title="star" onClick={() => onStarMail(mail)}>
                     <img className="mail-star" src={`./img/${mail.isStarred ? 'star-full' : 'star-empty'}.svg`} />
                 </button>
                 <Link to={`/mail/${mail.id}`} onClick={() => onSelectMail(mail)}>
@@ -38,14 +38,14 @@ export class MailPreview extends React.Component {
                 </Link>
                     {isHover && <div className="preview-action-btns">
 
-                        <button onClick={() => onToggleRead(mail)}>
+                        <button title="toggle read mail" onClick={() => onToggleRead(mail)}>
                             <img src={`./img/${mail.isRead ? 'read' : 'unread'}.svg`} />
                         </button>
 
-                        {mail.isDeleted && <button onClick={() => onUndelete(mail)}><img src="./img/undelete.svg" /></button>}
+                        {mail.isDeleted && <button title="un-delete" onClick={() => onUndelete(mail)}><img src="./img/undelete.svg" /></button>}
 
                         <button onClick={() => onDeleteMail(mail)}>
-                            <img src={`./img/${mail.isDeleted ? 'delete-perm' : 'delete'}.svg`} />
+                            <img title="delete" src={`./img/${mail.isDeleted ? 'delete-perm' : 'delete'}.svg`} />
                         </button>
                     </div>}
 

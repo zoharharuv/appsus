@@ -2,9 +2,28 @@ const { Link } = ReactRouterDOM;
 import { noteService } from "./../services/note.service.js";
 import { LabelPicker } from './../../../general-cmps-js/LabelPicker.jsx';
 export class NoteOptions extends React.Component {
+
   state = {
-    isColorsShown: false,
-  };
+    labels: this.props.note.labels,
+    isColorsShown: false
+  }
+
+  componentDidMount() {
+    this.setState({ labels: this.props.note.labels })
+  }
+
+  onSetLabel = (label) => {
+    noteService.setLabel(this.props.note, label).then(res => {
+      this.setState({ labels: res.labels })
+    })
+  }
+
+  onRemoveLabel = (label) => {
+    noteService.removeLabel(this.props.note, label).then(res => {
+      this.setState({ labels: res.labels })
+    })
+  }
+
 
   toggleColors = () => {
     this.setState({ isColorsShown: !this.state.isColorsShown });
@@ -23,7 +42,7 @@ export class NoteOptions extends React.Component {
 
 
   render() {
-    const { isColorsShown, isLabelsShown } = this.state;
+    const { isColorsShown, labels } = this.state;
     const { note, funcs } = this.props;
     return (
       <section className="options-section">
@@ -60,12 +79,11 @@ export class NoteOptions extends React.Component {
           <button><Link to={`/mail/compose/${note.id}`}>
             <span className="material-icons">email</span>
           </Link></button>
-
-          {/* <button onClick={this.toggleLabels}>
-            <span className="material-icons">label</span>
-          </button> */}
+          <button><LabelPicker onSetLabel={this.onSetLabel} /></button>
         </div>
-
+        {labels.length > 0 && <div className="printed-labels">
+          {labels.map((label, idx) => <span onClick={() => this.onRemoveLabel(label)} className={`label label-${label}`} key={idx}>{label}</span>)}
+        </div>}
         {isColorsShown && (
           <section className="options-colors-section">
             <div className="option-color">
@@ -93,10 +111,9 @@ export class NoteOptions extends React.Component {
 
               </div>
             </div>
-           
           </section>
+
         )}
-         {/* {(isLabelsShown && !isColorsShown)? <LabelPicker/> : ''} */}
       </section>
     );
   }

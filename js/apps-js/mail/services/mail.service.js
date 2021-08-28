@@ -22,8 +22,30 @@ export const mailService = {
 // GLOBAL VARS
 const rndMails = ['jemarch@icloud.com', ' wildixon@live.com', ' ournews@att.net',
     'heckerman@yahoo.ca', 'koudas@aol.com', 'brainless@yahoo.com',
-    'mbalazin@me.com', ' hager@verizon.net', 'rupak@mac.com',
-    'amimojo@live.com', ' smeier@att.net', 'pmint@optonline.net']
+    'mbalazin@me.com', ' hager@verizon.net', 'rupak@mac.com', 'amimojo@live.com']
+
+const rndSubject = ['are some goals you have failed to accomplish?',
+    'is the strangest themed restaurant you have heard of?',
+    'Which recent news story is the most interesting?',
+    'smell brings back great memories?',
+    'Are you a saver or a spender?',
+    'kinds of food do you usually eat on your favorite holiday?',
+    'do you do when youre bored?',
+    'best way to discover new music?',
+    'worst fast food restaurant?',
+    'should success be measured? And by that measurement, who is the most successful person you know?'
+]
+
+const rndBody = ['Particular unaffected projection sentiments no my. Music marry as at cause party worth weeks. Saw how marianne graceful dissuade new outlived prospect followed. Uneasy no settle whence nature narrow in afraid. At could merit by keeps child. While dried maids on he of linen in. ',
+    'No opinions answered oh felicity is resolved hastened. Produced it friendly my if opinions humoured. Enjoy is wrong folly no taken. It sufficient instrument insipidity simplicity at interested. Law pleasure attended differed mrs fat and formerly. Merely thrown garret her law danger him son better excuse. Effect extent narrow in up chatty. Small are his chief offer happy had. ',
+    'Her old collecting she considered discovered. So at parties he warrant oh staying. Square new horses and put better end. Sincerity collected happiness do is contented. Sigh ever way now many. Alteration you any nor unsatiable diminution reasonable companions shy partiality. Leaf by left deal mile oh if easy. Added woman first get led joy not early jokes. ',
+    'His followed carriage proposal entrance directly had elegance. Greater for cottage gay parties natural. Remaining he furniture on he discourse suspected perpetual. Power dried her taken place day ought the. Four and our ham west miss. Education shameless who middleton agreement how. We in found world chief is at means weeks smile.', 'Attachment apartments in delightful by motionless it no. And now she burst sir learn total. Hearing hearted shewing own ask. Solicitude uncommonly use her motionless not collecting age. The properly servants required mistaken outlived bed and. Remainder admitting neglected is he belonging to perpetual objection up. Has widen too you decay begin which asked equal any',
+    'Piqued favour stairs it enable exeter as seeing. Remainder met improving but engrossed sincerity age. Better but length gay denied abroad are. Attachment astonished to on appearance imprudence so collecting in excellence. Tiled way blind lived whose new. The for fully had she there leave merit enjoy forth. ',
+    'At distant inhabit amongst by. Appetite welcomed interest the goodness boy not. Estimable education for disposing pronounce her. John size good gay plan sent old roof own. Inquietude saw understood his friendship frequently yet. Nature his marked ham wished. ',
+    'Whole wound wrote at whose to style in. Figure ye innate former do so we. Shutters but sir yourself provided you required his. So neither related he am do believe. Nothing but you hundred had use regular. Fat sportsmen arranging preferred can. Busy paid like is oh. Dinner our ask talent her age hardly. Neglected collected an attention listening do abilities. ',
+    'Boisterous he on understood attachment as entreaties ye devonshire. In mile an form snug were been sell. Hastened admitted joy nor absolute gay its. Extremely ham any his departure for contained curiosity defective. Way now instrument had eat diminution melancholy expression sentiments stimulated. One built fat you out manor books. Mrs interested now his affronting inquietude contrasted cultivated. Lasting showing expense greater on colonel no.',
+    'Do am he horrible distance marriage so although. Afraid assure square so happen mr an before. His many same been well can high that. Forfeited did law eagerness allowance improving assurance bed. Had saw put seven joy short first. Pronounce so enjoyment my resembled in forfeited sportsman. Which vexed did began son abode short may. Interested astonished he at cultivated or me. Nor brought one invited she produce her.',
+    'It as announcing it me stimulated frequently continuing. Least their she you now above going stand forth. He pretty future afraid should genius spirit on. Set property addition building put likewise get. Of will at sell well at as. Too want but tall nay like old. Removing yourself be in answered he. Consider occasion get improved him she eat. Letter by lively oh denote an.']
 
 const loggedinUser = {
     email: 'user@appsus.com',
@@ -242,7 +264,7 @@ function checkUnreads() {
 
 // PRIVATE FUNCS
 function _createMails() {
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < 10; i++) {
         let mail = _createMail(i);
         gMails.push(mail);
     }
@@ -250,17 +272,13 @@ function _createMails() {
 
 function _createMail(idx) {
     const id = utilService.makeId();
-    const subject = utilService.makeLorem(2);
-    const body = utilService.makeLorem(30);
-    const sentAt = new Date(Date.now());
-    const from = rndMails[idx]
     const newMail = {
         id,
-        subject,
-        body,
+        subject: rndSubject[idx],
+        body: rndBody[idx],
         isRead: false,
-        sentAt,
-        from,
+        sentAt: new Date(Date.now()),
+        from: rndMails[idx],
         to: loggedinUser.email,
         isStarred: false,
         isDraft: false,

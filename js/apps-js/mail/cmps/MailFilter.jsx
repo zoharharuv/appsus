@@ -49,7 +49,7 @@ export class MailFilter extends React.Component {
                     <option value="title">Title</option>
                     <option value="date">Date</option>
                 </select>
-                <img className={isRotate ? 'rotate' : 'refresh'}
+                <img  title="refresh mails" className={isRotate ? 'rotate' : 'refresh'}
                     src="img/refresh.svg"
                     onClick={this.onRotate} />
             </form>

@@ -108,8 +108,7 @@ export class MailApp extends React.Component {
 
     onDeleteMail = (selectedMail) => {
         mailService.deleteMail(selectedMail.id)
-            .then(txt => eventBusService.emit('user-msg', { txt, type: 'success' }))
-        this.state.filterBy.display === 'details' ? this.onSetDisplay('trash') : this.loadMails();
+            .then(txt => eventBusService.emit('user-msg', { txt, type: 'success' }, this.loadMails()))
     }
     onUndelete = (selectedMail) => {
         mailService.undeleteMail(selectedMail);
