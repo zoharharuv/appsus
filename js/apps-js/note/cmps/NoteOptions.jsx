@@ -61,9 +61,9 @@ export class NoteOptions extends React.Component {
             <span className="material-icons">email</span>
           </Link></button>
 
-          <button onClick={this.toggleLabels}>
+          {/* <button onClick={this.toggleLabels}>
             <span className="material-icons">label</span>
-          </button>
+          </button> */}
         </div>
 
         {isColorsShown && (
@@ -93,9 +93,10 @@ export class NoteOptions extends React.Component {
 
               </div>
             </div>
+           
           </section>
         )}
-
+         {/* {(isLabelsShown && !isColorsShown)? <LabelPicker/> : ''} */}
       </section>
     );
   }
