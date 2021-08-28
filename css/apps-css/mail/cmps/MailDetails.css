@@ -7,10 +7,11 @@
 }
 
 .mail-info {
+    position: relative;
     display: flex;
     flex-direction: column;
     margin-bottom: 30px;
-    box-shadow: inset -5px -5px 20px 0px #bbc8c338;
+    box-shadow: inset -5px -5px 20px 0px #bbc8c38f;
     background-color: #f1f5f6;
     padding: 15px 25px;
     border-radius: 8px;
@@ -20,12 +21,20 @@
     box-shadow: 0px 2px 0px 0px #757272ab;
 }
 
+.mail-reply-btn {
+    border: 0;
+    background: transparent;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
 .mail-info h1 {
     margin: 10px 0;
     box-shadow: 0px 2px 0px 0px #757272ab;
 }
 
-.mail-info p:last-child{
+.mail-info p:last-child {
     font-size: 0.8em;
     color: #646262ab;
 }

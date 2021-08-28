@@ -17,6 +17,11 @@ export const mailService = {
 
 
 // GLOBAL VARS
+const rndMails = ['jemarch@icloud.com', ' wildixon@live.com', ' ournews@att.net',
+    'heckerman@yahoo.ca', 'koudas@aol.com', 'brainless@yahoo.com',
+    'mbalazin@me.com', ' hager@verizon.net', 'rupak@mac.com',
+    'amimojo@live.com', ' smeier@att.net', 'pmint@optonline.net']
+
 const loggedinUser = {
     email: 'user@appsus.com',
     fullname: 'Mahatma Appsus'
@@ -86,9 +91,10 @@ function query(filterBy) {
             let beforeFilter = mailsToShow.slice();
             mailsToShow = beforeFilter.filter(mail => {
                 return (
-                    mail.subject.toLowerCase().includes(txt.toLowerCase())
-                    || mail.to.toLowerCase().includes(txt.toLowerCase())
-                    || mail.body.toLowerCase().includes(txt.toLowerCase())
+                    mail.subject && mail.subject.toLowerCase().includes(txt.toLowerCase())
+                    || mail.from && mail.from.toLowerCase().includes(txt.toLowerCase())
+                    || mail.to && mail.to.toLowerCase().includes(txt.toLowerCase())
+                    || mail.body && mail.body.toLowerCase().includes(txt.toLowerCase())
                 )
             })
         }
@@ -142,6 +148,7 @@ function composeMail(mail, isDraft = false) {
         body: mail.body,
         isRead: true,
         sentAt,
+        from: loggedinUser.email,
         to: mail.to,
         isStarred: false,
         isDraft,
@@ -195,23 +202,25 @@ function checkUnreads() {
 
 // PRIVATE FUNCS
 function _createMails() {
-    for (let i = 0; i < 10; i++) {
-        let mail = _createMail();
+    for (let i = 0; i < 12; i++) {
+        let mail = _createMail(i);
         gMails.push(mail);
     }
 }
 
-function _createMail() {
+function _createMail(idx) {
     const id = utilService.makeId();
     const subject = utilService.makeLorem(2);
     const body = utilService.makeLorem(30);
     const sentAt = new Date(Date.now()).toLocaleString();
+    const from = rndMails[idx]
     const newMail = {
         id,
         subject,
         body,
         isRead: false,
         sentAt,
+        from,
         to: loggedinUser.email,
         isStarred: false,
         isDraft: false,
