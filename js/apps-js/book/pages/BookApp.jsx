@@ -5,6 +5,7 @@ import { GoogleBooksList } from './../cmps/GoogleBooksList.jsx';
 import { BookFilter } from './../cmps/BookFilter.jsx';
 import { googleService } from './../services/google.service.js';
 import { eventBusService } from './../../../general-services-js/event-bus-service.js';
+import { Loader } from './../../../general-cmps-js/Loader.jsx';
 export class BookApp extends React.Component {
   state = {
     books: [],
@@ -48,7 +49,7 @@ export class BookApp extends React.Component {
 
   render() {
     const { books, googleBooks } = this.state;
-    if(!books) return <img className="loader" src="../../../../img/loader.svg" alt="loader" />
+    if (!books) return <Loader />
     return (
       <section className='book-app'>
         <BookFilter onSetFilter={this.onSetFilter} />

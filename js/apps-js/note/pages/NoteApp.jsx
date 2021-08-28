@@ -3,6 +3,7 @@ import { NoteList } from './../cmps/NoteList.jsx';
 import { NoteFilter } from "../cmps/NoteFilter.jsx";
 import { NoteAdd } from "../cmps/NoteAdd.jsx";
 import { mailService } from './../../mail/services/mail.service.js';
+import { Loader } from "../../../general-cmps-js/Loader.jsx";
 
 export class NoteApp extends React.Component {
 
@@ -95,7 +96,7 @@ export class NoteApp extends React.Component {
     render() {
 
         const { notes,mailTxt } = this.state
-        if (!notes) return <img className="loader" src="../../../../img/loader.svg" alt="loader" />
+        if (!notes) return <Loader />
         return (
             <section className="note-app">
               

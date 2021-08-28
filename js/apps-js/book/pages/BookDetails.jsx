@@ -4,6 +4,7 @@ import { BookCurrency } from '../cmps/BookCurrency.jsx';
 import { LongTxt } from './../../../general-cmps-js/LongTxt.jsx';
 import { ReviewAdd } from './../cmps/ReviewAdd.jsx';
 import { BookReview } from './../cmps/BookReview.jsx';
+import { Loader } from '../../../general-cmps-js/Loader.jsx';
 import { bookService } from './../services/book.service.js';
 export class BookDetails extends React.Component {
 
@@ -76,7 +77,7 @@ export class BookDetails extends React.Component {
       if (book.listPrice.amount > 150) priceColor = 'high-price';
     }
 
-    if(!book) return <img className="loader" src="../../../../img/loader.svg" alt="loader" />
+    if(!book) return <Loader />
     return (
       <section className='book-details'>
         {book.thumbnail && <img src={book.thumbnail} alt='book-img' />}
